@@ -7,6 +7,7 @@ import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.beans.binding.BooleanBinding;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -29,6 +30,24 @@ public class LoginController implements Initializable {
                 .and(fieldcontrasena.textProperty().isNotEmpty());
 
         botoniniciar.disableProperty().bind(camposValidos.not());
+    }
+
+    @FXML
+    public void irAMenu() {
+        try {
+            Stage stage = (Stage) botoniniciar.getScene().getWindow();
+            LogIn app = new LogIn();
+
+            app.cambiarEscena(stage, "/com/echo/echoband/trainingView.fxml");
+
+            Scene scene = stage.getScene();
+            scene.getStylesheets().clear();
+            scene.getStylesheets().add(LogIn.class.getResource("/com/echo/echoband/trainingStyle.css").toExternalForm());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error al cargar trainingView.fxml");
+        }
     }
 
     public void irASignUp() throws IOException {

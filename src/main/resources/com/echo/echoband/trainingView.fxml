@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Label?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Separator?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.echo.echoband.controller.TrainingController">
+    <VBox fx:id="sideBar" styleClass="side-bar" alignment="TOP_CENTER" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="0">
+        <VBox alignment="CENTER" spacing="20" styleClass="profile-section">
+            <StackPane styleClass="profile-image" prefWidth="50" prefHeight="50">
+                <ImageView fitHeight="50" fitWidth="50">
+                    <Image url="@/juanBarraNav.png"/>
+                </ImageView>
+            </StackPane>
+            <Label text="Juanito Pérez" styleClass="profile-name"/>
+        </VBox>
+
+        <Separator styleClass="separator"/>
+        <MFXButton fx:id="entrenar" text="Entrenar" style="-fx-font-weight: bold;" styleClass="nav-button" onMouseClicked="#irAEntrenar">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <Image url="@/entrenarBarraNav.png"/>
+                </ImageView>
+            </graphic>
+        </MFXButton>
+        <MFXButton fx:id="estadisticas" text="Estadísticas" styleClass="nav-button" onMouseClicked="#irAEstadisticas">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <Image url="@/estadisticasBarraNav.png"/>
+                </ImageView>
+            </graphic>
+        </MFXButton>
+        <MFXButton fx:id="amigos" text="Amigos" styleClass="nav-button">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <Image url="@/amigosBarraNav.png"/>
+                </ImageView>
+            </graphic>
+        </MFXButton>
+        <MFXButton fx:id="perfil" text="Perfil" styleClass="nav-button">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <Image url="@/perfilBarraNav.png"/>
+                </ImageView>
+            </graphic>
+        </MFXButton>
+        <MFXButton fx:id="liga" text="Liga" styleClass="nav-button">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <Image url="@/ligaBarraNav.png"/>
+                </ImageView>
+            </graphic>
+        </MFXButton>
+        <MFXButton fx:id="config" text="Configuración" styleClass="nav-button" onMouseClicked="#irAConfig">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <Image url="@/configuracionBarraNav.png"/>
+                </ImageView>
+            </graphic>
+        </MFXButton>
+        <MFXButton fx:id="cerrar" text="Cerrar sesión" styleClass="nav-button">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <Image url="@/cerrarsesionBarraNav.png"/>
+                </ImageView>
+            </graphic>
+        </MFXButton>
+    </VBox>
+
+    <VBox layoutX="250" layoutY="50" AnchorPane.leftAnchor="250" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" alignment="CENTER" spacing="30">
+        <Label text="Hola de nuevo, Juanito" style="-fx-font-size: 32" styleClass="title"/>
+
+        <HBox spacing="30" alignment="CENTER">
+            <MFXButton fx:id="calor" prefWidth="200" prefHeight="160" styleClass="buttonEntrenar" style="-fx-background-color: white">
+                <graphic>
+                    <VBox spacing="5" alignment="CENTER_LEFT">
+                        <ImageView fitWidth="44" fitHeight="44" preserveRatio="false">
+                            <Image url="@/entremosencalorLogoEntrenar.png"/>
+                        </ImageView>
+                        <Label text="Entremos en calor" style="-fx-font-weight: bold; -fx-wrap-text: true;" maxWidth="180"/>
+                        <Label text="Un primer ejercicio para que aprendas a usar EchoBand." style="-fx-font-family: 'Century Gothic'; -fx-text-fill: #999999; -fx-wrap-text: true;" maxWidth="180"/>
+                    </VBox>
+                </graphic>
+            </MFXButton>
+
+            <MFXButton fx:id="estrellas" prefWidth="200" prefHeight="160" styleClass="buttonEntrenar" style="-fx-background-color: white">
+                <graphic>
+                    <VBox spacing="5" alignment="TOP_LEFT">
+                        <ImageView fitWidth="44" fitHeight="44" preserveRatio="false">
+                            <Image url="@/estrellaLogoEntrenar.png"/>
+                        </ImageView>
+                        <Label text="Estrellas" style="-fx-font-weight: bold; -fx-wrap-text: true;" maxWidth="180"/>
+                        <Label text="Aquí ganarás tu primer estrella." style="-fx-font-family: 'Century Gothic'; -fx-text-fill: #999999; -fx-wrap-text: true;" maxWidth="180"/>
+                    </VBox>
+                </graphic>
+            </MFXButton>
+
+            <MFXButton fx:id="calma" prefWidth="200" prefHeight="160" styleClass="buttonEntrenar" style="-fx-background-color: white; -fx-alignment: LEFT">
+                <graphic>
+                    <VBox spacing="5" alignment="TOP_LEFT">
+                        <ImageView fitWidth="44" fitHeight="44" preserveRatio="false">
+                            <Image url="@/concalmaLogoEntrenar.png"/>
+                        </ImageView>
+                        <Label text="Con calma" style="-fx-font-weight: bold; -fx-wrap-text: true;" maxWidth="180"/>
+                        <Label text="Tendrás que mantener la concentración por un tiempo un poco más largo." style="-fx-font-family: 'Century Gothic'; -fx-text-fill: #999999; -fx-wrap-text: true;" maxWidth="180"/>
+                    </VBox>
+                </graphic>
+            </MFXButton>
+
+            <MFXButton fx:id="progresando" prefWidth="200" prefHeight="160" styleClass="buttonEntrenar" style="-fx-background-color: white; -fx-alignment: LEFT">
+                <graphic>
+                    <VBox spacing="5" alignment="TOP_LEFT">
+                        <ImageView fitWidth="44" fitHeight="44" preserveRatio="false">
+                            <Image url="@/progresandoLogoEntrenar.png"/>
+                        </ImageView>
+                        <Label text="Progresando" style="-fx-font-weight: bold; -fx-wrap-text: true;" maxWidth="180"/>
+                        <Label text="Un ejercicio normal, en el cual podrás relajarte pero sin dejar de jugar." style="-fx-font-family: 'Century Gothic'; -fx-text-fill: #999999; -fx-wrap-text: true;" maxWidth="180"/>
+                    </VBox>
+                </graphic>
+            </MFXButton>
+
+
+        </HBox>
+
+        <HBox spacing="30" alignment="CENTER">
+
+            <MFXButton fx:id="concentrate" prefWidth="200" prefHeight="160" styleClass="buttonEntrenar" style="-fx-background-color: white; -fx-padding: 10;">
+                <graphic>
+                    <HBox spacing="10" alignment="CENTER">
+                        <VBox spacing="5" alignment="TOP_LEFT">
+                            <ImageView fitWidth="44" fitHeight="44" preserveRatio="false">
+                                <Image url="@/concentrateLogoEntrenar.png"/>
+                            </ImageView>
+                            <Label text="Concéntrate" style="-fx-font-weight: bold;" wrapText="true" maxWidth="180"/>
+                            <Label text="Aumentamos un poco la dificultad para que el cambio que sientas sea mínimo" style="-fx-font-family: 'Century Gothic'; -fx-text-fill: #999999;" wrapText="true" maxWidth="180"/>
+                        </VBox>
+                    </HBox>
+                </graphic>
+            </MFXButton>
+
+            <MFXButton prefWidth="200" prefHeight="160" styleClass="buttonEntrenar" style="-fx-background-color: white" text="">
+                <graphic>
+                    <VBox spacing="5" alignment="CENTER">
+                        <ImageView fitWidth="190" fitHeight="140" style="-fx-halignment: RIGHT;">
+                            <Image url="@/concentrateAzul.png"/>
+                        </ImageView>
+                    </VBox>
+                </graphic>
+            </MFXButton>
+
+            <MFXButton fx:id="dificil" prefWidth="200" prefHeight="160" styleClass="buttonEntrenar" style="-fx-background-color: white; -fx-padding: 10;">
+                <graphic>
+                    <HBox spacing="10" alignment="CENTER">
+                        <VBox spacing="5" alignment="TOP_LEFT">
+                            <ImageView fitWidth="44" fitHeight="44" preserveRatio="false">
+                                <Image url="@/dificilLogoEntrenar.png"/>
+                            </ImageView>
+                            <Label text="¿Difícil?" style="-fx-font-weight: bold;" wrapText="true" maxWidth="180"/>
+                            <Label text="Tu primer reto con Echoband, no te desesperes, es normal no conseguirlo al primer intento." style="-fx-font-family: 'Century Gothic'; -fx-text-fill: #999999;" wrapText="true" maxWidth="180"/>
+                        </VBox>
+                    </HBox>
+                </graphic>
+            </MFXButton>
+
+            <MFXButton prefWidth="200" prefHeight="160" styleClass="buttonEntrenar" style="-fx-background-color: white; -fx-alignment: LEFT" text="">
+                <graphic>
+                    <VBox spacing="5" alignment="CENTER" >
+                        <ImageView fitWidth="190" fitHeight="140" style="-fx-halignment: RIGHT;">
+                            <Image url="@/DificilAzul.png"/>
+                        </ImageView>
+                    </VBox>
+                </graphic>
+            </MFXButton>
+        </HBox>
+    </VBox>
+</AnchorPane>
