@@ -12,6 +12,7 @@ import javafx.beans.binding.BooleanBinding;
 import javafx.css.PseudoClass;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -45,6 +46,24 @@ public class SignUpController implements Initializable{
     @FXML private Label labelcontrasena;
     @FXML private MFXCheckbox checkterminos;
     @FXML private MFXButton botoncrear;
+
+    @FXML
+    public void irAMenu() {
+        try {
+            Stage stage = (Stage) botoncrear.getScene().getWindow();
+            SignUp app = new SignUp();
+
+            app.cambiarEscena(stage, "/com/echo/echoband/trainingView.fxml");
+
+            Scene scene = stage.getScene();
+            scene.getStylesheets().clear();
+            scene.getStylesheets().add(SignUp.class.getResource("/com/echo/echoband/trainingStyle.css").toExternalForm());
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            System.out.println("Error al cargar trainingView.fxml");
+        }
+    }
 
     public void irALogIn() throws IOException {
         Stage stage = (Stage) txtiniciar.getScene().getWindow();
