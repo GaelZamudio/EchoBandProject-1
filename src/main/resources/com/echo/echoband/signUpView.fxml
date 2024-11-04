@@ -54,7 +54,7 @@
 
         <MFXCheckbox fx:id="checkterminos" text="Acepto los términos y condiciones"/>
 
-        <MFXButton fx:id="botoncrear" text="Crear cuenta" disable="true"/>
+        <MFXButton fx:id="botoncrear" text="Crear cuenta" disable="true" onMouseClicked="#irAMenu"/>
 
         <TextFlow textAlignment="CENTER">
             <Text style="-fx-font-size: 12px;" text="¿Ya tienes una cuenta? " />
