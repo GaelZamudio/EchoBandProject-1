@@ -8,7 +8,6 @@ import io.github.palexdev.materialfx.controls.MFXTextField;
 import io.github.palexdev.materialfx.validation.Constraint;
 import io.github.palexdev.materialfx.validation.Severity;
 import javafx.beans.binding.Bindings;
-import javafx.beans.binding.BooleanBinding;
 import javafx.css.PseudoClass;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -22,7 +21,9 @@ import java.util.ResourceBundle;
 import static io.github.palexdev.materialfx.utils.StringUtils.containsAny;
 import javafx.scene.input.KeyEvent;
 
-public class SignUpController implements Initializable{
+import static io.github.palexdev.materialfx.utils.StringUtils.containsAny;
+
+public class SignUpController implements Initializable {
 
     private static final PseudoClass pseudoclaseValidacion = PseudoClass.getPseudoClass("invalido");
     private static final String[] mayusculas = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z".split(" ");
@@ -30,7 +31,8 @@ public class SignUpController implements Initializable{
     private static final String[] numeros = "0 1 2 3 4 5 6 7 8 9".split(" ");
     private static final String[] especiales = "! @ # & ( ) – [ { } ]: ; ' , ? / * ~ $ ^ + = < > -".split(" ");
 
-    @FXML private Text txtiniciar;
+    @FXML
+    private Text txtiniciar;
     @FXML private MFXTextField fieldnombre;
     @FXML private MFXTextField fieldpat;
     @FXML private MFXTextField fieldmat;
@@ -144,20 +146,6 @@ public class SignUpController implements Initializable{
                         fieldcontrasena.textProperty()))
                 .get();
 
-        BooleanBinding camposValidos = fieldnombre.getValidator().validProperty()
-                .and(fieldpat.getValidator().validProperty())
-                .and(fieldmat.getValidator().validProperty())
-                .and(fieldusuario.getValidator().validProperty())
-                .and(fieldcorreo.getValidator().validProperty())
-                .and(fieldcontrasena.getValidator().validProperty())
-                .and(fieldnombre.textProperty().isNotEmpty())
-                .and(fieldpat.textProperty().isNotEmpty())
-                .and(fieldmat.textProperty().isNotEmpty())
-                .and(fieldusuario.textProperty().isNotEmpty())
-                .and(fieldcorreo.textProperty().isNotEmpty())
-                .and(fieldcontrasena.textProperty().isNotEmpty())
-                .and(checkterminos.selectedProperty());
-
         fieldcontrasena.getValidator()
                 .constraint(numeroRestriccion)
                 .constraint(letraRestriccion)
@@ -176,8 +164,6 @@ public class SignUpController implements Initializable{
         fieldpat.getValidator().constraint(apellidoPaternoNoVacio);
 
         fieldmat.getValidator().constraint(apellidoMaternoNoVacio);
-
-        botoncrear.disableProperty().bind(camposValidos.not());
 
         fieldcontrasena.getValidator().validProperty().addListener((observable, anteriorValor, nuevoValor) -> {
             if (nuevoValor) {

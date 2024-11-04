@@ -1,44 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import io.github.palexdev.materialfx.controls.MFXButton?>
-<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
-<?import io.github.palexdev.materialfx.controls.MFXTextField?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+<?import io.github.palexdev.materialfx.controls.MFXTextField?>
+<?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.control.Label?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.echo.echoband.controller.LoginController">
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.echo.echoband.controller.LoginController">
+    <center>
+        <VBox alignment="CENTER" spacing="30" styleClass="container-box">
+            <Text text="Hola de nuevo" style="-fx-font-size: 32px; -fx-font-weight: bold;"/>
 
-    <ImageView fitHeight="Infinity" fitWidth="600.0" preserveRatio="true"
-               AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
-        <image>
+            <VBox spacing="7" alignment="CENTER">
+                <MFXTextField fx:id="fieldusuario" floatingText="Nombre" floatMode="BORDER" style="-mfx-text-limit: 20;"/>
+                <Label fx:id="labelusuario" textFill="#ef6e6b" visible="false" wrapText="true"/>
+            </VBox>
+
+            <VBox spacing="7" alignment="CENTER">
+                <MFXPasswordField fx:id="fieldcontrasena" floatingText="Contraseña" floatMode="BORDER"/>
+                <Label fx:id="labelcontrasena" textFill="#ef6e6b" visible="false" wrapText="true"/>
+            </VBox>
+
+            <MFXButton fx:id="botoniniciar" text="Iniciar sesión"/>
+
+            <TextFlow>
+                <Text text="¿No tienes una cuenta? " style="-fx-font-size: 12px;" />
+                <Text text="Crea una" styleClass="textoPicar" fx:id="txtcrear" onMouseClicked="#irASignUp"/>
+            </TextFlow>
+        </VBox>
+    </center>
+    <right>
+        <ImageView>
             <Image url="@/imgLogIn.jpg"/>
-        </image>
-    </ImageView>
-
-    <VBox alignment="CENTER" spacing="30" styleClass="container-box" maxHeight="570.0" maxWidth="300.0"
-          AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="800.0" AnchorPane.topAnchor="200.0" AnchorPane.bottomAnchor="200.0">
-        <Text text="Hola de nuevo" style="-fx-font-size: 32px; -fx-font-weight: bold;"/>
-
-        <VBox spacing="7" alignment="CENTER">
-            <MFXTextField fx:id="fieldusuario" floatingText="Nombre de Usuario" floatMode="BORDER" style="-mfx-text-limit: 20;"/>
-            <Label fx:id="labelusuario" textFill="#ef6e6b" visible="false" wrapText="true"/>
-        </VBox>
-
-        <VBox spacing="7" alignment="CENTER">
-            <MFXPasswordField fx:id="fieldcontrasena" floatingText="Contraseña" floatMode="BORDER"/>
-            <Label fx:id="labelcontrasena" textFill="#ef6e6b" visible="false" wrapText="true"/>
-        </VBox>
-
-        <MFXButton fx:id="botoniniciar" text="Iniciar sesión" disable="true"/>
-
-        <TextFlow textAlignment="CENTER">
-            <Text text="¿No tienes una cuenta? " style="-fx-font-size: 12px;" />
-            <Text text="Crea una" styleClass="textoPicar" fx:id="txtcrear" onMouseClicked="#irASignUp"/>
-        </TextFlow>
-    </VBox>
-</AnchorPane>
+        </ImageView>
+    </right>
+</BorderPane>

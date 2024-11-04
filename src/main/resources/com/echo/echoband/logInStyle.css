@@ -25,7 +25,7 @@
 .mfx-password-field{
     -mfx-allow-copy: true;
     -fx-min-width: 400px;
-    -fx-min-height: 50px;
+    -fx-min-height: 45px;
     -mfx-text-limit: 12;
 }
 
@@ -52,48 +52,6 @@
     -fx-min-width: 300px;
     -fx-padding: 10px;
     -fx-cursor: hand;
-}
-
-.mfx-checkbox {
-    -fx-min-width: 150;
-    -mfx-gap: 10;
-    -mfx-text-expand: true;
-    -fx-cursor: hand;
-    -mfx-main: #22566C;
-    -mfx-gray: #22566C;
-    -fx-font-smoothing-type: lcd;
-}
-
-.mfx-checkbox .box {
-    -fx-font-smoothing-type: lcd;
-    -fx-border-radius: 50%;
-    -fx-border-color: #22566C;
-}
-
-.mfx-checkbox .box .mark {
-    -mfx-description: "fas-minus";
-    -fx-border-color: #22566C;
-}
-
-.mfx-checkbox:selected .box {
-    -fx-background-color: #95c4da;
-    -fx-border-radius: 50%;
-    -fx-border-color: #22566C;
-}
-
-.mfx-checkbox:selected .box .mark {
-    -mfx-description: "fas-check";
-    -fx-background-color: #22566C;
-}
-
-.mfx-checkbox .mfx-ripple-generator {
-    -mfx-ripple-color: #22566C;
-    -fx-opacity: 0.4;
-}
-
-.mfx-checkbox:selected .mfx-ripple-generator {
-    -mfx-ripple-color: #22566C;
-    -fx-opacity: 0.4;
 }
 
 .container-box {

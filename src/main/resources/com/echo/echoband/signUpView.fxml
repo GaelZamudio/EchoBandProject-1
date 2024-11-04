@@ -6,59 +6,59 @@
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 <?import javafx.scene.control.Label?>
+
 <?import javafx.scene.layout.HBox?>
+<BorderPane minHeight="700.0" minWidth="1200.0" prefHeight="700.0" prefWidth="1200.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.echo.echoband.controller.SignUpController">
+    <right>
+        <ImageView>
+            <Image url="@/imgSignUp.jpg"/>
+        </ImageView>
+    </right>
+    <center>
+        <VBox alignment="CENTER" maxHeight="570.0" maxWidth="470.0" nodeOrientation="LEFT_TO_RIGHT" spacing="30" styleClass="container-box" BorderPane.alignment="CENTER">
+            <Text style="-fx-font-size: 32px; -fx-font-weight: bold;" text="Echo te da la bienvenida" />
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.echo.echoband.controller.SignUpController">
+            <VBox spacing="7" alignment="CENTER">
+                <HBox spacing="5">
+                    <MFXTextField fx:id="fieldnombre" floatingText="Nombre" floatMode="BORDER" style="-mfx-text-limit: 20; -fx-min-width: 150px;"/>
+                    <MFXTextField fx:id="fieldpat" floatingText="Apellido Paterno" floatMode="BORDER" style="-mfx-text-limit: 20; -fx-min-width: 150px;"/>
+                    <MFXTextField fx:id="fieldmat" floatingText="Apellido Materno" floatMode="BORDER" style="-mfx-text-limit: 20; -fx-min-width: 150px;"/>
+                </HBox>
+                <HBox>
+                    <Label fx:id="labelnombre" textFill="#ef6e6b" visible="false" wrapText="true"/>
+                    <Label fx:id="labelpat" textFill="#ef6e6b" visible="false" wrapText="true"/>
+                    <Label fx:id="labelmat" textFill="#ef6e6b" visible="false" wrapText="true"/>
+                </HBox>
+            </VBox>
 
-    <ImageView fitHeight="Infinity" fitWidth="600.0" preserveRatio="true"
-               AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
-        <Image url="@/imgSignUp.jpg"/>
-    </ImageView>
+            <VBox spacing="7" alignment="CENTER">
+                <MFXTextField fx:id="fieldusuario" floatingText="Nombre de Usuario" floatMode="BORDER" style="-mfx-text-limit: 15;"/>
+                <Label fx:id="labelusuario" textFill="#ef6e6b" visible="false" wrapText="true"/>
+            </VBox>
 
-    <VBox alignment="CENTER" spacing="20" styleClass="container-box" maxHeight="570.0" maxWidth="300.0"
-          AnchorPane.leftAnchor="200.0" AnchorPane.rightAnchor="800.0" AnchorPane.topAnchor="80.0" AnchorPane.bottomAnchor="80.0">
-        <Text style="-fx-font-size: 32px; -fx-font-weight: bold;" text="Echo te da la bienvenida" />
+            <VBox spacing="7" alignment="CENTER">
+                <MFXTextField fx:id="fieldcorreo" floatingText="Correo Electrónico" floatMode="BORDER" style="-mfx-text-limit: 50;"/>
+                <Label fx:id="labelcorreo" textFill="#ef6e6b" visible="false" wrapText="true"/>
+            </VBox>
 
-        <VBox spacing="5" alignment="CENTER">
-            <HBox spacing="5" alignment="CENTER">
-                <MFXTextField fx:id="fieldnombre" floatingText="Nombre" floatMode="BORDER" style="-mfx-text-limit: 20; -fx-min-width: 130px;"/>
-                <MFXTextField fx:id="fieldpat" floatingText="Apellido Paterno" floatMode="BORDER" style="-mfx-text-limit: 20; -fx-min-width: 130px;"/>
-                <MFXTextField fx:id="fieldmat" floatingText="Apellido Materno" floatMode="BORDER" style="-mfx-text-limit: 20; -fx-min-width: 130px;"/>
-            </HBox>
-            <HBox alignment="CENTER" spacing="5">
-                <Label fx:id="labelnombre" textFill="#ef6e6b" visible="false" wrapText="true"/>
-                <Label fx:id="labelpat" textFill="#ef6e6b" visible="false" wrapText="true"/>
-                <Label fx:id="labelmat" textFill="#ef6e6b" visible="false" wrapText="true"/>
-            </HBox>
+            <VBox spacing="7" alignment="CENTER">
+                <MFXPasswordField fx:id="fieldcontrasena" floatingText="Contraseña" floatMode="BORDER"/>
+                <Label fx:id="labelcontrasena" textFill="#ef6e6b" visible="false" wrapText="true"/>
+            </VBox>
+
+            <MFXCheckbox fx:id="checkterminos" text="Acepto los términos y condiciones"/>
+
+            <MFXButton fx:id="botoncrear" text="Crear cuenta" />
+
+            <TextFlow>
+                <Text style="-fx-font-size: 12px;" text="¿Ya tienes una cuenta? " />
+                <Text fx:id="txtiniciar" onMouseClicked="#irALogIn" styleClass="textoPicar" text="Inicia sesión" />
+            </TextFlow>
         </VBox>
-
-        <VBox spacing="5" alignment="CENTER">
-            <MFXTextField fx:id="fieldusuario" floatingText="Nombre de Usuario" floatMode="BORDER" style="-mfx-text-limit: 15;"/>
-            <Label fx:id="labelusuario" textFill="#ef6e6b" visible="false" wrapText="true"/>
-        </VBox>
-
-        <VBox spacing="5" alignment="CENTER">
-            <MFXTextField fx:id="fieldcorreo" floatingText="Correo Electrónico" floatMode="BORDER" style="-mfx-text-limit: 50;"/>
-            <Label fx:id="labelcorreo" textFill="#ef6e6b" visible="false" wrapText="true"/>
-        </VBox>
-
-        <VBox spacing="5" alignment="CENTER">
-            <MFXPasswordField fx:id="fieldcontrasena" floatingText="Contraseña" floatMode="BORDER"/>
-            <Label fx:id="labelcontrasena" textFill="#ef6e6b" visible="false" wrapText="true"/>
-        </VBox>
-
-        <MFXCheckbox fx:id="checkterminos" text="Acepto los términos y condiciones"/>
-
-        <MFXButton fx:id="botoncrear" text="Crear cuenta" disable="true"/>
-
-        <TextFlow textAlignment="CENTER">
-            <Text style="-fx-font-size: 12px;" text="¿Ya tienes una cuenta? " />
-            <Text fx:id="txtiniciar" onMouseClicked="#irALogIn" styleClass="textoPicar" text="Inicia sesión" />
-        </TextFlow>
-    </VBox>
-</AnchorPane>
+    </center>
+</BorderPane>

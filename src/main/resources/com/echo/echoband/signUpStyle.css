@@ -25,7 +25,7 @@
 .mfx-password-field{
     -mfx-allow-copy: true;
     -fx-min-width: 400px;
-    -fx-min-height: 50px;
+    -fx-min-height: 45px;
     -mfx-text-limit: 12;
 }
 
