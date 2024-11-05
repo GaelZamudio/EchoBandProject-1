@@ -15,7 +15,7 @@ public class GameWonController {
     public void irAInicio() throws IOException {
         Stage stage = (Stage) inicio.getScene().getWindow();
         GameWon app = new GameWon();
-        app.cambiarEscena(stage, "/com/echoband/echoband/trainingView.fxml");
+        app.cambiarEscena(stage, "/com/echo/echoband/trainingView.fxml");
         stage.setTitle("Entrenamiento");
     }
 
@@ -25,11 +25,11 @@ public class GameWonController {
             GameWon app = new GameWon();
             stage.setTitle("Entrar en Calor");
 
-            app.cambiarEscena(stage, "/com/echoband/echoband/entrarEnCalorView.fxml");
+            app.cambiarEscena(stage, "/com/echo/echoband/entrarEnCalorView.fxml");
 
             Scene scene = stage.getScene();
             scene.getStylesheets().clear();
-            scene.getStylesheets().add(GameWon.class.getResource("/com/echoband/echoband/entrarEnCalorStyle.css").toExternalForm());
+            scene.getStylesheets().add(GameWon.class.getResource("/com/echo/echoband/entrarEnCalorStyle.css").toExternalForm());
 
         } catch (IOException e) {
             e.printStackTrace();
