@@ -54,11 +54,11 @@ public class SignUpController implements Initializable{
             SignUp app = new SignUp();
             stage.setTitle("Entrenamiento");
 
-            app.cambiarEscena(stage, "/com/echoband/echoband/trainingView.fxml");
+            app.cambiarEscena(stage, "/com/echo/echoband/trainingView.fxml");
 
             Scene scene = stage.getScene();
             scene.getStylesheets().clear();
-            scene.getStylesheets().add(SignUp.class.getResource("/com/echoband/echoband/trainingStyle.css").toExternalForm());
+            scene.getStylesheets().add(SignUp.class.getResource("/com/echo/echoband/trainingStyle.css").toExternalForm());
 
         } catch (IOException e) {
             e.printStackTrace();

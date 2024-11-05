@@ -108,7 +108,7 @@ public class MemoryController {
             if (timeRemaining <= 0) {
                 countdownTimeline.stop();
                 System.out.println("El tiempo se ha acabado, cambiando a viewEntrenar3");
-                switchToView("/com/echoband/echoband/viewEntrenar3");
+                switchToView("/com/echo/echoband/viewEntrenar3");
             }
         }));
         countdownTimeline.setCycleCount(Timeline.INDEFINITE);
@@ -179,7 +179,7 @@ public class MemoryController {
         if (allFlipped && timeRemaining > 0) {
             countdownTimeline.stop();
             System.out.println("Juego completo, cambiando a viewEntrenar4");
-            switchToView("/com/echoband/echoband/viewEntrenar4");
+            switchToView("/com/echo/echoband/viewEntrenar4");
         }
     }
 
@@ -197,7 +197,7 @@ public class MemoryController {
             Parent root = FXMLLoader.load(getClass().getResource(viewName + ".fxml"));
             Scene scene = new Scene(root);
 
-            String css = getClass().getResource("/com/echoband/echoband/lostGameStyle.css").toExternalForm();
+            String css = getClass().getResource("/com/echo/echoband/lostGameStyle.css").toExternalForm();
             scene.getStylesheets().add(css);
 
             Stage stage = (Stage) timeRemainingLabel.getScene().getWindow();

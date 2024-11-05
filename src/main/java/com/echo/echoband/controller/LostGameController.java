@@ -25,11 +25,11 @@ public class LostGameController {
             LostGame app = new LostGame();
             stage.setTitle("Entrar en Calor");
 
-            app.cambiarEscena(stage, "/com/echoband/echoband/entrarEnCalorView.fxml");
+            app.cambiarEscena(stage, "/com/echo/echoband/entrarEnCalorView.fxml");
 
             Scene scene = stage.getScene();
             scene.getStylesheets().clear();
-            scene.getStylesheets().add(LostGame.class.getResource("/com/echoband/echoband/entrarEnCalorStyle.css").toExternalForm());
+            scene.getStylesheets().add(LostGame.class.getResource("/com/echo/echoband/entrarEnCalorStyle.css").toExternalForm());
 
         } catch (IOException e) {
             e.printStackTrace();
