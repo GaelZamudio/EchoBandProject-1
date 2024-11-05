@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.echo.echoband.controller.LostGameController" style="-fx-background-color: #F7F7F7">
+    <VBox minHeight="150" minWidth="800" maxWidth="1000" maxHeight="600" alignment="CENTER" spacing="40"
+          style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-padding: 20;"
+          AnchorPane.leftAnchor="300" AnchorPane.rightAnchor="300" AnchorPane.topAnchor="300" AnchorPane.bottomAnchor="300">
+        <Label text="¡Tu concentración ha tenido una caída drástica!" styleClass="title" />
+            <HBox spacing="20" alignment="CENTER">
+                <MFXButton fx:id="inicio" alignment="CENTER" prefWidth="140" prefHeight="40" style="-fx-background-color: #C1EDFF; -fx-font-weight: bold; -fx-text-fill: #000000; -fx-background-radius: 5;" onMouseClicked="#irAInicio">
+                    <graphic>
+                        <VBox spacing="5" alignment="CENTER">
+                            <Label text="Volver al inicio" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 16;"/>
+                        </VBox>
+                    </graphic>
+                </MFXButton>
+                <MFXButton fx:id="jugar" alignment="CENTER" prefWidth="160" prefHeight="40" style="-fx-background-color: #76B5CF; -fx-font-weight: bold; -fx-background-radius: 5;" onMouseClicked="#irAVolverAJugar">
+                    <graphic>
+                        <VBox spacing="5" alignment="CENTER">
+                            <Label text="Inténtalo de nuevo" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 16; -fx-text-fill: white;"/>
+                        </VBox>
+                    </graphic>
+                </MFXButton>
+            </HBox>
+    </VBox>
+</AnchorPane>

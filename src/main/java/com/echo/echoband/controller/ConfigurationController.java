@@ -1,29 +1,28 @@
 package com.echo.echoband.controller;
 
-import com.echo.echoband.SignUp;
+import com.echo.echoband.Configuration;
 import io.github.palexdev.materialfx.controls.MFXButton;
-import io.github.palexdev.materialfx.controls.MFXCheckbox;
 import io.github.palexdev.materialfx.controls.MFXPasswordField;
 import io.github.palexdev.materialfx.controls.MFXTextField;
 import io.github.palexdev.materialfx.validation.Constraint;
 import io.github.palexdev.materialfx.validation.Severity;
+import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.css.PseudoClass;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+
 import static io.github.palexdev.materialfx.utils.StringUtils.containsAny;
 
-public class SignUpController implements Initializable{
+public class ConfigurationController implements Initializable {
 
     private static final PseudoClass pseudoclaseValidacion = PseudoClass.getPseudoClass("invalido");
     private static final String[] mayusculas = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z".split(" ");
@@ -31,86 +30,55 @@ public class SignUpController implements Initializable{
     private static final String[] numeros = "0 1 2 3 4 5 6 7 8 9".split(" ");
     private static final String[] especiales = "! @ # & ( ) – [ { } ]: ; ' , ? / * ~ $ ^ + = < > -".split(" ");
 
-    @FXML private Text txtiniciar;
-    @FXML private MFXTextField fieldnombre;
-    @FXML private MFXTextField fieldpat;
-    @FXML private MFXTextField fieldmat;
+    @FXML private MFXButton entrenar;
+    @FXML private MFXButton estadisticas;
+    @FXML private MFXButton amigos;
+    @FXML private MFXButton perfil;
+    @FXML private MFXButton liga;
+    @FXML private MFXButton config;
+    @FXML private MFXButton cerrar;
+
     @FXML private MFXTextField fieldusuario;
-    @FXML private MFXTextField fieldcorreo;
     @FXML private MFXPasswordField fieldcontrasena;
-    @FXML private Label labelnombre;
-    @FXML private Label labelpat;
-    @FXML private Label labelmat;
+    @FXML private MFXTextField fieldcorreo;
     @FXML private Label labelusuario;
-    @FXML private Label labelcorreo;
     @FXML private Label labelcontrasena;
-    @FXML private MFXCheckbox checkterminos;
-    @FXML private MFXButton botoncrear;
+    @FXML private Label labelcorreo;
 
-    @FXML
-    public void irAMenu() {
-        try {
-            Stage stage = (Stage) botoncrear.getScene().getWindow();
-            SignUp app = new SignUp();
-            stage.setTitle("Entrenamiento");
-
-            app.cambiarEscena(stage, "/com/echoband/echoband/trainingView.fxml");
-
-            Scene scene = stage.getScene();
-            scene.getStylesheets().clear();
-            scene.getStylesheets().add(SignUp.class.getResource("/com/echoband/echoband/trainingStyle.css").toExternalForm());
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error al cargar trainingView.fxml");
-        }
+    public void irAEntrenar() throws IOException {
+        Stage stage = (Stage) entrenar.getScene().getWindow();
+        Configuration app = new Configuration();
+        app.cambiarEscena(stage, "trainingView.fxml");
+        stage.setTitle("Entrenamiento");
     }
 
-    public void irALogIn() throws IOException {
-        Stage stage = (Stage) txtiniciar.getScene().getWindow();
-        SignUp app = new SignUp();
-        app.cambiarEscena(stage, "logInView.fxml");
-        stage.setTitle("Log In");
+    public void irAEstadisticas() throws IOException {
+        Stage stage = (Stage) estadisticas.getScene().getWindow();
+        Configuration app = new Configuration();
+        app.cambiarEscena(stage, "statisticsView.fxml");
+        stage.setTitle("Estadísticas");
+    }
+
+    public void irAConfig() throws IOException {
+        Stage stage = (Stage) config.getScene().getWindow();
+        Configuration app = new Configuration();
+        app.cambiarEscena(stage, "configurationView.fxml");
+        stage.setTitle("Configuración");
+    }
+
+    public void irAPerfil() throws IOException {
+        Stage stage = (Stage) perfil.getScene().getWindow();
+        Configuration app = new Configuration();
+        app.cambiarEscena(stage, "userProfileView.fxml");
+        stage.setTitle("Perfil de Usuario");
+    }
+
+    public void irALogOut() throws IOException {
+        Platform.exit();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        fieldnombre.addEventFilter(KeyEvent.KEY_TYPED, event -> {
-            if (!event.getCharacter().matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ]")) {
-                event.consume();
-            }
-        });
-
-        fieldpat.addEventFilter(KeyEvent.KEY_TYPED, event -> {
-            if (!event.getCharacter().matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ]")) {
-                event.consume();
-            }
-        });
-
-        fieldmat.addEventFilter(KeyEvent.KEY_TYPED, event -> {
-            if (!event.getCharacter().matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ]")) {
-                event.consume();
-            }
-        });
-
-        Constraint nombreNoVacio = Constraint.Builder.build()
-                .setSeverity(Severity.ERROR)
-                .setMessage("El nombre no puede estar vacío")
-                .setCondition(fieldnombre.textProperty().isNotEmpty())
-                .get();
-
-        Constraint apellidoPaternoNoVacio = Constraint.Builder.build()
-                .setSeverity(Severity.ERROR)
-                .setMessage("El apellido paterno no puede estar vacío")
-                .setCondition(fieldpat.textProperty().isNotEmpty())
-                .get();
-
-        Constraint apellidoMaternoNoVacio = Constraint.Builder.build()
-                .setSeverity(Severity.ERROR)
-                .setMessage("El apellido materno no puede estar vacío")
-                .setCondition(fieldmat.textProperty().isNotEmpty())
-                .get();
 
         Constraint longitudNomRestriccion = Constraint.Builder.build()
                 .setSeverity(Severity.ERROR)
@@ -165,19 +133,12 @@ public class SignUpController implements Initializable{
                         fieldcontrasena.textProperty()))
                 .get();
 
-        BooleanBinding camposValidos = fieldnombre.getValidator().validProperty()
-                .and(fieldpat.getValidator().validProperty())
-                .and(fieldmat.getValidator().validProperty())
-                .and(fieldusuario.getValidator().validProperty())
+        BooleanBinding camposValidos = (fieldusuario.getValidator().validProperty())
                 .and(fieldcorreo.getValidator().validProperty())
                 .and(fieldcontrasena.getValidator().validProperty())
-                .and(fieldnombre.textProperty().isNotEmpty())
-                .and(fieldpat.textProperty().isNotEmpty())
-                .and(fieldmat.textProperty().isNotEmpty())
                 .and(fieldusuario.textProperty().isNotEmpty())
                 .and(fieldcorreo.textProperty().isNotEmpty())
-                .and(fieldcontrasena.textProperty().isNotEmpty())
-                .and(checkterminos.selectedProperty());
+                .and(fieldcontrasena.textProperty().isNotEmpty());
 
         fieldcontrasena.getValidator()
                 .constraint(numeroRestriccion)
@@ -192,13 +153,6 @@ public class SignUpController implements Initializable{
                 .constraint(longitudNomRestriccion)
                 .constraint(noCaracterRestriccion);
 
-        fieldnombre.getValidator().constraint(nombreNoVacio);
-
-        fieldpat.getValidator().constraint(apellidoPaternoNoVacio);
-
-        fieldmat.getValidator().constraint(apellidoMaternoNoVacio);
-
-        botoncrear.disableProperty().bind(camposValidos.not());
 
         fieldcontrasena.getValidator().validProperty().addListener((observable, anteriorValor, nuevoValor) -> {
             if (nuevoValor) {
@@ -243,51 +197,6 @@ public class SignUpController implements Initializable{
                     fieldusuario.pseudoClassStateChanged(pseudoclaseValidacion, true);
                     labelusuario.setText(restricciones.get(0).getMessage());
                     labelusuario.setVisible(true);
-                }}});
-
-        fieldnombre.getValidator().validProperty().addListener((observable, anteriorValor, nuevoValor) -> {
-            if (nuevoValor) {
-                labelnombre.setVisible(false);
-                fieldnombre.pseudoClassStateChanged(pseudoclaseValidacion, false);
-            }});
-
-        fieldnombre.delegateFocusedProperty().addListener((observable, anteriorValor, nuevoValor) -> {
-            if (anteriorValor && !nuevoValor) {
-                List<Constraint> restricciones = fieldnombre.validate();
-                if (!restricciones.isEmpty()) {
-                    fieldnombre.pseudoClassStateChanged(pseudoclaseValidacion, true);
-                    labelnombre.setText(restricciones.get(0).getMessage());
-                    labelnombre.setVisible(true);
-                }}});
-
-        fieldpat.getValidator().validProperty().addListener((observable, anteriorValor, nuevoValor) -> {
-            if (nuevoValor) {
-                labelpat.setVisible(false);
-                fieldpat.pseudoClassStateChanged(pseudoclaseValidacion, false);
-            }});
-
-        fieldpat.delegateFocusedProperty().addListener((observable, anteriorValor, nuevoValor) -> {
-            if (anteriorValor && !nuevoValor) {
-                List<Constraint> restricciones = fieldpat.validate();
-                if (!restricciones.isEmpty()) {
-                    fieldpat.pseudoClassStateChanged(pseudoclaseValidacion, true);
-                    labelpat.setText(restricciones.get(0).getMessage());
-                    labelpat.setVisible(true);
-                }}});
-
-        fieldmat.getValidator().validProperty().addListener((observable, anteriorValor, nuevoValor) -> {
-            if (nuevoValor) {
-                labelmat.setVisible(false);
-                fieldmat.pseudoClassStateChanged(pseudoclaseValidacion, false);
-            }});
-
-        fieldmat.delegateFocusedProperty().addListener((observable, anteriorValor, nuevoValor) -> {
-            if (anteriorValor && !nuevoValor) {
-                List<Constraint> restricciones = fieldmat.validate();
-                if (!restricciones.isEmpty()) {
-                    fieldmat.pseudoClassStateChanged(pseudoclaseValidacion, true);
-                    labelmat.setText(restricciones.get(0).getMessage());
-                    labelmat.setVisible(true);
                 }}});
     }
 }

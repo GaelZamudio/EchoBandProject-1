@@ -3,7 +3,7 @@
     -fx-padding: 15px;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 4);
     -fx-background-radius: 0 10 10 0;
-    -fx-pref-width: 265; /* Ancho fijo */
+    -fx-pref-width: 265;
     -fx-pref-height: 100%; /* Altura dinámica */
     -fx-alignment: center;
 }
@@ -158,14 +158,61 @@
     -fx-padding: 0 0 5 0; /* Espacio inferior de 5 píxeles */
 }
 
-.buttonEntrenar {
-    -fx-background-color: #ffffff; /* Color de fondo del botón */
-    -fx-border-color: #ffffff; /* Color del borde */
-    -fx-border-radius: 5; /* Bordes redondeados */
-    -fx-background-radius: 5; /* Bordes redondeados */
-    -fx-padding: 10; /* Espaciado interno */
-    -fx-alignment: CENTER; /* Alinear el contenido al centro */
-    -fx-pref-height: 160;
-    -fx-pref-width: 200;
+
+
+
+
+
+
+/* Estilo para etiquetas de entrada */
+.input-label {
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #666666;
+    -fx-padding: 0 0 5 0;
 }
 
+/* Estilo para el campo de entrada */
+.input-field {
+    -fx-padding: 8;
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cccccc;
+    -fx-border-width: 1;
+    -fx-border-radius: 5;
+    -fx-background-radius: 5;
+    -fx-font-size: 14px;
+    -fx-prompt-text-fill: #b0bec5;
+    -jfx-focus-color: #03a9f4;
+    -jfx-unfocus-color: #cccccc;
+}
+
+
+
+
+
+
+.custom-toggle {
+    -fx-background-color: #dcdcdc; /* Color de fondo claro */
+    -fx-text-fill: #333; /* Texto oscuro */
+}
+
+.custom-toggle:selected {
+    -fx-background-color: #80c1ff; /* Color al estar activado */
+    -fx-text-fill: white;
+}
+
+.custom-toggle:hover {
+    -fx-background-color: #b3e0ff; /* Color al pasar el mouse */
+}
+
+
+.padding-top {
+    -fx-padding: 20 0 0 0; /* Margen superior */
+}
+
+.maestro {
+    -fx-font-size: 20px;
+    -fx-font-weight: bold;
+    -fx-font-style: italic;
+    -fx-text-fill: #333;
+}

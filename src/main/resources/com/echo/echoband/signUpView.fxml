@@ -17,7 +17,7 @@
 
     <ImageView fitHeight="Infinity" fitWidth="600.0" preserveRatio="true"
                AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
-        <Image url="@/imgSignUp.jpg"/>
+            <Image url="@/imgSignUp.jpg"/>
     </ImageView>
 
     <VBox alignment="CENTER" spacing="20" styleClass="container-box" maxHeight="570.0" maxWidth="300.0"
@@ -54,7 +54,7 @@
 
         <MFXCheckbox fx:id="checkterminos" text="Acepto los términos y condiciones"/>
 
-        <MFXButton fx:id="botoncrear" text="Crear cuenta" disable="true" onMouseClicked="#irAMenu"/>
+        <MFXButton fx:id="botoncrear" text="Crear cuenta" onMouseClicked="#irAMenu" disable="true"/>
 
         <TextFlow textAlignment="CENTER">
             <Text style="-fx-font-size: 12px;" text="¿Ya tienes una cuenta? " />

@@ -1,0 +1,19 @@
+.title {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
+}
+
+.mfx-list-view {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.mfx-list-view .list-cell {
+    -fx-background-color: transparent;
+    -fx-padding: 10;
+}
+
+.mfx-list-view .list-cell:hover {
+    -fx-background-color: rgba(255, 255, 255, 0.3);
+}

@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.image.ImageView?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+
+<?import javafx.scene.text.TextFlow?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.echo.echoband.controller.MemoryController" style="-fx-background-color: #F7F7F7">
+    <VBox minHeight="150" minWidth="800" maxWidth="1000" maxHeight="600" alignment="CENTER" spacing="30"
+          style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-padding: 20;"
+          AnchorPane.leftAnchor="100" AnchorPane.rightAnchor="100" AnchorPane.topAnchor="50" AnchorPane.bottomAnchor="50">
+
+        <GridPane alignment="CENTER" hgap="20" vgap="20">
+            <StackPane GridPane.rowIndex="0" GridPane.columnIndex="0">
+                <Rectangle width="140" height="140" fill="#22566C"/>
+                <ImageView fx:id="image00" visible="false" preserveRatio="true" fitWidth="140" fitHeight="140"/>
+                <MFXButton text=" " alignment="CENTER" prefWidth="140" prefHeight="140" style="-fx-background-color: transparent; -fx-border-color: transparent;"/>
+            </StackPane>
+            <StackPane GridPane.rowIndex="0" GridPane.columnIndex="1">
+                <Rectangle width="140" height="140" fill="#76B5CF"/>
+                <ImageView fx:id="image01" visible="false" preserveRatio="true" fitWidth="140" fitHeight="140"/>
+                <MFXButton text=" " alignment="CENTER" prefWidth="140" prefHeight="140" style="-fx-background-color: transparent; -fx-border-color: transparent;"/>
+            </StackPane>
+            <StackPane GridPane.rowIndex="0" GridPane.columnIndex="2">
+                <Rectangle width="140" height="140" fill="#C1EDFF"/>
+                <ImageView fx:id="image02" visible="false" preserveRatio="true" fitWidth="140" fitHeight="140"/>
+                <MFXButton text=" " alignment="CENTER" prefWidth="140" prefHeight="140" style="-fx-background-color: transparent; -fx-border-color: transparent;"/>
+            </StackPane>
+            <StackPane GridPane.rowIndex="0" GridPane.columnIndex="3">
+                <Rectangle width="140" height="140" fill="#22566C"/>
+                <ImageView fx:id="image03" visible="false" preserveRatio="true" fitWidth="140" fitHeight="140"/>
+                <MFXButton text=" " alignment="CENTER" prefWidth="140" prefHeight="140" style="-fx-background-color: transparent; -fx-border-color: transparent;"/>
+            </StackPane>
+            <StackPane GridPane.rowIndex="0" GridPane.columnIndex="4">
+                <Rectangle width="140" height="140" fill="#76B5CF"/>
+                <ImageView fx:id="image04" visible="false" preserveRatio="true" fitWidth="140" fitHeight="140"/>
+                <MFXButton text=" " alignment="CENTER" prefWidth="140" prefHeight="140" style="-fx-background-color: transparent; -fx-border-color: transparent;"/>
+            </StackPane>
+            <StackPane GridPane.rowIndex="0" GridPane.columnIndex="5">
+                <Rectangle width="140" height="140" fill="#C1EDFF"/>
+                <ImageView fx:id="image05" visible="false" preserveRatio="true" fitWidth="140" fitHeight="140"/>
+                <MFXButton text=" " alignment="CENTER" prefWidth="140" prefHeight="140" style="-fx-background-color: transparent; -fx-border-color: transparent;"/>
+            </StackPane>
+
+            <StackPane GridPane.rowIndex="1" GridPane.columnIndex="0">
+                <Rectangle width="140" height="140" fill="#76B5CF"/>
+                <ImageView fx:id="image10" visible="false" preserveRatio="true" fitWidth="140" fitHeight="140"/>
+                <MFXButton text=" " alignment="CENTER" prefWidth="140" prefHeight="140" style="-fx-background-color: transparent; -fx-border-color: transparent;"/>
+            </StackPane>
+            <StackPane GridPane.rowIndex="1" GridPane.columnIndex="1">
+                <Rectangle width="140" height="140" fill="#C1EDFF"/>
+                <ImageView fx:id="image11" visible="false" preserveRatio="true" fitWidth="140" fitHeight="140"/>
+                <MFXButton text=" " alignment="CENTER" prefWidth="140" prefHeight="140" style="-fx-background-color: transparent; -fx-border-color: transparent;"/>
+            </StackPane>
+            <StackPane GridPane.rowIndex="1" GridPane.columnIndex="2">
+                <Rectangle width="140" height="140" fill="#22566C"/>
+                <ImageView fx:id="image12" visible="false" preserveRatio="true" fitWidth="140" fitHeight="140"/>
+                <MFXButton text=" " alignment="CENTER" prefWidth="140" prefHeight="140" style="-fx-background-color: transparent; -fx-border-color: transparent;"/>
+            </StackPane>
+            <StackPane GridPane.rowIndex="1" GridPane.columnIndex="3">
+                <Rectangle width="140" height="140" fill="#76B5CF"/>
+                <ImageView fx:id="image13" visible="false" preserveRatio="true" fitWidth="140" fitHeight="140"/>
+                <MFXButton text=" " alignment="CENTER" prefWidth="140" prefHeight="140" style="-fx-background-color: transparent; -fx-border-color: transparent;"/>
+            </StackPane>
+            <StackPane GridPane.rowIndex="1" GridPane.columnIndex="4">
+                <Rectangle width="140" height="140" fill="#C1EDFF"/>
+                <ImageView fx:id="image14" visible="false" preserveRatio="true" fitWidth="140" fitHeight="140"/>
+                <MFXButton text=" " alignment="CENTER" prefWidth="140" prefHeight="140" style="-fx-background-color: transparent; -fx-border-color: transparent;"/>
+            </StackPane>
+            <StackPane GridPane.rowIndex="1" GridPane.columnIndex="5">
+                <Rectangle width="140" height="140" fill="#22566C"/>
+                <ImageView fx:id="image15" visible="false" preserveRatio="true" fitWidth="140" fitHeight="140"/>
+                <MFXButton text=" " alignment="CENTER" prefWidth="140" prefHeight="140" style="-fx-background-color: transparent; -fx-border-color: transparent;"/>
+            </StackPane>
+
+            <StackPane GridPane.rowIndex="2" GridPane.columnIndex="0">
+                <Rectangle width="140" height="140" fill="#C1EDFF"/>
+                <ImageView fx:id="image20" visible="false" preserveRatio="true" fitWidth="140" fitHeight="140"/>
+                <MFXButton text=" " alignment="CENTER" prefWidth="140" prefHeight="140" style="-fx-background-color: transparent; -fx-border-color: transparent;"/>
+            </StackPane>
+            <StackPane GridPane.rowIndex="2" GridPane.columnIndex="1">
+                <Rectangle width="140" height="140" fill="#22566C"/>
+                <ImageView fx:id="image21" visible="false" preserveRatio="true" fitWidth="140" fitHeight="140"/>
+                <MFXButton text=" " alignment="CENTER" prefWidth="140" prefHeight="140" style="-fx-background-color: transparent; -fx-border-color: transparent;"/>
+            </StackPane>
+            <StackPane GridPane.rowIndex="2" GridPane.columnIndex="2">
+                <Rectangle width="140" height="140" fill="#76B5CF"/>
+                <ImageView fx:id="image22" visible="false" preserveRatio="true" fitWidth="140" fitHeight="140"/>
+                <MFXButton text=" " alignment="CENTER" prefWidth="140" prefHeight="140" style="-fx-background-color: transparent; -fx-border-color: transparent;"/>
+            </StackPane>
+            <StackPane GridPane.rowIndex="2" GridPane.columnIndex="3">
+                <Rectangle width="140" height="140" fill="#C1EDFF"/>
+                <ImageView fx:id="image23" visible="false" preserveRatio="true" fitWidth="140" fitHeight="140"/>
+                <MFXButton text=" " alignment="CENTER" prefWidth="140" prefHeight="140" style="-fx-background-color: transparent; -fx-border-color: transparent;"/>
+            </StackPane>
+            <StackPane GridPane.rowIndex="2" GridPane.columnIndex="4">
+                <Rectangle width="140" height="140" fill="#22566C"/>
+                <ImageView fx:id="image24" visible="false" preserveRatio="true" fitWidth="140" fitHeight="140"/>
+                <MFXButton text=" " alignment="CENTER" prefWidth="140" prefHeight="140" style="-fx-background-color: transparent; -fx-border-color: transparent;"/>
+            </StackPane>
+            <StackPane GridPane.rowIndex="2" GridPane.columnIndex="5">
+                <Rectangle width="140" height="140" fill="#76B5CF"/>
+                <ImageView fx:id="image25" visible="false" preserveRatio="true" fitWidth="140" fitHeight="140"/>
+                <MFXButton text=" " alignment="CENTER" prefWidth="140" prefHeight="140" style="-fx-background-color: transparent; -fx-border-color: transparent;"/>
+            </StackPane>
+        </GridPane>
+        <TextFlow>
+            <Label text="Ejercicio 1: Entremos en calor.        Tienes 60 segundos para completarlo" style="-fx-text-fill: #999999; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 15"/>
+            <Label text="                           Tiempo restante: " style="-fx-text-fill: #000000; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18"/>
+            <Label fx:id="timeRemainingLabel" text="0 segundos" style="-fx-text-fill: #c70e0e; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18"/>
+        </TextFlow>
+    </VBox>
+</AnchorPane>

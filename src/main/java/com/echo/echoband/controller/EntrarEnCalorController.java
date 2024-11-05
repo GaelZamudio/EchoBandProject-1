@@ -1,14 +1,13 @@
 package com.echo.echoband.controller;
 
-import com.echo.echoband.Training;
+import com.echo.echoband.EntrarEnCalor;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
-public class TrainingController {
+public class EntrarEnCalorController {
 
     @FXML private MFXButton entrenar;
     @FXML private MFXButton estadisticas;
@@ -17,33 +16,32 @@ public class TrainingController {
     @FXML private MFXButton liga;
     @FXML private MFXButton config;
     @FXML private MFXButton cerrar;
-
-    @FXML private MFXButton calor;
+    @FXML private MFXButton iniciarEjercicio;
 
     public void irAConfig() throws IOException {
         Stage stage = (Stage) config.getScene().getWindow();
-        Training app = new Training();
+        EntrarEnCalor app = new EntrarEnCalor();
         app.cambiarEscena(stage, "configurationView.fxml");
         stage.setTitle("Configuración");
     }
 
     public void irAEntrenar() throws IOException {
         Stage stage = (Stage) entrenar.getScene().getWindow();
-        Training app = new Training();
+        EntrarEnCalor app = new EntrarEnCalor();
         app.cambiarEscena(stage, "trainingView.fxml");
         stage.setTitle("Entrenamiento");
     }
 
     public void irAEstadisticas() throws IOException {
         Stage stage = (Stage) estadisticas.getScene().getWindow();
-        Training app = new Training();
+        EntrarEnCalor app = new EntrarEnCalor();
         app.cambiarEscena(stage, "statisticsView.fxml");
         stage.setTitle("Estadísticas");
     }
 
     public void irAPerfil() throws IOException {
         Stage stage = (Stage) perfil.getScene().getWindow();
-        Training app = new Training();
+        EntrarEnCalor app = new EntrarEnCalor();
         app.cambiarEscena(stage, "userProfileView.fxml");
         stage.setTitle("Perfil de Usuario");
     }
@@ -52,10 +50,10 @@ public class TrainingController {
         Platform.exit();
     }
 
-    public void irACalor() throws IOException {
-        Stage stage = (Stage) perfil.getScene().getWindow();
-        Training app = new Training();
-        app.cambiarEscena(stage, "entrarEnCalorView.fxml");
-        stage.setTitle("Entrar en Calor");
+    public void irAMemorama() throws IOException {
+        Stage stage = (Stage) iniciarEjercicio.getScene().getWindow();
+        EntrarEnCalor app = new EntrarEnCalor();
+        app.cambiarEscena(stage, "memoryView.fxml");
+        stage.setTitle("Ejercicio 1-Memorama");
     }
 }
