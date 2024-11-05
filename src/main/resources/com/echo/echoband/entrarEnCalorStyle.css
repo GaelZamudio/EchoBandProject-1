@@ -3,12 +3,11 @@
     -fx-padding: 15px;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 4);
     -fx-background-radius: 0 10 10 0;
-    -fx-pref-width: 265; /* Ancho fijo */
-    -fx-pref-height: 100%; /* Altura dinámica */
+    -fx-pref-width: 265;
+    -fx-pref-height: 100%;
     -fx-alignment: center;
 }
 
-/* Sección de perfil */
 .profile-section {
     -fx-background-color: #22566C;
     -fx-alignment: center;
@@ -16,7 +15,6 @@
     -fx-padding: 20px;
 }
 
-/* Nombre de perfil */
 .profile-name {
     -fx-text-fill: white;
     -fx-font-size: 18px;
@@ -24,20 +22,17 @@
     -fx-padding: 10 0 0 0;
 }
 
-/* Imagen de perfil circular */
 .profile-image {
     -fx-background-radius: 50%;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 0);
 }
 
-/* Separador */
 .separator {
     -fx-background-color: white;
     -fx-opacity: 0.3;
     -fx-margin: 10px 0;
 }
 
-/* Botones de navegación */
 .nav-button {
     -fx-background-color: transparent;
     -fx-text-fill: white;
@@ -60,22 +55,17 @@
     -fx-background-color: #1b4c5a;
 }
 
-/* Título principal */
 .title {
     -fx-font-size: 32px;
     -fx-font-weight: bold;
     -fx-text-fill: #333;
 }
 
-/**/
-
-/* Contenedor de tarjetas */
 .card-container {
     -fx-spacing: 20;
     -fx-padding: 20 0;
 }
 
-/* Tarjetas */
 .card {
     -fx-background-color: #f5f5f5;
     -fx-padding: 20;
@@ -96,7 +86,6 @@
     -fx-text-fill: #666;
 }
 
-/* Estilo de los botones de tarjeta */
 .card-button {
     -fx-background-radius: 10;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.5, 0, 4);
@@ -106,7 +95,6 @@
     -fx-alignment: center;
     -fx-background-color: transparent;
     -fx-border-color: transparent;
-
 }
 
 .card-button:hover {
@@ -118,7 +106,6 @@
     -fx-background-color: #d1d1d1;
 }
 
-/* Estilos para el contenido de los botones */
 .card-title {
     -fx-font-size: 16px;
     -fx-font-weight: bold;
@@ -130,8 +117,6 @@
     -fx-text-fill: #666;
 }
 
-/**/
-
 .foto-deperfil {
     -fx-pref-width: 1160;
     -fx-pref-height: 200;
@@ -141,7 +126,6 @@
 .cajaancha {
     -fx-pref-width: 1160;
     -fx-pref-height: 302.39;
-
 }
 
 .elmascrack {
@@ -150,22 +134,15 @@
 }
 
 .nombre {
-    -fx-padding: 15 0 0 0; /* Espacio superior de 5 píxeles */
+    -fx-padding: 15 0 0 0;
     -fx-font-weight: bold;
 }
 
 .imagen {
-    -fx-padding: 0 0 5 0; /* Espacio inferior de 5 píxeles */
+    -fx-padding: 0 0 5 0;
 }
 
-.buttonEntrenar {
-    -fx-background-color: #ffffff; /* Color de fondo del botón */
-    -fx-border-color: #ffffff; /* Color del borde */
-    -fx-border-radius: 5; /* Bordes redondeados */
-    -fx-background-radius: 5; /* Bordes redondeados */
-    -fx-padding: 10; /* Espaciado interno */
-    -fx-alignment: CENTER; /* Alinear el contenido al centro */
-    -fx-pref-height: 160;
-    -fx-pref-width: 200;
+.cajaancha {
+    -fx-pref-width: 1160;
+    -fx-pref-height: 302.39;
 }
-

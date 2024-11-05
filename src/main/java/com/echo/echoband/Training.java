@@ -5,20 +5,22 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 
 public class Training extends Application {
     public void cambiarEscena(Stage stage, String vistaFXML) throws IOException {
-
         FXMLLoader cargador = new FXMLLoader(getClass().getResource(vistaFXML));
         AnchorPane root = cargador.load();
 
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("trainingStyle.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("configurationStyle.css").toExternalForm());
         stage.setScene(scene);
 
         stage.setFullScreen(true);
+        stage.centerOnScreen();
     }
+
 
     @Override
     public void start(Stage stage) throws IOException {
