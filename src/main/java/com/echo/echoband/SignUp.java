@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 
 public class SignUp extends Application {
@@ -16,6 +17,7 @@ public class SignUp extends Application {
         scene.getStylesheets().add(getClass().getResource("signUpStyle.css").toExternalForm());
         stage.setScene(scene);
         stage.setFullScreen(true);
+        stage.centerOnScreen();
     }
 
     @Override

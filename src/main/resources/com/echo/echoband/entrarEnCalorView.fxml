@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Label?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.control.Separator?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.echo.echoband.controller.EntrarEnCalorController">
+    <VBox fx:id="sideBar" styleClass="side-bar" alignment="TOP_CENTER" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="0">
+        <VBox alignment="CENTER" spacing="20" styleClass="profile-section">
+            <StackPane styleClass="profile-image" prefWidth="50" prefHeight="50">
+                <ImageView fitHeight="50" fitWidth="50">
+                    <Image url="@/juanBarraNav.png"/>
+                </ImageView>
+            </StackPane>
+            <Label text="Juanito Pérez" styleClass="profile-name"/>
+        </VBox>
+
+        <Separator styleClass="separator"/>
+
+        <MFXButton fx:id="entrenar" text="Entrenar" style="-fx-font-weight: bold;" styleClass="nav-button" onMouseClicked="#irAEntrenar">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <Image url="@/entrenarBarraNav.png"/>
+                </ImageView>
+            </graphic>
+        </MFXButton>
+        <MFXButton fx:id="estadisticas" text="Estadísticas" styleClass="nav-button" onMouseClicked="#irAEstadisticas">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <Image url="@/estadisticasBarraNav.png"/>
+                </ImageView>
+            </graphic>
+        </MFXButton>
+        <MFXButton fx:id="amigos" text="Amigos" styleClass="nav-button">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <Image url="@/amigosBarraNav.png"/>
+                </ImageView>
+            </graphic>
+        </MFXButton>
+        <MFXButton fx:id="perfil" text="Perfil" styleClass="nav-button" onMouseClicked="#irAPerfil">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <Image url="@/perfilBarraNav.png"/>
+                </ImageView>
+            </graphic>
+        </MFXButton>
+        <MFXButton fx:id="liga" text="Liga" styleClass="nav-button">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <Image url="@/ligaBarraNav.png"/>
+                </ImageView>
+            </graphic>
+        </MFXButton>
+        <MFXButton fx:id="config" text="Configuración" styleClass="nav-button" onMouseClicked="#irAConfig">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <Image url="@/configuracionBarraNav.png"/>
+                </ImageView>
+            </graphic>
+        </MFXButton>
+        <MFXButton fx:id="cerrar" text="Cerrar sesión" styleClass="nav-button" onMouseClicked="#irALogOut">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <Image url="@/cerrarsesionBarraNav.png"/>
+                </ImageView>
+            </graphic>
+        </MFXButton>
+    </VBox>
+
+
+    <VBox styleClass="cajaancha" layoutX="250" layoutY="50" AnchorPane.leftAnchor="250" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" alignment="CENTER" spacing="30" style="-fx-font-family: 'Century Gothic'">
+        <Label text="1.- Entremos en calor" styleClass="title" />
+        <VBox alignment="CENTER" spacing="30" minHeight="250" minWidth="900" maxWidth="900" maxHeight="250" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 10;">
+            <HBox spacing="30" alignment="TOP_LEFT">
+                <ImageView fitWidth="55" fitHeight="55" preserveRatio="false">
+                    <Image url="@/entremosencalorEntrenar11.png"/>
+                </ImageView>
+                <Label text="Comencemos con un primer ejercicio para que aprendas a utilizar Echoband. Tendrás que completar un memorama. Dispondrás de un minuto para realizar este ejercicio." style="-fx-font-family: 'Century Gothic'; -fx-text-fill: #999999; -fx-font-size: 16;" maxWidth="800" wrapText="true"/>
+            </HBox>
+            <HBox spacing="30" alignment="TOP_LEFT">
+                <ImageView fitWidth="55" fitHeight="55" preserveRatio="false">
+                    <Image url="@/entremosencalorEntrenar12.png"/>
+                </ImageView>
+                <Label text="Este es un ejercicio de " style="-fx-font-family: 'Century Gothic'; -fx-text-fill: #999999; -fx-font-size: 16;" maxWidth="800" wrapText="true"/>
+                <Label text="memorización." style="-fx-font-family: 'Century Gothic'; -fx-text-fill: #24C81B; -fx-font-size: 16;" wrapText="true"/>
+            </HBox>
+            <HBox spacing="30" alignment="TOP_LEFT">
+                <ImageView fitWidth="55" fitHeight="55" preserveRatio="false">
+                    <Image url="@/entremosencalorEntrenar13.png"/>
+                </ImageView>
+                <Label text="Dificultad: " style="-fx-font-family: 'Century Gothic'; -fx-text-fill: #999999; -fx-font-size: 16;" maxWidth="800" wrapText="true"/>
+                <Label text="Principiante" style="-fx-font-family: 'Century Gothic'; -fx-text-fill: #848801; -fx-font-size: 16;" wrapText="true"/>
+            </HBox>
+        </VBox>
+
+        <VBox alignment="CENTER" spacing="30" minHeight="150" minWidth="900" maxWidth="900" maxHeight="150" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 10;">
+            <Label text="¿Estás listo para comenzar?" styleClass="title" />
+            <MFXButton fx:id="iniciarEjercicio" prefWidth="150" prefHeight="160" styleClass="buttonEntrenar" style="-fx-background-color: #428BAA" onMouseClicked="#irAMemorama">
+                <graphic>
+                    <VBox spacing="5" alignment="TOP_LEFT">
+                        <Label text="Iniciar ejercicio" style="-fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-wrap-text: true; -fx-text-fill: #ffffff; -fx-font-size: 16" maxWidth="180"/>
+                    </VBox>
+                </graphic>
+            </MFXButton>
+        </VBox>
+    </VBox>
+</AnchorPane>

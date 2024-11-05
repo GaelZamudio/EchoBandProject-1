@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -37,12 +38,13 @@ public class LoginController implements Initializable {
         try {
             Stage stage = (Stage) botoniniciar.getScene().getWindow();
             LogIn app = new LogIn();
+            stage.setTitle("Entrenamiento");
 
-            app.cambiarEscena(stage, "/com/echo/echoband/trainingView.fxml");
+            app.cambiarEscena(stage, "/com/echoband/echoband/trainingView.fxml");
 
             Scene scene = stage.getScene();
             scene.getStylesheets().clear();
-            scene.getStylesheets().add(LogIn.class.getResource("/com/echo/echoband/trainingStyle.css").toExternalForm());
+            scene.getStylesheets().add(LogIn.class.getResource("/com/echoband/echoband/trainingStyle.css").toExternalForm());
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -54,5 +56,6 @@ public class LoginController implements Initializable {
         Stage stage = (Stage) txtcrear.getScene().getWindow();
         LogIn app = new LogIn();
         app.cambiarEscena(stage, "signUpView.fxml");
+        stage.setTitle("Sign Up");
     }
 }
