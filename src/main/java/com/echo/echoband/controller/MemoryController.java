@@ -107,8 +107,8 @@ public class MemoryController {
             timeRemainingLabel.setText(timeRemaining + " segundos");
             if (timeRemaining <= 0) {
                 countdownTimeline.stop();
-                System.out.println("El tiempo se ha acabado, cambiando a viewEntrenar3");
-                switchToView("/com/echo/echoband/viewEntrenar3");
+                System.out.println("El tiempo se ha acabado, cambiando a lostGameView");
+                switchToView("/com/echo/echoband/lostGameView");
             }
         }));
         countdownTimeline.setCycleCount(Timeline.INDEFINITE);
@@ -179,7 +179,7 @@ public class MemoryController {
         if (allFlipped && timeRemaining > 0) {
             countdownTimeline.stop();
             System.out.println("Juego completo, cambiando a viewEntrenar4");
-            switchToView("/com/echo/echoband/viewEntrenar4");
+            switchToView("/com/echo/echoband/gameWonView");
         }
     }
 

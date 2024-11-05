@@ -102,7 +102,7 @@
 
         <VBox alignment="CENTER" spacing="30" minHeight="150" minWidth="900" maxWidth="900" maxHeight="150" style="-fx-background-color: white; -fx-background-radius: 15; -fx-padding: 10;">
             <Label text="¿Estás listo para comenzar?" styleClass="title" />
-            <MFXButton fx:id="iniciarEjercicio" prefWidth="150" prefHeight="160" styleClass="buttonEntrenar" style="-fx-background-color: #428BAA" onMouseClicked="#irAMemorama">
+            <MFXButton fx:id="iniciarEjercicio" prefWidth="150" prefHeight="160" styleClass="buttonEntrenar" style="-fx-background-color: #428BAA; -fx-cursor: hand;" onMouseClicked="#irAMemorama">
                 <graphic>
                     <VBox spacing="5" alignment="TOP_LEFT">
                         <Label text="Iniciar ejercicio" style="-fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-wrap-text: true; -fx-text-fill: #ffffff; -fx-font-size: 16" maxWidth="180"/>
