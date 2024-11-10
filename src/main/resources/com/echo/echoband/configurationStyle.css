@@ -3,7 +3,7 @@
     -fx-padding: 15px;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 4);
     -fx-background-radius: 0 10 10 0;
-    -fx-pref-width: 265; /* Ancho fijo */
+    -fx-pref-width: 265;
     -fx-pref-height: 100%;
     -fx-alignment: center;
 }
@@ -180,46 +180,4 @@
 
 .padding-top {
     -fx-padding: 20 0 0 0;
-}
-
-.mfx-checkbox {
-    -fx-min-width: 150;
-    -mfx-gap: 10;
-    -mfx-text-expand: true;
-    -fx-cursor: hand;
-    -mfx-main: #22566C;
-    -mfx-gray: #22566C;
-    -fx-font-smoothing-type: lcd;
-}
-
-.mfx-checkbox .box {
-    -fx-font-smoothing-type: lcd;
-    -fx-border-radius: 50%;
-    -fx-border-color: #22566C;
-}
-
-.mfx-checkbox .box .mark {
-    -mfx-description: "fas-minus";
-    -fx-border-color: #22566C;
-}
-
-.mfx-checkbox:selected .box {
-    -fx-background-color: #95c4da;
-    -fx-border-radius: 50%;
-    -fx-border-color: #22566C;
-}
-
-.mfx-checkbox:selected .box .mark {
-    -mfx-description: "fas-check";
-    -fx-background-color: #22566C;
-}
-
-.mfx-checkbox .mfx-ripple-generator {
-    -mfx-ripple-color: #22566C;
-    -fx-opacity: 0.4;
-}
-
-.mfx-checkbox:selected .mfx-ripple-generator {
-    -mfx-ripple-color: #22566C;
-    -fx-opacity: 0.4;
 }

@@ -13,12 +13,15 @@ import javafx.css.PseudoClass;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextFormatter;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.function.UnaryOperator;
+import java.util.regex.Pattern;
 
 import static io.github.palexdev.materialfx.utils.StringUtils.containsAny;
 
@@ -99,7 +102,7 @@ public class ConfigurationController implements Initializable {
                 .setMessage("El campo debe tener formato de correo electrónico")
                 .setCondition(fieldcorreo.textProperty().isNotEmpty().and(Bindings.createBooleanBinding(() -> {
                     String email = fieldcorreo.getText();
-                    return email.contains("@") && email.endsWith(".com");
+                    return email.matches("^[\\w.%+-]+@[\\w.-]+\\.com$") && !email.matches(".*\\.com\\.com$");
                 }, fieldcorreo.textProperty())))
                 .get();
 

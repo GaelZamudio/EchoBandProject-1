@@ -6,14 +6,12 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.control.Label?>
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
-<?import io.github.palexdev.materialfx.controls.MFXCheckbox?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.layout.HBox?>
 <?import io.github.palexdev.materialfx.controls.MFXTextField?>
 <?import javafx.scene.layout.GridPane?>
 <?import io.github.palexdev.materialfx.controls.MFXPasswordField?>
-<?import io.github.palexdev.materialfx.controls.MFXCheckbox?>
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.echo.echoband.controller.ConfigurationController">
     <VBox fx:id="sideBar" styleClass="side-bar" alignment="TOP_CENTER" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="0">
@@ -81,7 +79,7 @@
 
     <VBox styleClass="padding-top" alignment="CENTER" spacing="20" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml"/>
 
-    <VBox styleClass="cajaancha" layoutX="250" layoutY="50" AnchorPane.leftAnchor="250" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" alignment="CENTER" spacing="30" style="-fx-font-family: 'Century Gothic'">
+    <VBox styleClass="cajaancha" layoutX="250" layoutY="50" AnchorPane.leftAnchor="250" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" alignment="CENTER" spacing="100" style="-fx-font-family: 'Century Gothic'">
         <Label text="Configuración" styleClass="title" />
         <VBox alignment="CENTER" spacing="10" minHeight="250" minWidth="900" maxWidth="900" maxHeight="250" style="-fx-background-color: white">
             <ImageView fitWidth="75" fitHeight="75" preserveRatio="false">
@@ -94,46 +92,23 @@
         <HBox spacing="70" alignment="CENTER" minHeight="300" minWidth="1100" maxWidth="1100" maxHeight="300" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" stylesheets="@configurationStyle.css">
             <VBox spacing="20">
                 <VBox>
-                    <Label text="NUEVO NOMBRE DE USUARIO" style="-fx-font-size: 10px; -fx-text-fill: #999999;" />
-                    <MFXTextField fx:id="fieldusuario" promptText="Ingresa tu nombre de usuario" style="-fx-min-width: 200px; -fx-font-size: 12px; -fx-background-color: transparent; -fx-background-insets: 0;" />
+                    <Label text="NUEVO NOMBRE DE USUARIO" style="-fx-font-size: 13px; -fx-text-fill: #494949;" />
+                    <MFXTextField fx:id="fieldusuario" promptText="Ingresa tu nombre de usuario" style="-fx-min-width: 225px; -fx-font-size: 15px; -fx-background-color: transparent; -fx-background-insets: 0;" />
                     <Label fx:id="labelusuario" textFill="#ef6e6b" visible="false" wrapText="true" style="-fx-font-size: 9px;"/>
-                </VBox>
-                <VBox GridPane.rowIndex="1" GridPane.columnIndex="0">
-                    <Label text="NUEVA CONTRASEÑA" style="-fx-font-size: 10px; -fx-text-fill: #999999;" />
-                    <MFXPasswordField fx:id="fieldcontrasena" promptText="Ingresa tu contraseña" style="-fx-min-width: 200px; -fx-font-size: 12px; -fx-background-color: transparent; -fx-background-insets: 0;" />
-                    <Label fx:id="labelcontrasena" textFill="#ef6e6b" visible="false" wrapText="true" style="-fx-font-size: 9px;"/>
                 </VBox>
             </VBox>
             <VBox spacing="20">
                 <VBox GridPane.rowIndex="0" GridPane.columnIndex="1">
-                    <Label text="NUEVO EMAIL" style="-fx-font-size: 10px; -fx-text-fill: #999999;" />
-                    <MFXTextField fx:id="fieldcorreo" promptText="Ingresa tu correo" style="-fx-min-width: 200px; -fx-font-size: 12px; -fx-background-color: transparent; -fx-background-insets: 0;" />
+                    <Label text="NUEVO CORREO ELECTRÓNICO" style="-fx-font-size: 13px; -fx-text-fill: #494949;" />
+                    <MFXTextField fx:id="fieldcorreo" promptText="Ingresa tu correo" style="-fx-min-width: 225px; -fx-font-size: 15px; -fx-background-color: transparent; -fx-background-insets: 0;" />
                     <Label fx:id="labelcorreo" textFill="#ef6e6b" visible="false" wrapText="true" style="-fx-font-size: 9px;"/>
-                </VBox>
-                <VBox GridPane.rowIndex="1" GridPane.columnIndex="1">
-                    <Label text="SEGURIDAD" style="-fx-font-size: 10px; -fx-text-fill: #999999;"  />
-                    <VBox spacing="10" GridPane.rowIndex="1" GridPane.columnIndex="1" maxHeight="120" minHeight="120" maxWidth="200" minWidth="200" alignment="CENTER" style="-fx-background-color: white">
-                        <MFXCheckbox fx:id="checkCerrarSesion" text="Cerrar sesión" selected="true" textAlignment="RIGHT"/>
-                        <Label text="Requerirás volver a introducir tus datos" style="-fx-font-size: 10px; -fx-text-fill: #999999" />
-                    </VBox>
                 </VBox>
             </VBox>
             <VBox spacing="20">
-                <VBox GridPane.rowIndex="0" GridPane.columnIndex="2" spacing="10">
-                    <Label text="NOTIFICACIONES" style="-fx-font-size: 10px; -fx-text-fill: #999999;" />
-                    <VBox GridPane.rowIndex="0" GridPane.columnIndex="2" spacing="5" maxHeight="120" minHeight="120" maxWidth="280" minWidth="280" alignment="CENTER" style="-fx-background-color: white">
-                        <VBox spacing="10" alignment="CENTER">
-                            <HBox spacing="10">
-                                <MFXCheckbox fx:id="checkEntrenamiento" text="Recordatorios de entrenamiento" selected="true" styleClass="custom-check-box"/>
-                            </HBox>
-                            <HBox spacing="10">
-                                <MFXCheckbox fx:id="checkNotificaciones" text="Notificaciones" selected="true" styleClass="custom-check-box" style=""/>
-                            </HBox>
-                            <HBox spacing="10">
-                                <MFXCheckbox fx:id="checkTemaClaro" text="Tema Claro" selected="true" />
-                            </HBox>
-                        </VBox>
-                    </VBox>
+                <VBox GridPane.rowIndex="1" GridPane.columnIndex="0">
+                    <Label text="NUEVA CONTRASEÑA" style="-fx-font-size: 13px; -fx-text-fill: #494949;" />
+                    <MFXPasswordField fx:id="fieldcontrasena" promptText="Ingresa tu contraseña" style="-fx-min-width: 225px; -fx-font-size: 15px; -fx-background-color: transparent; -fx-background-insets: 0;" />
+                    <Label fx:id="labelcontrasena" textFill="#ef6e6b" visible="false" wrapText="true" style="-fx-font-size: 9px;"/>
                 </VBox>
             </VBox>
         </HBox>
