@@ -1,6 +1,7 @@
 package com.echo.echoband.controller;
 
 import com.echo.echoband.SignUp;
+import com.echo.echoband.connection.Connector;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXCheckbox;
 import io.github.palexdev.materialfx.controls.MFXPasswordField;
@@ -17,13 +18,23 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import javax.swing.*;
+import javax.xml.transform.Result;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLOutput;
 import java.util.List;
 import java.util.ResourceBundle;
 import static io.github.palexdev.materialfx.utils.StringUtils.containsAny;
 
 public class SignUpController implements Initializable{
+
+    private Connector connector;
+    private Connection cn;
 
     private static final PseudoClass pseudoclaseValidacion = PseudoClass.getPseudoClass("invalido");
     private static final String[] mayusculas = "A B C D E F G H I J K L M N O P Q R S T U V W X Y Z".split(" ");
@@ -46,6 +57,7 @@ public class SignUpController implements Initializable{
     @FXML private Label labelcontrasena;
     @FXML private MFXCheckbox checkterminos;
     @FXML private MFXButton botoncrear;
+
 
     @FXML
     public void irAMenu() {
@@ -289,5 +301,77 @@ public class SignUpController implements Initializable{
                     labelmat.setText(restricciones.get(0).getMessage());
                     labelmat.setVisible(true);
                 }}});
+    }
+
+    //Métodos para la BD
+    @FXML
+    public void registrar(){
+
+        String nombre = fieldnombre.getText();
+        String pat = fieldpat.getText();
+        String mat = fieldmat.getText();
+        String usuario = fieldusuario.getText();
+        String correo = fieldcorreo.getText();
+        String contrasena = fieldcontrasena.getText();
+        Boolean existe;
+
+
+        if(nombre.isEmpty() || pat.isEmpty() || mat.isEmpty() || usuario.isEmpty() || correo.isEmpty() || contrasena.isEmpty()){
+            JOptionPane.showMessageDialog(null, "Debe completar los datos");
+        } else {
+            try {
+                connector = new Connector();
+                cn = connector.conectar();
+
+                existe = existe(cn);
+                if(existe){
+                    JOptionPane.showMessageDialog(null, "El usuario o correo ya existen");
+                } else {
+                    String consulta = "INSERT INTO datos_perso(nom_real, nom_usuario, ap_pat, ap_mat, contraseña, correo)" +
+                            "VALUES ('"+nombre+"', '"+usuario+"', '"+pat+"', '"+mat+"', '"+contrasena+"', '"+correo+"');";
+                    PreparedStatement ps = cn.prepareStatement(consulta);
+                    ps.executeUpdate();
+                    JOptionPane.showMessageDialog(null, "Datos correctamente guardadossss");
+
+                    // Obtener el ID del usuario recién creado
+                    String obtID = "SELECT id_datos FROM datos_perso WHERE nom_usuario = ?;";
+                    PreparedStatement ps2 = cn.prepareStatement(obtID);
+                    ps2.setString(1, usuario);  // Utilizamos PreparedStatement para evitar inyecciones SQL
+                    ResultSet rs = ps2.executeQuery();
+
+                    if (rs.next()) {  // Asegurarse de que haya un resultado antes de acceder a él
+                        int num = rs.getInt("id_datos");
+                        System.out.println("ID: " + num);
+                    } else {
+                        System.out.println("No se encontró el ID del usuario.");
+                    }
+
+                }
+
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(null, "No se pudo guardar el usuario: "+e.getMessage());
+            }
+            connector.cerrarConexion();
+            irAMenu();
+        }
+    }
+
+    public Boolean existe(Connection cn){
+        String usuario = fieldusuario.getText();
+        String correo = fieldcorreo.getText();
+
+        try {
+            String validacion = "SELECT COUNT(*) > 0 AS existe\n" +
+                    "FROM datos_perso\n" +
+                    "WHERE correo = '"+correo+"' OR nom_usuario = '"+usuario+"';";
+            PreparedStatement ps = cn.prepareStatement(validacion);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getBoolean("existe");
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "No se pudo guardar usuario"+e);
+        }
+        return false;
     }
 }
