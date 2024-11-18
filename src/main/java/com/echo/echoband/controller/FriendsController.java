@@ -66,7 +66,7 @@ public class FriendsController {
         stage.setTitle("Estadísticas");
         Scene scene = stage.getScene();
         scene.getStylesheets().clear();
-        scene.getStylesheets().add(Friends.class.getResource("/com/echo/echoband/staticsStyle.css").toExternalForm());
+        scene.getStylesheets().add(Friends.class.getResource("/com/echo/echoband/statisticsStyle.css").toExternalForm());
     }
 
     public void irAPerfil() throws IOException {

@@ -1,6 +1,5 @@
 package com.echo.echoband.controller;
 
-import com.echo.echoband.Statistics;
 import com.echo.echoband.Training;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.application.Platform;
@@ -21,6 +20,7 @@ public class TrainingController {
     @FXML private MFXButton cerrar;
 
     @FXML private MFXButton calor;
+    @FXML private MFXButton progresando;
 
     public void irAConfig() throws IOException {
         Stage stage = (Stage) config.getScene().getWindow();
@@ -69,7 +69,7 @@ public class TrainingController {
         stage.setTitle("Estadísticas");
         Scene scene = stage.getScene();
         scene.getStylesheets().clear();
-        scene.getStylesheets().add(Training.class.getResource("/com/echo/echoband/staticsStyle.css").toExternalForm());
+        scene.getStylesheets().add(Training.class.getResource("/com/echo/echoband/statisticsStyle.css").toExternalForm());
     }
 
     public void irAPerfil() throws IOException {
@@ -87,9 +87,22 @@ public class TrainingController {
     }
 
     public void irACalor() throws IOException {
-        Stage stage = (Stage) perfil.getScene().getWindow();
+        Stage stage = (Stage) calor.getScene().getWindow();
         Training app = new Training();
         app.cambiarEscena(stage, "entrarEnCalorView.fxml");
         stage.setTitle("Entrar en Calor");
+        Scene scene = stage.getScene();
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add(Training.class.getResource("/com/echo/echoband/entrarEnCalorStyle.css").toExternalForm());
+    }
+
+    public void irAProgresando() throws IOException {
+        Stage stage = (Stage) progresando.getScene().getWindow();
+        Training app = new Training();
+        app.cambiarEscena(stage, "progresandoView.fxml");
+        stage.setTitle("Progresando");
+        Scene scene = stage.getScene();
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add(Training.class.getResource("/com/echo/echoband/progresandoStyle.css").toExternalForm());
     }
 }

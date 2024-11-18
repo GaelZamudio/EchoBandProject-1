@@ -97,7 +97,7 @@ public class ConfigurationController implements Initializable {
         stage.setTitle("Estadísticas");
         Scene scene = stage.getScene();
         scene.getStylesheets().clear();
-        scene.getStylesheets().add(Configuration.class.getResource("/com/echo/echoband/staticsStyle.css").toExternalForm());
+        scene.getStylesheets().add(Configuration.class.getResource("/com/echo/echoband/statisticsStyle.css").toExternalForm());
     }
 
     public void irAPerfil() throws IOException {

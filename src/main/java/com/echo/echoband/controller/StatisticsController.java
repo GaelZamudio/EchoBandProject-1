@@ -74,7 +74,7 @@ public class StatisticsController {
         stage.setTitle("Estadísticas");
         Scene scene = stage.getScene();
         scene.getStylesheets().clear();
-        scene.getStylesheets().add(Statistics.class.getResource("/com/echo/echoband/staticsStyle.css").toExternalForm());
+        scene.getStylesheets().add(Statistics.class.getResource("/com/echo/echoband/statisticsStyle.css").toExternalForm());
     }
 
     public void irAPerfil() throws IOException {

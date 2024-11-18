@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.Circle?>
+<AnchorPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="com.echo.echoband.controller.FastButtonController" prefHeight="400.0" prefWidth="600.0">
+
+    <VBox minHeight="150" minWidth="800" maxWidth="1000" maxHeight="600" alignment="CENTER" spacing="30"
+          style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-padding: 20;"
+          AnchorPane.leftAnchor="100" AnchorPane.rightAnchor="100" AnchorPane.topAnchor="50" AnchorPane.bottomAnchor="50">
+
+        <GridPane alignment="CENTER" hgap="20" vgap="20">
+            <StackPane GridPane.rowIndex="0" GridPane.columnIndex="0">
+                <Label text="PRESIONA EL BOTÓN 'Estoy Listo' EN CUANTO ESTÉS LISTO" layoutX="250" layoutY="300" style="-fx-font-size: 30; -fx-font-weight: bold"/>
+            </StackPane>
+            <StackPane GridPane.rowIndex="1" GridPane.columnIndex="0">
+                <MFXButton fx:id="startButton" text="Estoy Listo" layoutX="250" layoutY="50" prefWidth="100" prefHeight="50" onAction="#startPreparation"/>
+            </StackPane>
+            <StackPane GridPane.rowIndex="4" GridPane.columnIndex="0">
+                <Circle fx:id="greenLight" centerX="300" centerY="200" radius="80" fill="transparent" visible="false"/>
+            </StackPane>
+            <StackPane GridPane.rowIndex="7" GridPane.columnIndex="0">
+                <MFXButton fx:id="redButton" text="Presionar" layoutX="250" layoutY="150" prefWidth="100" prefHeight="50" onAction="#buttonPressed"/>
+            </StackPane>
+            <StackPane GridPane.rowIndex="10" GridPane.columnIndex="0">
+                <Label fx:id="timeLabel" text="Tiempo de reacción: 0.00" layoutX="250" layoutY="300" style="-fx-font-size: 20;"/>
+            </StackPane>
+        </GridPane>
+    </VBox>
+</AnchorPane>
+
