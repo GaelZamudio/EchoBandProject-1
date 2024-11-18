@@ -15,6 +15,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -29,6 +30,8 @@ import java.sql.ResultSet;
 import java.sql.SQLOutput;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.function.UnaryOperator;
+
 import static io.github.palexdev.materialfx.utils.StringUtils.containsAny;
 
 public class SignUpController implements Initializable{
@@ -143,7 +146,7 @@ public class SignUpController implements Initializable{
                 .setMessage("El campo debe tener formato de correo electrónico")
                 .setCondition(fieldcorreo.textProperty().isNotEmpty().and(Bindings.createBooleanBinding(() -> {
                     String email = fieldcorreo.getText();
-                    return email.contains("@") && email.endsWith(".com");
+                    return email.matches("^[\\w.%+-]+@[\\w.-]+\\.com$") && !email.matches(".*\\.com\\.com$");
                 }, fieldcorreo.textProperty())))
                 .get();
 
