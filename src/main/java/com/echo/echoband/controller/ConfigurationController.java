@@ -1,6 +1,7 @@
 package com.echo.echoband.controller;
 
 import com.echo.echoband.Configuration;
+import com.echo.echoband.Statistics;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXPasswordField;
 import io.github.palexdev.materialfx.controls.MFXTextField;
@@ -12,6 +13,7 @@ import javafx.beans.binding.BooleanBinding;
 import javafx.css.PseudoClass;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
@@ -45,11 +47,44 @@ public class ConfigurationController implements Initializable {
     @FXML private Label labelcontrasena;
     @FXML private Label labelcorreo;
 
+    public void irAConfig() throws IOException {
+        Stage stage = (Stage) config.getScene().getWindow();
+        Configuration app = new Configuration();
+        app.cambiarEscena(stage, "configurationView.fxml");
+        stage.setTitle("Configuración");
+        Scene scene = stage.getScene();
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add(Configuration.class.getResource("/com/echo/echoband/configurationStyle.css").toExternalForm());
+    }
+
+    public void irAAmigos() throws IOException {
+        Stage stage = (Stage) amigos.getScene().getWindow();
+        Configuration app = new Configuration();
+        app.cambiarEscena(stage, "friendsView.fxml");
+        stage.setTitle("Amigos");
+        Scene scene = stage.getScene();
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add(Configuration.class.getResource("/com/echo/echoband/friendsStyle.css").toExternalForm());
+    }
+
+    public void irALiga() throws IOException {
+        Stage stage = (Stage) liga.getScene().getWindow();
+        Configuration app = new Configuration();
+        app.cambiarEscena(stage, "leagueView.fxml");
+        stage.setTitle("Liga");
+        Scene scene = stage.getScene();
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add(Configuration.class.getResource("/com/echo/echoband/leagueStyle.css").toExternalForm());
+    }
+
     public void irAEntrenar() throws IOException {
         Stage stage = (Stage) entrenar.getScene().getWindow();
         Configuration app = new Configuration();
         app.cambiarEscena(stage, "trainingView.fxml");
         stage.setTitle("Entrenamiento");
+        Scene scene = stage.getScene();
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add(Configuration.class.getResource("/com/echo/echoband/trainingStyle.css").toExternalForm());
     }
 
     public void irAEstadisticas() throws IOException {
@@ -57,13 +92,9 @@ public class ConfigurationController implements Initializable {
         Configuration app = new Configuration();
         app.cambiarEscena(stage, "statisticsView.fxml");
         stage.setTitle("Estadísticas");
-    }
-
-    public void irAConfig() throws IOException {
-        Stage stage = (Stage) config.getScene().getWindow();
-        Configuration app = new Configuration();
-        app.cambiarEscena(stage, "configurationView.fxml");
-        stage.setTitle("Configuración");
+        Scene scene = stage.getScene();
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add(Configuration.class.getResource("/com/echo/echoband/staticsStyle.css").toExternalForm());
     }
 
     public void irAPerfil() throws IOException {
@@ -71,6 +102,9 @@ public class ConfigurationController implements Initializable {
         Configuration app = new Configuration();
         app.cambiarEscena(stage, "userProfileView.fxml");
         stage.setTitle("Perfil de Usuario");
+        Scene scene = stage.getScene();
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add(Configuration.class.getResource("/com/echo/echoband/userProfileStyle.css").toExternalForm());
     }
 
     public void irALogOut() throws IOException {
