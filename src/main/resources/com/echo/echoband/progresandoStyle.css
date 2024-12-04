@@ -55,11 +55,14 @@
     -fx-background-color: #1b4c5a;
 }
 
+/* Título principal */
 .title {
     -fx-font-size: 32px;
     -fx-font-weight: bold;
     -fx-text-fill: #333;
 }
+
+/**/
 
 .card-container {
     -fx-spacing: 20;
@@ -95,7 +98,6 @@
     -fx-alignment: center;
     -fx-background-color: transparent;
     -fx-border-color: transparent;
-
 }
 
 .card-button:hover {
@@ -107,6 +109,7 @@
     -fx-background-color: #d1d1d1;
 }
 
+/* Estilos para el contenido de los botones */
 .card-title {
     -fx-font-size: 16px;
     -fx-font-weight: bold;
@@ -117,6 +120,8 @@
     -fx-font-size: 12px;
     -fx-text-fill: #666;
 }
+
+/**/
 
 .foto-deperfil {
     -fx-pref-width: 1160;
@@ -144,40 +149,8 @@
     -fx-padding: 0 0 5 0;
 }
 
-.input-label {
-    -fx-font-size: 13px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #666666;
-    -fx-padding: 0 0 5 0;
-}
+.cajaancha {
+    -fx-pref-width: 1160;
+    -fx-pref-height: 302.39;
 
-.input-field {
-    -fx-padding: 8;
-    -fx-background-color: #ffffff;
-    -fx-border-color: #cccccc;
-    -fx-border-width: 1;
-    -fx-border-radius: 5;
-    -fx-background-radius: 5;
-    -fx-font-size: 14px;
-    -fx-prompt-text-fill: #b0bec5;
-    -jfx-focus-color: #03a9f4;
-    -jfx-unfocus-color: #cccccc;
-}
-
-.custom-toggle {
-    -fx-background-color: #dcdcdc;
-    -fx-text-fill: #333;
-}
-
-.custom-toggle:selected {
-    -fx-background-color: #80c1ff;
-    -fx-text-fill: white;
-}
-
-.custom-toggle:hover {
-    -fx-background-color: #b3e0ff;
-}
-
-.padding-top {
-    -fx-padding: 20 0 0 0;
 }

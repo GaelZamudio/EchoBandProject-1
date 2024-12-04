@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Label?>
+<?import io.github.palexdev.materialfx.controls.MFXButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.ProgressBar?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.echo.echoband.controller.LeagueController">
+    <VBox fx:id="sideBar" styleClass="side-bar" alignment="TOP_CENTER" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="0">
+        <VBox alignment="CENTER" spacing="20" styleClass="profile-section">
+            <StackPane styleClass="profile-image" prefWidth="50" prefHeight="50">
+                <ImageView fx:id="profileImage" fitHeight="50" fitWidth="50">
+                    <Image url="@/juanBarraNav.png"/>
+                </ImageView>
+            </StackPane>
+            <Label fx:id="profileName" text="Juanito Pérez" styleClass="profile-name"/>
+        </VBox>
+
+        <Separator styleClass="separator"/>
+        <MFXButton fx:id="entrenar" text="Entrenar" styleClass="nav-button" onMouseClicked="#irAEntrenar">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <Image url="@/entrenarBarraNav.png"/>
+                </ImageView>
+            </graphic>
+        </MFXButton>
+        <MFXButton fx:id="estadisticas" text="Estadísticas" styleClass="nav-button" onMouseClicked="#irAEstadisticas">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <Image url="@/estadisticasBarraNav.png"/>
+                </ImageView>
+            </graphic>
+        </MFXButton>
+        <MFXButton fx:id="amigos" text="Amigos" styleClass="nav-button" onMouseClicked="#irAAmigos">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <Image url="@/amigosBarraNav.png"/>
+                </ImageView>
+            </graphic>
+        </MFXButton>
+        <MFXButton fx:id="perfil" text="Perfil" styleClass="nav-button" onMouseClicked="#irAPerfil">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <Image url="@/perfilBarraNav.png"/>
+                </ImageView>
+            </graphic>
+        </MFXButton>
+        <MFXButton fx:id="liga" text="Liga" styleClass="nav-button" style="-fx-font-weight: bold;" onMouseClicked="#irALiga">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <Image url="@/ligaBarraNav.png"/>
+                </ImageView>
+            </graphic>
+        </MFXButton>
+        <MFXButton fx:id="config" text="Configuración" styleClass="nav-button" onMouseClicked="#irAConfig">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <Image url="@/configuracionBarraNav.png"/>
+                </ImageView>
+            </graphic>
+        </MFXButton>
+        <MFXButton fx:id="cerrar" text="Cerrar sesión" styleClass="nav-button" onMouseClicked="#irALogOut">
+            <graphic>
+                <ImageView fitWidth="20" fitHeight="20">
+                    <Image url="@/cerrarsesionBarraNav.png"/>
+                </ImageView>
+            </graphic>
+        </MFXButton>
+    </VBox>
+
+    <VBox styleClass="padding-top" alignment="CENTER" spacing="20" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml"/>
+
+    <VBox styleClass="cajaancha" layoutX="250" layoutY="50" AnchorPane.leftAnchor="250" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" alignment="CENTER" spacing="30" style="-fx-font-family: 'Century Gothic'">
+
+        <VBox alignment="CENTER" spacing="10" minHeight="200" minWidth="900" maxWidth="900" maxHeight="200" style="-fx-background-color: white">
+            <Label text="LIGA DIAMANTE - Meta: 5,000 pts" style="-fx-font-size: 25px; -fx-font-weight: bold" />
+            <HBox alignment="CENTER_LEFT" spacing="15" styleClass="primer-lugar">
+                <Label text="1°" style="-fx-font-size: 20; -fx-font-weight: bold"/>
+                <ImageView fitWidth="75" fitHeight="75" styleClass="profile-picture">
+                    <Image url="@/amigosBarraNav.png"/>
+                </ImageView>
+                <VBox spacing="5">
+                    <Label text="Elliot Møller" style="-fx-font-size: 20; -fx-font-weight: bold"/>
+                    <Label text="Copenhagen, Denmark" style="-fx-font-size: 14;"/>
+                    <Label text="Maestro III" style="-fx-font-size: 16;"/>
+                </VBox>
+                <VBox alignment="CENTER_RIGHT" spacing="5" HBox.hgrow="ALWAYS">
+                    <ProgressBar progress="0.9" style="-fx-accent: #28A745;" styleClass="barra-winner" />
+                    <Label text="4723 Puntos" style="-fx-font-size: 16; -fx-font-weight: bold"/>
+                </VBox>
+            </HBox>
+        </VBox>
+
+        <VBox styleClass="cajaancha" layoutX="250" layoutY="50" AnchorPane.leftAnchor="250" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" alignment="CENTER" spacing="20" style="-fx-font-family: 'Century Gothic'">
+            <VBox alignment="CENTER" spacing="5" minHeight="500" minWidth="200" maxWidth="900" maxHeight="700" style="-fx-background-color: white">
+                <VBox spacing="20" alignment="CENTER" styleClass="ranking-container" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="20">
+
+                    <Label text="Ranking" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #333;"/>
+
+                    <Label text="Semana 1 - Agosto 2024" style="-fx-font-size: 14; -fx-text-fill: #777;"/>
+
+                    <GridPane hgap="20" vgap="10" style="-fx-padding: 10;" alignment="CENTER">
+                        <!-- Primera columna -->
+                        <VBox alignment="TOP_LEFT" GridPane.columnIndex="0" spacing="10">
+                            <HBox alignment="CENTER_LEFT" spacing="10" styleClass="ranking-item">
+                                <Label text="1°" style="-fx-font-size: 18; -fx-font-weight: bold"/>
+                                <ImageView fitWidth="50" fitHeight="50" styleClass="profile-picture">
+                                    <Image url="@/amigosBarraNav.png"/>
+                                </ImageView>
+                                <VBox spacing="5">
+                                    <Label text="Elliot Møller" styleClass="name-label" />
+                                    <Label text="Copenhagen, Denmark" styleClass="sub-datos" />
+                                    <Label text="Maestro III" styleClass="sub-datos" />
+                                </VBox>
+                                <VBox alignment="CENTER_RIGHT" spacing="5" HBox.hgrow="ALWAYS">
+                                    <ProgressBar progress="0.9" style="-fx-accent: #28A745;" styleClass="progress-bar" />
+                                    <Label text="4723 Puntos" styleClass="points-label" />
+                                </VBox>
+                            </HBox>
+
+                            <HBox alignment="CENTER_LEFT" spacing="10" styleClass="ranking-item">
+                                <Label text="3°" style="-fx-font-size: 18; -fx-font-weight: bold"/>
+                                <ImageView fitWidth="50" fitHeight="50" styleClass="profile-picture">
+                                    <Image url="@/amigosBarraNav.png"/>
+                                </ImageView>
+                                <VBox spacing="5">
+                                    <Label text="Olivia Pedersen" styleClass="name-label" />
+                                    <Label text="Copenhagen, Denmark" styleClass="sub-datos" />
+                                    <Label text="Profesional" styleClass="sub-datos" />
+                                </VBox>
+                                <VBox alignment="CENTER_RIGHT" spacing="5" HBox.hgrow="ALWAYS">
+                                    <ProgressBar progress="0.5" style="-fx-accent: #1e63e8;" styleClass="progress-bar" />
+                                    <Label text="2339 Puntos" styleClass="points-label" />
+                                </VBox>
+                            </HBox>
+
+                            <HBox alignment="CENTER_LEFT" spacing="10" styleClass="ranking-item">
+                                <Label text="5°" style="-fx-font-size: 18; -fx-font-weight: bold"/>
+                                <ImageView fitWidth="50" fitHeight="50" styleClass="profile-picture">
+                                    <Image url="@/amigosBarraNav.png"/>
+                                </ImageView>
+                                <VBox spacing="5">
+                                    <Label text="Niklas Doring" styleClass="name-label" />
+                                    <Label text="Berlin, Germany" styleClass="sub-datos" />
+                                    <Label text="Aficionado" styleClass="sub-datos" />
+                                </VBox>
+                                <VBox alignment="CENTER_RIGHT" spacing="5" HBox.hgrow="ALWAYS">
+                                    <ProgressBar progress="0.3" style="-fx-accent: #8e2ac0;" styleClass="progress-bar" />
+                                    <Label text="1884 Puntos" styleClass="points-label" />
+                                </VBox>
+                            </HBox>
+                        </VBox>
+
+                        <!-- Segunda columna -->
+                        <VBox alignment="TOP_RIGHT" GridPane.columnIndex="1" spacing="10">
+                            <HBox alignment="CENTER_LEFT" spacing="10" styleClass="ranking-item">
+                                <Label text="2°" style="-fx-font-size: 18; -fx-font-weight: bold"/>
+                                <ImageView fitWidth="50" fitHeight="50" styleClass="profile-picture">
+                                    <Image url="@/amigosBarraNav.png"/>
+                                </ImageView>
+                                <VBox spacing="5">
+                                    <Label text="Elliot Møller" styleClass="name-label" />
+                                    <Label text="Copenhagen, Denmark" styleClass="sub-datos" />
+                                    <Label text="Maestro III" styleClass="sub-datos" />
+                                </VBox>
+                                <VBox alignment="CENTER_RIGHT" spacing="5" HBox.hgrow="ALWAYS">
+                                    <ProgressBar progress="0.9" style="-fx-accent: #28A745;" styleClass="progress-bar" />
+                                    <Label text="4723 Puntos" styleClass="points-label" />
+                                </VBox>
+                            </HBox>
+
+                            <HBox alignment="CENTER_LEFT" spacing="10" styleClass="ranking-item">
+                                <Label text="4°" style="-fx-font-size: 18; -fx-font-weight: bold"/>
+                                <ImageView fitWidth="50" fitHeight="50" styleClass="profile-picture">
+                                    <Image url="@/amigosBarraNav.png"/>
+                                </ImageView>
+                                <VBox spacing="5">
+                                    <Label text="Olivia Pedersen" styleClass="name-label" />
+                                    <Label text="Copenhagen, Denmark" styleClass="sub-datos" />
+                                    <Label text="Profesional" styleClass="sub-datos" />
+                                </VBox>
+                                <VBox alignment="CENTER_RIGHT" spacing="5" HBox.hgrow="ALWAYS">
+                                    <ProgressBar progress="0.5" style="-fx-accent: #1e63e8;" styleClass="progress-bar" />
+                                    <Label text="2339 Puntos" styleClass="points-label" />
+                                </VBox>
+                            </HBox>
+
+                            <HBox alignment="CENTER_LEFT" spacing="10" styleClass="ranking-item">
+                                <Label text="6°" style="-fx-font-size: 18; -fx-font-weight: bold"/>
+                                <ImageView fitWidth="50" fitHeight="50" styleClass="profile-picture">
+                                    <Image url="@/amigosBarraNav.png"/>
+                                </ImageView>
+                                <VBox spacing="5">
+                                    <Label text="Niklas Doring" styleClass="name-label" />
+                                    <Label text="Berlin, Germany" styleClass="sub-datos" />
+                                    <Label text="Aficionado" styleClass="sub-datos" />
+                                </VBox>
+                                <VBox alignment="CENTER_RIGHT" spacing="5" HBox.hgrow="ALWAYS">
+                                    <ProgressBar progress="0.3" style="-fx-accent: #8e2ac0;" styleClass="progress-bar" />
+                                    <Label text="1884 Puntos" styleClass="points-label" />
+                                </VBox>
+                            </HBox>
+                        </VBox>
+                    </GridPane>
+                </VBox>
+            </VBox>
+        </VBox>
+    </VBox>
+</AnchorPane>

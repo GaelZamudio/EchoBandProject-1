@@ -61,6 +61,8 @@
     -fx-text-fill: #333;
 }
 
+/**/
+
 .card-container {
     -fx-spacing: 20;
     -fx-padding: 20 0;
@@ -118,6 +120,8 @@
     -fx-text-fill: #666;
 }
 
+/**/
+
 .foto-deperfil {
     -fx-pref-width: 1160;
     -fx-pref-height: 200;
@@ -127,7 +131,6 @@
 .cajaancha {
     -fx-pref-width: 1160;
     -fx-pref-height: 302.39;
-
 }
 
 .elmascrack {
@@ -144,40 +147,94 @@
     -fx-padding: 0 0 5 0;
 }
 
-.input-label {
-    -fx-font-size: 13px;
+.desafioBoton {
+    -fx-background-radius: 9;
+    -fx-background-color: #266a88;
+    -fx-text-fill: white;
+    -fx-min-width: 150px;
+    -fx-padding: 10px;
+    -fx-cursor: hand;
     -fx-font-weight: bold;
-    -fx-text-fill: #666666;
-    -fx-padding: 0 0 5 0;
 }
 
-.input-field {
-    -fx-padding: 8;
-    -fx-background-color: #ffffff;
-    -fx-border-color: #cccccc;
-    -fx-border-width: 1;
-    -fx-border-radius: 5;
+.scroll-pane .scroll-bar:vertical {
+    -fx-padding: 10;
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .scroll-bar .thumb {
+    -fx-background-color: #22566C;
     -fx-background-radius: 5;
-    -fx-font-size: 14px;
-    -fx-prompt-text-fill: #b0bec5;
-    -jfx-focus-color: #03a9f4;
-    -jfx-unfocus-color: #cccccc;
 }
 
-.custom-toggle {
-    -fx-background-color: #dcdcdc;
+.scroll-pane .scroll-bar .track {
+    -fx-background-color: #E0E0E0;
+    -fx-background-radius: 5;
+}
+
+.ranking-container {
+    -fx-background-color: #f9f9f9;
+    -fx-padding: 20;
+    -fx-background-radius: 10;
+}
+
+.ranking-item {
+    -fx-background-color: #ffffff;
+    -fx-padding: 15;
+    -fx-border-color: #dddddd;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+    -fx-min-height: 110px;
+    -fx-min-width: 400px;
+    -fx-max-width: 600px;
+    -fx-background-radius: 8;
+}
+
+.primer-lugar{
+    -fx-background-color: #ff9a6c;
+    -fx-padding: 20;
+    -fx-border-color: #ff6548;
+    -fx-border-width: 2;
+    -fx-border-radius: 10;
+    -fx-min-width: 400px;
+    -fx-max-width: 600px;
+    -fx-background-radius: 10;
+}
+
+.progress-bar {
+    -fx-pref-height: 15;
+    -fx-pref-width: 100;
+    -fx-background-color: #eeeeee;
+    -fx-border-radius: 4;
+}
+
+.barra-winner {
+    -fx-pref-height: 25;
+    -fx-pref-width: 200;
+    -fx-background-color: #ff9a6c;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+}
+
+.profile-picture {
+    -fx-border-radius: 25;
+    -fx-background-radius: 25;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 5, 0.5, 0, 0);
+}
+
+.name-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
     -fx-text-fill: #333;
 }
 
-.custom-toggle:selected {
-    -fx-background-color: #80c1ff;
-    -fx-text-fill: white;
+.sub-datos {
+    -fx-font-size: 14px;
+    -fx-text-fill: #777;
 }
 
-.custom-toggle:hover {
-    -fx-background-color: #b3e0ff;
-}
-
-.padding-top {
-    -fx-padding: 20 0 0 0;
+.points-label {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #333;
 }

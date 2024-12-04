@@ -36,7 +36,7 @@
                 </ImageView>
             </graphic>
         </MFXButton>
-        <MFXButton fx:id="amigos" text="Amigos" styleClass="nav-button">
+        <MFXButton fx:id="amigos" text="Amigos" styleClass="nav-button" onMouseClicked="#irAAmigos">
             <graphic>
                 <ImageView fitWidth="20" fitHeight="20">
                     <Image url="@/amigosBarraNav.png"/>
@@ -50,7 +50,7 @@
                 </ImageView>
             </graphic>
         </MFXButton>
-        <MFXButton fx:id="liga" text="Liga" styleClass="nav-button">
+        <MFXButton fx:id="liga" text="Liga" styleClass="nav-button" onMouseClicked="#irALiga">
             <graphic>
                 <ImageView fitWidth="20" fitHeight="20">
                     <Image url="@/ligaBarraNav.png"/>
@@ -77,8 +77,7 @@
         <Label text="Hola de nuevo, Juanito" style="-fx-font-size: 32" styleClass="title"/>
 
         <HBox spacing="30" alignment="CENTER">
-            <MFXButton fx:id="calor" prefWidth="200" prefHeight="160" styleClass="buttonEntrenar" style="-fx-background-color: white" onMouseClicked="#irACalor"
-            >
+            <MFXButton fx:id="calor" prefWidth="200" prefHeight="160" styleClass="buttonEntrenar" style="-fx-background-color: white" onMouseClicked="#irACalor">
                 <graphic>
                     <VBox spacing="5" alignment="CENTER_LEFT">
                         <ImageView fitWidth="44" fitHeight="44" preserveRatio="false">
@@ -114,7 +113,7 @@
                 </graphic>
             </MFXButton>
 
-            <MFXButton fx:id="progresando" prefWidth="200" prefHeight="160" styleClass="buttonEntrenar" style="-fx-background-color: white; -fx-alignment: LEFT">
+            <MFXButton fx:id="progresando" prefWidth="200" prefHeight="160" styleClass="buttonEntrenar" style="-fx-background-color: white; -fx-alignment: LEFT" onMouseClicked="#irAProgresando">
                 <graphic>
                     <VBox spacing="5" alignment="TOP_LEFT">
                         <ImageView fitWidth="44" fitHeight="44" preserveRatio="false">

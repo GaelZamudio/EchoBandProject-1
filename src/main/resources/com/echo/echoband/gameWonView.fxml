@@ -24,14 +24,14 @@
                 <Label text="+25 pts a tu perfil" style=" -fx-alignment: center;-fx-text-fill: #999999; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18"/>
             </VBox>
             <HBox spacing="20" alignment="CENTER">
-                <MFXButton fx:id="inicio" alignment="CENTER" prefWidth="140" prefHeight="40" style="-fx-background-color: #C1EDFF; -fx-font-weight: bold; -fx-text-fill: #000000; -fx-background-radius: 5;" onMouseClicked="#irAInicio">
+                <MFXButton fx:id="inicio" alignment="CENTER" prefWidth="140" prefHeight="40" style="-fx-background-color: #C1EDFF; -fx-font-weight: bold; -fx-text-fill: #000000; -fx-background-radius: 5; -fx-cursor: hand;" onMouseClicked="#irAInicio">
                     <graphic>
                         <VBox spacing="5" alignment="CENTER">
                             <Label text="Volver al inicio" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 16;"/>
                         </VBox>
                     </graphic>
                 </MFXButton>
-                <MFXButton fx:id="jugar" alignment="CENTER" prefWidth="160" prefHeight="40" style="-fx-background-color: #76B5CF; -fx-font-weight: bold; -fx-background-radius: 5;" onMouseClicked="#irASiguiente">
+                <MFXButton fx:id="jugar" alignment="CENTER" prefWidth="160" prefHeight="40" style="-fx-background-color: #76B5CF; -fx-font-weight: bold; -fx-background-radius: 5; -fx-cursor: hand;" onMouseClicked="#irASiguiente">
                     <graphic>
                         <VBox spacing="5" alignment="CENTER">
                             <Label text="Siguiente ejercicio" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 16; -fx-text-fill: white;"/>
