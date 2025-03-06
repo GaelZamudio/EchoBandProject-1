@@ -105,14 +105,14 @@ public class SimonSaysController {
                 }
             }, finalDelay);
 
-            delay += 1200;
+            delay += 650;
 
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
                     Platform.runLater(() -> instructionsText.setText(""));
                 }
-            }, finalDelay + 700);
+            }, finalDelay + 150);
         }
 
         timer.schedule(new TimerTask() {
@@ -154,7 +154,7 @@ public class SimonSaysController {
                     public void run() {
                         nextRound();
                     }
-                }, 3000);
+                }, 1500);
             }
         }
     }
