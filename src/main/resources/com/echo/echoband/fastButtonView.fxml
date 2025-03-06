@@ -9,7 +9,6 @@
     <VBox minHeight="150" minWidth="800" maxWidth="1000" maxHeight="600" alignment="CENTER" spacing="30"
           style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-padding: 20;"
           AnchorPane.leftAnchor="100" AnchorPane.rightAnchor="100" AnchorPane.topAnchor="50" AnchorPane.bottomAnchor="50">
-
         <GridPane alignment="CENTER" hgap="20" vgap="20">
             <StackPane GridPane.rowIndex="0" GridPane.columnIndex="0">
                 <Label text="PRESIONA EL BOTÓN 'Estoy Listo' EN CUANTO ESTÉS LISTO" layoutX="250" layoutY="300" style="-fx-font-size: 30; -fx-font-weight: bold"/>
@@ -27,6 +26,7 @@
                 <Label fx:id="timeLabel" text="Tiempo de reacción: 0.00" layoutX="250" layoutY="300" style="-fx-font-size: 20;"/>
             </StackPane>
         </GridPane>
+        <Label text="Ejercicio 4: Progresando.        Aprieta el botón en cuanto se encienda lo más rapido posible." style="-fx-text-fill: #999999; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 15"/>
     </VBox>
 </AnchorPane>
 

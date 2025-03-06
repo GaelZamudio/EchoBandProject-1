@@ -55,74 +55,14 @@
     -fx-background-color: #1b4c5a;
 }
 
+.nav-button.active {
+    -fx-background-color: red;
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+}
+
 .title {
     -fx-font-size: 32px;
     -fx-font-weight: bold;
     -fx-text-fill: #333;
-}
-
-/*---------------------------------------------------------------------------------------------*/
-.card-container {
-    -fx-spacing: 20;
-    -fx-padding: 20 0;
-}
-
-.card {
-    -fx-background-color: #f5f5f5;
-    -fx-padding: 20;
-    -fx-background-radius: 10;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.5, 0, 4);
-    -fx-pref-width: 150;
-    -fx-pref-height: 100;
-}
-
-.card-title {
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #333;
-}
-
-.card-content {
-    -fx-font-size: 12px;
-    -fx-text-fill: #666;
-}
-
-.card-button {
-    -fx-background-radius: 10;
-    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 5, 0.5, 0, 4);
-    -fx-pref-width: 200;
-    -fx-pref-height: 200;
-    -fx-padding: 0;
-    -fx-alignment: center;
-    -fx-background-color: transparent;
-    -fx-border-color: transparent;
-}
-
-.card-button:hover {
-    -fx-background-color: #e0e0e0;
-    -fx-cursor: hand;
-}
-
-.card-button:pressed {
-    -fx-background-color: #d1d1d1;
-}
-
-.card-title {
-    -fx-font-size: 16px;
-    -fx-font-weight: bold;
-    -fx-text-fill: #333;
-}
-
-.card-content {
-    -fx-font-size: 12px;
-    -fx-text-fill: #666;
-}
-
-.cajaancha {
-    -fx-pref-width: 1160;
-    -fx-pref-height: 302.39;
-}
-
-.iniciarEjercicio{
-    -fx-cursor: hand;
 }

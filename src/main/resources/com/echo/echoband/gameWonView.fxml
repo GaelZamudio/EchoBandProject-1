@@ -12,9 +12,9 @@
         <Label text="¡Ejercicio completado!" styleClass="title" />
 
         <VBox spacing="50" minHeight="500" minWidth="900" maxWidth="900" maxHeight="500" style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-padding: 10;">
-            <Label text="- Nivel máximo de concentración: 134 ¡Nuevo récord!" style=" -fx-alignment: left; -fx-text-fill: #999999; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18" />
-            <Label text="- Nivel más bajo de concentración: 65" style=" -fx-alignment: left;-fx-text-fill: #999999; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18"/>
-            <Label text="- Concentración promedio: 100" style=" -fx-alignment: left;-fx-text-fill: #999999; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18"/>
+            <Label text="- Nivel máximo de concentración: 134 ¡Nuevo récord!" style="-fx-text-fill: #999999; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18" />
+            <Label text="- Nivel más bajo de concentración: 65" style="-fx-text-fill: #999999; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18"/>
+            <Label text="- Concentración promedio: 100" style="-fx-text-fill: #999999; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18"/>
             <VBox alignment="CENTER">
                 <HBox alignment="CENTER">
                     <Label text="Nivel completado con " style=" -fx-alignment: center;-fx-text-fill: #999999; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18"/>
@@ -24,17 +24,17 @@
                 <Label text="+25 pts a tu perfil" style=" -fx-alignment: center;-fx-text-fill: #999999; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18"/>
             </VBox>
             <HBox spacing="20" alignment="CENTER">
-                <MFXButton fx:id="inicio" alignment="CENTER" prefWidth="140" prefHeight="40" style="-fx-background-color: #C1EDFF; -fx-font-weight: bold; -fx-text-fill: #000000; -fx-background-radius: 5; -fx-cursor: hand;" onMouseClicked="#irAInicio">
+                <MFXButton fx:id="btnInicio" alignment="CENTER" prefWidth="170" prefHeight="40" style="-fx-background-color: #C1EDFF; -fx-font-weight: bold; -fx-text-fill: #000000; -fx-background-radius: 5; -fx-cursor: hand;">
                     <graphic>
                         <VBox spacing="5" alignment="CENTER">
-                            <Label text="Volver al inicio" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 16;"/>
+                            <Label text="Mira tus estadísticas" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 16;"/>
                         </VBox>
                     </graphic>
                 </MFXButton>
-                <MFXButton fx:id="jugar" alignment="CENTER" prefWidth="160" prefHeight="40" style="-fx-background-color: #76B5CF; -fx-font-weight: bold; -fx-background-radius: 5; -fx-cursor: hand;" onMouseClicked="#irASiguiente">
+                <MFXButton fx:id="btnJugar" alignment="CENTER" prefWidth="170" prefHeight="40" style="-fx-background-color: #76B5CF; -fx-font-weight: bold; -fx-background-radius: 5; -fx-cursor: hand;">
                     <graphic>
                         <VBox spacing="5" alignment="CENTER">
-                            <Label text="Siguiente ejercicio" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 16; -fx-text-fill: white;"/>
+                            <Label text="Juega otro ejercicio" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 16; -fx-text-fill: white;"/>
                         </VBox>
                     </graphic>
                 </MFXButton>

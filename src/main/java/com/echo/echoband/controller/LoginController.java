@@ -31,40 +31,35 @@ public class LoginController implements Initializable {
     @FXML private MFXPasswordField fieldcontrasena;
     @FXML private Label labelusuario;
     @FXML private Label labelcontrasena;
-    @FXML private MFXButton botoniniciar;
+    @FXML private MFXButton btnIniciar;
+    private MainController mainController;
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        BooleanBinding camposValidos = fieldusuario.textProperty().isNotEmpty()
-                .and(fieldcontrasena.textProperty().isNotEmpty());
-
-        botoniniciar.disableProperty().bind(camposValidos.not());
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
     }
 
-    @FXML
-    public void irAMenu() {
-        try {
-            Stage stage = (Stage) botoniniciar.getScene().getWindow();
-            LogIn app = new LogIn();
-            stage.setTitle("Entrenamiento");
-
-            app.cambiarEscena(stage, "/com/echo/echoband/trainingView.fxml");
-
-            Scene scene = stage.getScene();
-            scene.getStylesheets().clear();
-            scene.getStylesheets().add(LogIn.class.getResource("/com/echo/echoband/trainingStyle.css").toExternalForm());
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error al cargar trainingView.fxml");
+    private void cambiarVista(String fxmlFile, String cssFile, boolean mostrarSidebar) {
+        if (mainController != null) {
+            mainController.showScreen(fxmlFile, cssFile, mostrarSidebar);
+        } else {
+            System.err.println("❌ ERROR: MainController es null.");
         }
     }
 
-    public void irASignUp() throws IOException {
-        Stage stage = (Stage) txtcrear.getScene().getWindow();
-        LogIn app = new LogIn();
-        app.cambiarEscena(stage, "signUpView.fxml");
-        stage.setTitle("Sign Up");
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        if (txtcrear != null) {
+            txtcrear.setOnMouseClicked(e -> cambiarVista("/com/echo/echoband/signUpView.fxml", "/com/echo/echoband/signUpStyle.css", false));
+        }
+        if (btnIniciar != null) {
+            btnIniciar.setOnAction(e -> cambiarVista("/com/echo/echoband/trainingView.fxml", "/com/echo/echoband/trainingStyle.css", true));
+        }
+
+        BooleanBinding camposValidos = fieldusuario.textProperty().isNotEmpty()
+                .and(fieldcontrasena.textProperty().isNotEmpty());
+
+        btnIniciar.disableProperty().bind(camposValidos.not());
     }
 
     //Métodos para la BD
@@ -98,7 +93,9 @@ public class LoginController implements Initializable {
                     System.out.println("Perfil de " + nomReal + " " + apPat);
                     System.out.println("ID del usuario: " + idDatos);
 
-                    irAMenu(); // Si el login es exitoso, ir al menú
+                    if (btnIniciar != null) {
+                        btnIniciar.setOnAction(e -> cambiarVista("/com/echo/echoband/trainingView.fxml", "/com/echo/echoband/trainingStyle.css", true));
+                    } // Si el login es exitoso, ir al menú
                 } else {
                     JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
                 }

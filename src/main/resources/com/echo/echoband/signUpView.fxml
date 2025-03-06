@@ -15,7 +15,7 @@
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.echo.echoband.controller.SignUpController">
 
-    <ImageView fitHeight="Infinity" fitWidth="600.0" preserveRatio="true"
+    <ImageView fitHeight="800.0" fitWidth="600.0" preserveRatio="true"
                AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0">
             <Image url="@/imgSignUp.jpg"/>
     </ImageView>
@@ -54,11 +54,11 @@
 
         <MFXCheckbox fx:id="checkterminos" text="Acepto los términos y condiciones"/>
 
-        <MFXButton fx:id="botoncrear" text="Crear cuenta" onMouseClicked="#registrar" disable="true"/>
+        <MFXButton fx:id="btnCrear" text="Crear cuenta" onMouseClicked="#registrar" disable="true"/>
 
         <TextFlow textAlignment="CENTER">
             <Text style="-fx-font-size: 12px;" text="¿Ya tienes una cuenta? " />
-            <Text fx:id="txtiniciar" onMouseClicked="#irALogIn" styleClass="textoPicar" text="Inicia sesión" />
+            <Text fx:id="txtiniciar" styleClass="textoPicar" text="Inicia sesión" />
         </TextFlow>
     </VBox>
 </AnchorPane>

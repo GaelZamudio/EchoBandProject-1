@@ -3,11 +3,9 @@ package com.echo.echoband.controller;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import javafx.fxml.FXML;
 
-public class GameWonController {
+public class InstruccionesController {
 
-    @FXML private MFXButton btnInicio;
-    @FXML private MFXButton btnJugar;
-
+    @FXML private MFXButton btnMemorama, btnReflejos, btnSimon;
     private MainController mainController;
 
     public void setMainController(MainController mainController) {
@@ -16,11 +14,14 @@ public class GameWonController {
 
     @FXML
     public void initialize() {
-        if (btnInicio != null) {
-            btnInicio.setOnAction(e -> cambiarVista("/com/echo/echoband/statisticsView.fxml", "/com/echo/echoband/statisticsStyle.css", true));
+        if (btnMemorama != null) {
+            btnMemorama.setOnAction(e -> cambiarVista("/com/echo/echoband/memoryView.fxml", "/com/echo/echoband/memoryStyle.css", false));
         }
-        if (btnJugar != null) {
-            btnJugar.setOnAction(e -> cambiarVista("/com/echo/echoband/trainingView.fxml", "/com/echo/echoband/trainingStyle.css", true));
+        if (btnReflejos != null) {
+            btnReflejos.setOnAction(e -> cambiarVista("/com/echo/echoband/fastButtonView.fxml", "/com/echo/echoband/fastButtonStyle.css", false));
+        }
+        if (btnSimon != null) {
+            btnSimon.setOnAction(e -> cambiarVista("/com/echo/echoband/simonSaysView.fxml", "/com/echo/echoband/simonSaysStyle.css", false));
         }
     }
 

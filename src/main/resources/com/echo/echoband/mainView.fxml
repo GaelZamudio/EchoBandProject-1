@@ -1,0 +1,19 @@
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.StackPane?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.echo.echoband.controller.MainController"
+            fx:id="mainLayout">
+
+    <!-- Aquí se carga la barra lateral -->
+    <left>
+        <fx:include source="sidebarView.fxml"/>
+    </left>
+
+    <!-- Aquí se cargarán dinámicamente las vistas -->
+    <center>
+        <StackPane fx:id="contentPane"/>
+    </center>
+
+</BorderPane>

@@ -21,6 +21,12 @@ public class FastButtonController {
     @FXML private Circle greenLight;
     @FXML private Label timeLabel;
 
+    private MainController mainController;
+
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
+    }
+
     private Timeline countdownTimer;
     private Timeline lightTimer;
     private double timeElapsed = 0.0;
@@ -81,20 +87,16 @@ public class FastButtonController {
             timeLabel.setText("¡Te adelantaste! Espera a la luz verde.");
         }
     }
+
     private void changeToGameWonScene() {
-        try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/echo/echoband/gameWonView.fxml"));
-            Scene scene = new Scene(loader.load());
+        cambiarVista("/com/echo/echoband/gameWonView.fxml", "/com/echo/echoband/gameWonStyle.css", false);
+    }
 
-            String css = getClass().getResource("/com/echo/echoband/gameWonStyle.css").toExternalForm();
-            scene.getStylesheets().add(css);
-
-            Stage stage = (Stage) startButton.getScene().getWindow();
-            stage.setScene(scene);
-            stage.setFullScreen(true);
-            stage.show();
-        } catch (IOException e) {
-            e.printStackTrace();
+    private void cambiarVista(String fxmlFile, String cssFile, boolean mostrarSidebar) {
+        if (mainController != null) {
+            mainController.showScreen(fxmlFile, cssFile, mostrarSidebar);
+        } else {
+            System.err.println("❌ ERROR: MainController es null.");
         }
     }
 }

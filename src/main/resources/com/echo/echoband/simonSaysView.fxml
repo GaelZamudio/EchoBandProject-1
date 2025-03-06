@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.echo.echoband.controller.SimonSaysController" style="-fx-background-color: #F7F7F7">
+    <VBox minHeight="150" minWidth="800" maxWidth="1000" maxHeight="600" alignment="CENTER" spacing="30"
+          style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-padding: 20;"
+          AnchorPane.leftAnchor="100" AnchorPane.rightAnchor="100" AnchorPane.topAnchor="50" AnchorPane.bottomAnchor="50">
+
+        <Label fx:id="instructionsText" text="Instrucciones" style="-fx-font-size: 25px; -fx-fill: black;"/>
+        <Label fx:id="ronda" text="Ronda: 1" style="-fx-font-size: 23px; -fx-fill: black;"/>
+
+        <GridPane alignment="CENTER" hgap="20" vgap="20">
+            <ImageView fx:id="upArrow" fitWidth="150" fitHeight="150" GridPane.columnIndex="1" style="-fx-cursor: hand;"/>
+            <ImageView fx:id="leftArrow" fitWidth="150" fitHeight="150" GridPane.rowIndex="1" GridPane.columnIndex="0" style="-fx-cursor: hand;"/>
+            <ImageView fx:id="downArrow" fitWidth="150" fitHeight="150" GridPane.rowIndex="1" GridPane.columnIndex="1" style="-fx-cursor: hand;"/>
+            <ImageView fx:id="rightArrow" fitWidth="150" fitHeight="150" GridPane.rowIndex="1" GridPane.columnIndex="2" style="-fx-cursor: hand;"/>
+        </GridPane>
+        <Label text="Ejercicio 5: Concéntrate.        Llega lo más lejos posible." style="-fx-text-fill: #999999; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 15"/>
+    </VBox>
+</AnchorPane>

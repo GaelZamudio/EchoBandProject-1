@@ -9,31 +9,30 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class LostGameController {
-    @FXML private MFXButton inicio;
-    @FXML private MFXButton jugar;
+    @FXML private MFXButton btnInicio;
+    @FXML private MFXButton btnJugar;
 
-    public void irAInicio() throws IOException {
-        Stage stage = (Stage) inicio.getScene().getWindow();
-        LostGame app = new LostGame();
-        app.cambiarEscena(stage, "trainingView.fxml");
-        stage.setTitle("Entrenamiento");
+    private MainController mainController;
+
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
     }
 
-    public void irAVolverAJugar() throws IOException {
-        try {
-            Stage stage = (Stage) jugar.getScene().getWindow();
-            LostGame app = new LostGame();
-            stage.setTitle("Entrar en Calor");
+    @FXML
+    public void initialize() {
+        if (btnInicio != null) {
+            btnInicio.setOnAction(e -> cambiarVista("/com/echo/echoband/statisticsView.fxml", "/com/echo/echoband/statisticsStyle.css", true));
+        }
+        if (btnJugar != null) {
+            btnJugar.setOnAction(e -> cambiarVista("/com/echo/echoband/trainingView.fxml", "/com/echo/echoband/trainingStyle.css", true));
+        }
+    }
 
-            app.cambiarEscena(stage, "/com/echo/echoband/entrarEnCalorView.fxml");
-
-            Scene scene = stage.getScene();
-            scene.getStylesheets().clear();
-            scene.getStylesheets().add(LostGame.class.getResource("/com/echo/echoband/entrarEnCalorStyle.css").toExternalForm());
-
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error al cargar entrarEnCalorView.fxml");
+    private void cambiarVista(String fxmlFile, String cssFile, boolean mostrarSidebar) {
+        if (mainController != null) {
+            mainController.showScreen(fxmlFile, cssFile, mostrarSidebar);
+        } else {
+            System.err.println("❌ ERROR: MainController es null.");
         }
     }
 }

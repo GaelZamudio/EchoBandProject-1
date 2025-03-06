@@ -10,17 +10,17 @@
           AnchorPane.leftAnchor="300" AnchorPane.rightAnchor="300" AnchorPane.topAnchor="300" AnchorPane.bottomAnchor="300">
         <Label text="¡Tu concentración ha tenido una caída drástica!" styleClass="title" />
             <HBox spacing="20" alignment="CENTER">
-                <MFXButton fx:id="inicio" alignment="CENTER" prefWidth="140" prefHeight="40" style="-fx-background-color: #C1EDFF; -fx-font-weight: bold; -fx-text-fill: #000000; -fx-background-radius: 5;" onMouseClicked="#irAInicio">
+                <MFXButton fx:id="btnInicio" alignment="CENTER" prefWidth="170" prefHeight="40" style="-fx-background-color: #C1EDFF; -fx-font-weight: bold; -fx-text-fill: #000000; -fx-background-radius: 5;">
                     <graphic>
                         <VBox spacing="5" alignment="CENTER">
-                            <Label text="Volver al inicio" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 16;"/>
+                            <Label text="Mira tus estadísticas" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 16;"/>
                         </VBox>
                     </graphic>
                 </MFXButton>
-                <MFXButton fx:id="jugar" alignment="CENTER" prefWidth="160" prefHeight="40" style="-fx-background-color: #76B5CF; -fx-font-weight: bold; -fx-background-radius: 5;" onMouseClicked="#irAVolverAJugar">
+                <MFXButton fx:id="btnJugar" alignment="CENTER" prefWidth="170" prefHeight="40" style="-fx-background-color: #76B5CF; -fx-font-weight: bold; -fx-background-radius: 5;">
                     <graphic>
                         <VBox spacing="5" alignment="CENTER">
-                            <Label text="Inténtalo de nuevo" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 16; -fx-text-fill: white;"/>
+                            <Label text="Juega otro ejercicio" style="-fx-font-family: 'Century Gothic'; -fx-font-size: 16; -fx-text-fill: white;"/>
                         </VBox>
                     </graphic>
                 </MFXButton>

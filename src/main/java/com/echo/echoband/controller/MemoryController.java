@@ -5,13 +5,9 @@ import javafx.animation.KeyFrame;
 import javafx.animation.PauseTransition;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
 import javafx.util.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -19,25 +15,13 @@ import java.util.List;
 
 public class MemoryController {
 
-    @FXML private ImageView image00;
-    @FXML private ImageView image01;
-    @FXML private ImageView image02;
-    @FXML private ImageView image03;
-    @FXML private ImageView image04;
-    @FXML private ImageView image05;
-    @FXML private ImageView image10;
-    @FXML private ImageView image11;
-    @FXML private ImageView image12;
-    @FXML private ImageView image13;
-    @FXML private ImageView image14;
-    @FXML private ImageView image15;
-    @FXML private ImageView image20;
-    @FXML private ImageView image21;
-    @FXML private ImageView image22;
-    @FXML private ImageView image23;
-    @FXML private ImageView image24;
-    @FXML private ImageView image25;
+    @FXML private ImageView image00, image01, image02, image03, image04, image05, image10, image11, image12, image13, image14, image15, image20, image21, image22, image23, image24, image25;
     @FXML private Label timeRemainingLabel;
+    private MainController mainController;
+
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
+    }
 
     private Image[] frontImages = {
             new Image("entremosencalorEntrenar19.jpg"),
@@ -108,7 +92,7 @@ public class MemoryController {
             if (timeRemaining <= 0) {
                 countdownTimeline.stop();
                 System.out.println("El tiempo se ha acabado, cambiando a lostGameView");
-                switchToView("/com/echo/echoband/lostGameView");
+                cambiarVista("/com/echo/echoband/lostGameView.fxml", "/com/echo/echoband/lostGameStyle.css", false);
             }
         }));
         countdownTimeline.setCycleCount(Timeline.INDEFINITE);
@@ -164,7 +148,6 @@ public class MemoryController {
         }
     }
 
-
     private void hideCards(int index1, int index2) {
         firstFlippedIndex = -1;
         secondFlippedIndex = -1;
@@ -178,8 +161,8 @@ public class MemoryController {
         }
         if (allFlipped && timeRemaining > 0) {
             countdownTimeline.stop();
-            System.out.println("Juego completo, cambiando a viewEntrenar4");
-            switchToView("/com/echo/echoband/gameWonView");
+            System.out.println("Juego completo, cambiando a gameWon");
+            cambiarVista("/com/echo/echoband/gameWonView.fxml", "/com/echo/echoband/gameWonStyle.css", false);
         }
     }
 
@@ -192,20 +175,11 @@ public class MemoryController {
         secondFlippedIndex = -1;
     }
 
-    private void switchToView(String viewName) {
-        try {
-            Parent root = FXMLLoader.load(getClass().getResource(viewName + ".fxml"));
-            Scene scene = new Scene(root);
-
-            String css = getClass().getResource("/com/echo/echoband/lostGameStyle.css").toExternalForm();
-            scene.getStylesheets().add(css);
-
-            Stage stage = (Stage) timeRemainingLabel.getScene().getWindow();
-            stage.setScene(scene);
-            stage.setFullScreen(true);
-            stage.show();
-        } catch (Exception e) {
-            e.printStackTrace();
+    private void cambiarVista(String fxmlFile, String cssFile, boolean mostrarSidebar) {
+        if (mainController != null) {
+            mainController.showScreen(fxmlFile, cssFile, mostrarSidebar);
+        } else {
+            System.err.println("❌ ERROR: MainController es null.");
         }
     }
 }

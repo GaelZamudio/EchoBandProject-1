@@ -1,108 +1,35 @@
 package com.echo.echoband.controller;
 
-import com.echo.echoband.Training;
 import io.github.palexdev.materialfx.controls.MFXButton;
-import javafx.application.Platform;
 import javafx.fxml.FXML;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
-
-import java.io.IOException;
 
 public class TrainingController {
 
-    @FXML private MFXButton entrenar;
-    @FXML private MFXButton estadisticas;
-    @FXML private MFXButton amigos;
-    @FXML private MFXButton perfil;
-    @FXML private MFXButton liga;
-    @FXML private MFXButton config;
-    @FXML private MFXButton cerrar;
+    @FXML private MFXButton btnCalor, btnEstrellas, btnCalma, btnProgresando, btnConcentrate, btnDificil;
+    private MainController mainController;
 
-    @FXML private MFXButton calor;
-    @FXML private MFXButton progresando;
-
-    public void irAConfig() throws IOException {
-        Stage stage = (Stage) config.getScene().getWindow();
-        Training app = new Training();
-        app.cambiarEscena(stage, "configurationView.fxml");
-        stage.setTitle("Configuración");
-        Scene scene = stage.getScene();
-        scene.getStylesheets().clear();
-        scene.getStylesheets().add(Training.class.getResource("/com/echo/echoband/configurationStyle.css").toExternalForm());
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
     }
 
-    public void irAAmigos() throws IOException {
-        Stage stage = (Stage) amigos.getScene().getWindow();
-        Training app = new Training();
-        app.cambiarEscena(stage, "friendsView.fxml");
-        stage.setTitle("Amigos");
-        Scene scene = stage.getScene();
-        scene.getStylesheets().clear();
-        scene.getStylesheets().add(Training.class.getResource("/com/echo/echoband/friendsStyle.css").toExternalForm());
+    @FXML
+    public void initialize() {
+        if (btnCalor != null) {
+            btnCalor.setOnAction(e -> cambiarVista("/com/echo/echoband/entrarEnCalorView.fxml", "/com/echo/echoband/entrarEnCalorStyle.css", true));
+        }
+        if (btnProgresando != null) {
+            btnProgresando.setOnAction(e -> cambiarVista("/com/echo/echoband/progresandoView.fxml", "/com/echo/echoband/progresandoStyle.css", true));
+        }
+        if (btnConcentrate != null) {
+            btnConcentrate.setOnAction(e -> cambiarVista("/com/echo/echoband/concentrateView.fxml", "/com/echo/echoband/progresandoStyle.css", true));
+        }
     }
 
-    public void irALiga() throws IOException {
-        Stage stage = (Stage) liga.getScene().getWindow();
-        Training app = new Training();
-        app.cambiarEscena(stage, "leagueView.fxml");
-        stage.setTitle("Liga");
-        Scene scene = stage.getScene();
-        scene.getStylesheets().clear();
-        scene.getStylesheets().add(Training.class.getResource("/com/echo/echoband/leagueStyle.css").toExternalForm());
-    }
-
-    public void irAEntrenar() throws IOException {
-        Stage stage = (Stage) entrenar.getScene().getWindow();
-        Training app = new Training();
-        app.cambiarEscena(stage, "trainingView.fxml");
-        stage.setTitle("Entrenamiento");
-        Scene scene = stage.getScene();
-        scene.getStylesheets().clear();
-        scene.getStylesheets().add(Training.class.getResource("/com/echo/echoband/trainingStyle.css").toExternalForm());
-    }
-
-    public void irAEstadisticas() throws IOException {
-        Stage stage = (Stage) estadisticas.getScene().getWindow();
-        Training app = new Training();
-        app.cambiarEscena(stage, "statisticsView.fxml");
-        stage.setTitle("Estadísticas");
-        Scene scene = stage.getScene();
-        scene.getStylesheets().clear();
-        scene.getStylesheets().add(Training.class.getResource("/com/echo/echoband/statisticsStyle.css").toExternalForm());
-    }
-
-    public void irAPerfil() throws IOException {
-        Stage stage = (Stage) perfil.getScene().getWindow();
-        Training app = new Training();
-        app.cambiarEscena(stage, "userProfileView.fxml");
-        stage.setTitle("Perfil de Usuario");
-        Scene scene = stage.getScene();
-        scene.getStylesheets().clear();
-        scene.getStylesheets().add(Training.class.getResource("/com/echo/echoband/userProfileStyle.css").toExternalForm());
-    }
-
-    public void irALogOut() throws IOException {
-        Platform.exit();
-    }
-
-    public void irACalor() throws IOException {
-        Stage stage = (Stage) calor.getScene().getWindow();
-        Training app = new Training();
-        app.cambiarEscena(stage, "entrarEnCalorView.fxml");
-        stage.setTitle("Entrar en Calor");
-        Scene scene = stage.getScene();
-        scene.getStylesheets().clear();
-        scene.getStylesheets().add(Training.class.getResource("/com/echo/echoband/entrarEnCalorStyle.css").toExternalForm());
-    }
-
-    public void irAProgresando() throws IOException {
-        Stage stage = (Stage) progresando.getScene().getWindow();
-        Training app = new Training();
-        app.cambiarEscena(stage, "progresandoView.fxml");
-        stage.setTitle("Progresando");
-        Scene scene = stage.getScene();
-        scene.getStylesheets().clear();
-        scene.getStylesheets().add(Training.class.getResource("/com/echo/echoband/progresandoStyle.css").toExternalForm());
+    private void cambiarVista(String fxmlFile, String cssFile, boolean mostrarSidebar) {
+        if (mainController != null) {
+            mainController.showScreen(fxmlFile, cssFile, mostrarSidebar);
+        } else {
+            System.err.println("❌ ERROR: MainController es null.");
+        }
     }
 }
