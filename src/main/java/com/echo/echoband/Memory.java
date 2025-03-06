@@ -3,6 +3,7 @@ package com.echo.echoband;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -20,6 +21,7 @@ public class Memory extends Application {
         primaryStage.setFullScreen(true);
         primaryStage.centerOnScreen();
         primaryStage.setScene(scene);
+        primaryStage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
         primaryStage.setTitle("Entrenar");
 
         primaryStage.show();

@@ -2,85 +2,22 @@
 
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.Separator?>
 <?import io.github.palexdev.materialfx.controls.MFXButton?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.StackPane?>
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.echo.echoband.controller.FriendsController">
-    <VBox fx:id="sideBar" styleClass="side-bar" alignment="TOP_CENTER" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="0">
-        <VBox alignment="CENTER" spacing="20" styleClass="profile-section">
-            <StackPane styleClass="profile-image" prefWidth="50" prefHeight="50">
-                <ImageView fitHeight="50" fitWidth="50">
-                    <Image url="@/juanBarraNav.png"/>
-                </ImageView>
-            </StackPane>
-            <Label text="Juanito Pérez" styleClass="profile-name"/>
-        </VBox>
-
-        <Separator styleClass="separator"/>
-        <MFXButton fx:id="entrenar" text="Entrenar" styleClass="nav-button" onMouseClicked="#irAEntrenar">
-            <graphic>
-                <ImageView fitWidth="20" fitHeight="20">
-                    <Image url="@/entrenarBarraNav.png"/>
-                </ImageView>
-            </graphic>
-        </MFXButton>
-        <MFXButton fx:id="estadisticas" text="Estadísticas" styleClass="nav-button" onMouseClicked="#irAEstadisticas">
-            <graphic>
-                <ImageView fitWidth="20" fitHeight="20">
-                    <Image url="@/estadisticasBarraNav.png"/>
-                </ImageView>
-            </graphic>
-        </MFXButton>
-        <MFXButton fx:id="amigos" text="Amigos" style="-fx-font-weight: bold;" styleClass="nav-button" onMouseClicked="#irAAmigos">
-            <graphic>
-                <ImageView fitWidth="20" fitHeight="20">
-                    <Image url="@/amigosBarraNav.png"/>
-                </ImageView>
-            </graphic>
-        </MFXButton>
-        <MFXButton fx:id="perfil" text="Perfil" styleClass="nav-button" onMouseClicked="#irAPerfil">
-            <graphic>
-                <ImageView fitWidth="20" fitHeight="20">
-                    <Image url="@/perfilBarraNav.png"/>
-                </ImageView>
-            </graphic>
-        </MFXButton>
-        <MFXButton fx:id="liga" text="Liga" styleClass="nav-button" onMouseClicked="#irALiga">
-            <graphic>
-                <ImageView fitWidth="20" fitHeight="20">
-                    <Image url="@/ligaBarraNav.png"/>
-                </ImageView>
-            </graphic>
-        </MFXButton>
-        <MFXButton fx:id="config" text="Configuración" styleClass="nav-button" onMouseClicked="#irAConfig">
-            <graphic>
-                <ImageView fitWidth="20" fitHeight="20">
-                    <Image url="@/configuracionBarraNav.png"/>
-                </ImageView>
-            </graphic>
-        </MFXButton>
-        <MFXButton fx:id="cerrar" text="Cerrar sesión" styleClass="nav-button" onMouseClicked="#irALogOut">
-            <graphic>
-                <ImageView fitWidth="20" fitHeight="20">
-                    <Image url="@/cerrarsesionBarraNav.png"/>
-                </ImageView>
-            </graphic>
-        </MFXButton>
-    </VBox>
-
+<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="com.echo.echoband.controller.FriendsController">
     <VBox styleClass="cajaancha" layoutX="250" layoutY="50" AnchorPane.leftAnchor="250" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" alignment="CENTER" spacing="20" style="-fx-font-family: 'Century Gothic'">
         <VBox alignment="CENTER" spacing="5" minHeight="250" minWidth="200" maxWidth="600" maxHeight="600" style="-fx-background-color: white">
             <VBox fx:id="listaAmigos" alignment="TOP_CENTER" spacing="10" style="-fx-padding: 20; -fx-background-color: #F8F9FA">
                 <Label text="Tus amigos (1)" styleClass="title" style="-fx-font-size: 20; -fx-font-weight: bold; -fx-text-fill: #000000;"/>
                 <ScrollPane fitToWidth="true" style="-fx-background: transparent; -fx-background-color: transparent;">
                     <VBox spacing="15" style="-fx-padding: 10;">
-                        <!-- Los amigos| -->
+                        <!-- Los amigos -->
                         <HBox alignment="CENTER_LEFT" spacing="20" style="-fx-padding: 15; -fx-background-color: #FFFFFF; -fx-border-color: #E0E0E0; -fx-border-radius: 5; -fx-background-radius: 5;">
                             <ImageView fitWidth="50" fitHeight="50">
                                 <Image url="@/amigosBarraNav.png"/>
@@ -98,4 +35,4 @@
             </VBox>
         </VBox>
     </VBox>
-</AnchorPane>
+</StackPane>

@@ -3,6 +3,7 @@ package com.echo.echoband;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -17,6 +18,7 @@ public class LogIn extends Application {
         scene.getStylesheets().add(getClass().getResource("logInStyle.css").toExternalForm());
         stage.setScene(scene);
         stage.setFullScreen(true);
+        stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
         stage.centerOnScreen();
     }
 
@@ -28,6 +30,7 @@ public class LogIn extends Application {
         stage.setMinHeight(700);
         stage.centerOnScreen();
         stage.setFullScreen(true);
+        stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
         stage.show();
     }
 

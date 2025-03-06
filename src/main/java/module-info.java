@@ -3,6 +3,7 @@ module com.echo.echoband {
     requires javafx.fxml;
     requires MaterialFX;
     requires java.sql;
+    requires jdk.compiler;
 
 
     opens com.echo.echoband.controller to javafx.fxml;

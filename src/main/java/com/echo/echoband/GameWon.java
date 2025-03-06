@@ -3,6 +3,7 @@ package com.echo.echoband;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -17,7 +18,7 @@ public class GameWon extends Application {
         scene.getStylesheets().add(getClass().getResource("gameWonStyle.css").toExternalForm());
         scene.getStylesheets().add(getClass().getResource("trainingStyle.css").toExternalForm());
         stage.setScene(scene);
-
+        stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
         stage.setFullScreen(true);
         stage.centerOnScreen();
     }
@@ -31,6 +32,7 @@ public class GameWon extends Application {
         stage.setMinHeight(700);
         stage.centerOnScreen();
         stage.setFullScreen(true);
+        stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
         stage.show();
     }
 

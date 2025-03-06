@@ -123,34 +123,11 @@
 
 /**/
 
-.foto-deperfil {
-    -fx-pref-width: 1160;
-    -fx-pref-height: 200;
-    -fx-background-color: #FFFFFFCC;
-}
-
 .cajaancha {
     -fx-pref-width: 1160;
     -fx-pref-height: 302.39;
-
 }
 
-.elmascrack {
-    -fx-text-fill: #22566C;
-    -fx-font-family: "Century Gothic";
-}
-
-.nombre {
-    -fx-padding: 15 0 0 0;
-    -fx-font-weight: bold;
-}
-
-.imagen {
-    -fx-padding: 0 0 5 0;
-}
-
-.cajaancha {
-    -fx-pref-width: 1160;
-    -fx-pref-height: 302.39;
-
+.iniciarEjercicio{
+    -fx-cursor: hand;
 }

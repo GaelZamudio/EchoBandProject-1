@@ -15,22 +15,18 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextFormatter;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import javax.swing.*;
-import javax.xml.transform.Result;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLOutput;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.function.UnaryOperator;
 
 import static io.github.palexdev.materialfx.utils.StringUtils.containsAny;
 
@@ -59,13 +55,17 @@ public class SignUpController implements Initializable{
     @FXML private Label labelcorreo;
     @FXML private Label labelcontrasena;
     @FXML private MFXCheckbox checkterminos;
-    @FXML private MFXButton botoncrear;
+    @FXML private MFXButton btnCrear;
+    private MainController mainController;
 
+    public void setMainController(MainController mainController) {
+        this.mainController = mainController;
+    }
 
     @FXML
     public void irAMenu() {
         try {
-            Stage stage = (Stage) botoncrear.getScene().getWindow();
+            Stage stage = (Stage) btnCrear.getScene().getWindow();
             SignUp app = new SignUp();
             stage.setTitle("Entrenamiento");
 
@@ -81,15 +81,20 @@ public class SignUpController implements Initializable{
         }
     }
 
-    public void irALogIn() throws IOException {
-        Stage stage = (Stage) txtiniciar.getScene().getWindow();
-        SignUp app = new SignUp();
-        app.cambiarEscena(stage, "logInView.fxml");
-        stage.setTitle("Log In");
+    private void cambiarVista(String fxmlFile, String cssFile, boolean mostrarSidebar) {
+        if (mainController != null) {
+            mainController.showScreen(fxmlFile, cssFile, mostrarSidebar);
+        } else {
+            System.err.println("❌ ERROR: MainController es null.");
+        }
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+
+        if (txtiniciar != null) {
+            txtiniciar.setOnMouseClicked(e -> cambiarVista("/com/echo/echoband/logInView.fxml", "/com/echo/echoband/logInStyle.css", false));
+        }
 
         fieldnombre.addEventFilter(KeyEvent.KEY_TYPED, event -> {
             if (!event.getCharacter().matches("[a-zA-ZáéíóúÁÉÍÓÚñÑ]")) {
@@ -213,7 +218,7 @@ public class SignUpController implements Initializable{
 
         fieldmat.getValidator().constraint(apellidoMaternoNoVacio);
 
-        botoncrear.disableProperty().bind(camposValidos.not());
+        btnCrear.disableProperty().bind(camposValidos.not());
 
         fieldcontrasena.getValidator().validProperty().addListener((observable, anteriorValor, nuevoValor) -> {
             if (nuevoValor) {

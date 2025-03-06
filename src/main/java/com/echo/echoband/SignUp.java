@@ -5,6 +5,7 @@ import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.input.KeyCombination;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
@@ -23,6 +24,7 @@ public class SignUp extends Application {
         scene.getStylesheets().add(getClass().getResource("signUpStyle.css").toExternalForm());
         stage.setScene(scene);
         stage.setFullScreen(true);
+        stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
         stage.centerOnScreen();
     }
 
@@ -33,6 +35,7 @@ public class SignUp extends Application {
         stage.setMinWidth(1500);
         stage.setMinHeight(700);
         stage.centerOnScreen();
+        stage.setFullScreenExitKeyCombination(KeyCombination.NO_MATCH);
         stage.setFullScreen(true);
         stage.show();
     }
