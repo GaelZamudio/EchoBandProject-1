@@ -8,12 +8,12 @@ public class Connector {
 
     public Connection conectar() {
         try {
-            conn = (Connection) DriverManager.getConnection("jdbc:mysql://bbajbhu4gnjiftjk0ikh-mysql.services.clever-cloud.com/bbajbhu4gnjiftjk0ikh",
-                    "u2krjwfzaqfkv12i",
-                    "7SaE4UJYunulwZMbeO1J");
+            conn = (Connection) DriverManager.getConnection("jdbc:mysql://bx7hzfuwbyiwi7gw6nei-mysql.services.clever-cloud.com/bx7hzfuwbyiwi7gw6nei",
+                    "u5jlbrlyb16rb6g3",
+                    "B7Q7vVbrWOg9Im1L0Dvv");
             System.out.println("Conectado con éxito");
         }catch (Exception e) {
-            System.out.println("Error al conectar"+e);
+            System.out.println("Error al conectar: "+e);
         }
         return conn;
     }

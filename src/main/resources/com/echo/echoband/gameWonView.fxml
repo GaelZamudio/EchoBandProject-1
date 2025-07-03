@@ -12,16 +12,16 @@
         <Label text="¡Ejercicio completado!" styleClass="title" />
 
         <VBox spacing="50" minHeight="500" minWidth="900" maxWidth="900" maxHeight="500" style="-fx-background-color: #ffffff; -fx-background-radius: 15; -fx-padding: 10;">
-            <Label text="- Nivel máximo de concentración: 134 ¡Nuevo récord!" style="-fx-text-fill: #999999; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18" />
-            <Label text="- Nivel más bajo de concentración: 65" style="-fx-text-fill: #999999; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18"/>
-            <Label text="- Concentración promedio: 100" style="-fx-text-fill: #999999; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18"/>
+            <Label fx:id="labelConcentracionMax" text="- Nivel máximo de concentración: 134 ¡Nuevo récord!" style="-fx-text-fill: #999999; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18" />
+            <Label fx:id="labelConcentracionMin" text="- Nivel más bajo de concentración: 65" style="-fx-text-fill: #999999; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18"/>
+            <Label fx:id="labelConcentracionPromedio" text="- Concentración promedio: 100" style="-fx-text-fill: #999999; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18"/>
             <VBox alignment="CENTER">
                 <HBox alignment="CENTER">
                     <Label text="Nivel completado con " style=" -fx-alignment: center;-fx-text-fill: #999999; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18"/>
-                    <Label text="5 estrellas" style=" -fx-alignment: center;-fx-text-fill: #D79E02; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18"/>
+                    <Label fx:id="labelEstrellas" text="5 estrellas" style=" -fx-alignment: center;-fx-text-fill: #D79E02; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18"/>
                 </HBox>
                 <Label text=" " style=" -fx-alignment: center;-fx-text-fill: #999999; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18"/>
-                <Label text="+25 pts a tu perfil" style=" -fx-alignment: center;-fx-text-fill: #999999; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18"/>
+                <Label fx:id="labelPuntos" text="+25 pts a tu perfil" style=" -fx-alignment: center;-fx-text-fill: #999999; -fx-font-family: 'Century Gothic'; -fx-font-weight: bold; -fx-font-size: 18"/>
             </VBox>
             <HBox spacing="20" alignment="CENTER">
                 <MFXButton fx:id="btnInicio" alignment="CENTER" prefWidth="170" prefHeight="40" style="-fx-background-color: #C1EDFF; -fx-font-weight: bold; -fx-text-fill: #000000; -fx-background-radius: 5; -fx-cursor: hand;">

@@ -14,33 +14,25 @@
     <VBox styleClass="padding-top" alignment="CENTER" spacing="20" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml"/>
         <VBox styleClass="cajaancha" layoutX="250" layoutY="50" AnchorPane.leftAnchor="250" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" alignment="CENTER" spacing="30" style="-fx-font-family: 'Century Gothic'">
         <VBox alignment="CENTER" spacing="10" minHeight="200" minWidth="900" maxWidth="900" maxHeight="200" style="-fx-background-color: white">
-            <Label text="LIGA DIAMANTE - Meta: 5,000 pts" style="-fx-font-size: 25px; -fx-font-weight: bold" />
-            <HBox alignment="CENTER_LEFT" spacing="15" styleClass="primer-lugar">
-                <Label text="1°" style="-fx-font-size: 20; -fx-font-weight: bold"/>
-                <ImageView fitWidth="75" fitHeight="75" styleClass="profile-picture">
-                    <Image url="@/amigosBarraNav.png"/>
-                </ImageView>
-                <VBox spacing="5">
+            <Label text="LIGA DIAMANTE - Meta: 500 pts" style="-fx-font-size: 25px; -fx-font-weight: bold" />
+            <HBox alignment="CENTER" spacing="15">
+                <VBox fx:id="vboxTop1" spacing="5">
                     <Label text="Elliot Møller" style="-fx-font-size: 20; -fx-font-weight: bold"/>
                     <Label text="Copenhagen, Denmark" style="-fx-font-size: 14;"/>
                     <Label text="Maestro III" style="-fx-font-size: 16;"/>
                 </VBox>
-                <VBox alignment="CENTER_RIGHT" spacing="5" HBox.hgrow="ALWAYS">
-                    <ProgressBar progress="0.9" style="-fx-accent: #28A745;" styleClass="barra-winner" />
-                    <Label text="4723 Puntos" style="-fx-font-size: 16; -fx-font-weight: bold"/>
-                </VBox>
             </HBox>
         </VBox>
 
-        <VBox styleClass="cajaancha" layoutX="250" layoutY="50" AnchorPane.leftAnchor="250" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" alignment="CENTER" spacing="20" style="-fx-font-family: 'Century Gothic'">
-            <VBox alignment="CENTER" spacing="5" minHeight="500" minWidth="200" maxWidth="900" maxHeight="700" style="-fx-background-color: white">
-                <VBox spacing="20" alignment="CENTER" styleClass="ranking-container" AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="20">
+        <VBox styleClass="cajaancha" layoutX="250" layoutY="50" AnchorPane.leftAnchor="250" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" alignment="CENTER" style="-fx-font-family: 'Century Gothic'">
+            <VBox alignment="TOP_CENTER" spacing="5" minHeight="500" minWidth="200" maxWidth="900" maxHeight="700" style="-fx-background-color: white">
+                <VBox alignment="TOP_CENTER" styleClass="ranking-container" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="20" AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="20">
 
                     <Label text="Ranking" style="-fx-font-size: 24; -fx-font-weight: bold; -fx-text-fill: #333;"/>
 
                     <Label text="Semana 1 - Agosto 2024" style="-fx-font-size: 14; -fx-text-fill: #777;"/>
 
-                    <GridPane hgap="20" vgap="10" style="-fx-padding: 10;" alignment="CENTER">
+                    <GridPane fx:id="gridRanking" hgap="20" vgap="10" style="-fx-padding: 10;" alignment="CENTER">
                         <!-- Primera columna -->
                         <VBox alignment="TOP_LEFT" GridPane.columnIndex="0" spacing="10">
                             <HBox alignment="CENTER_LEFT" spacing="10" styleClass="ranking-item">

@@ -13,16 +13,16 @@
     <VBox styleClass="padding-top" alignment="CENTER" spacing="20" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml"/>
     <VBox styleClass="cajaancha" layoutX="250" layoutY="50" AnchorPane.leftAnchor="250" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0" alignment="CENTER" spacing="30" style="-fx-font-family: 'Century Gothic'">
         <!-- Título -->
-        <Label text="Perfil de Usuario" styleClass="title" />
+        <Label text="Tu Perfil" styleClass="title" />
 
         <!-- Sección de la foto de perfil -->
         <VBox alignment="CENTER" spacing="10" minHeight="200" minWidth="900" maxWidth="900" maxHeight="200" style="-fx-background-color: white">
-            <Label text="Maestro" styleClass="maestro" />
+            <Label text="Maestro" styleClass="maestro" fx:id="labelNivel" />
             <ImageView fitWidth="75" fitHeight="75" preserveRatio="false">
                 <Image url="@/fotodeperfilConfig.png" />
             </ImageView>
-            <Label text="Juanito Pérez" styleClass="nombre" />
-            <Label text="ElMasCrack" styleClass="elmascrack" />
+            <Label fx:id="labelNomReal1" text="Juanito Pérez" styleClass="nombre" />
+            <Label fx:id="labelNomUsuario" text="ElMasCrack" styleClass="elmascrack" />
         </VBox>
 
         <!-- Sección de información de usuario -->
@@ -30,67 +30,77 @@
 
             <VBox spacing="30">
                 <VBox alignment="CENTER_LEFT" spacing="10" minHeight="30" minWidth="200" maxWidth="370" maxHeight="30" style="-fx-background-color: transparent">
-                    <Label text="NOMBRE" style="-fx-font-size: 10px; -fx-text-fill: #999999;" />
+                    <Label text="NOMBRE" style="-fx-font-size: 15px; -fx-text-fill: #999999;" />
                     <VBox alignment="CENTER_LEFT" spacing="10" minHeight="30" minWidth="200" maxWidth="370" maxHeight="30" style="-fx-background-color: white">
-                        <Label text="Juanito Pérez" style="-fx-font-size: 10px; -fx-text-fill: #2a2a2a;" />
+                        <Label fx:id="labelNomReal2" text="Juanito Pérez" style="-fx-font-size: 14px; -fx-text-fill: #2a2a2a; -fx-start-margin: 20px" />
                     </VBox>
                 </VBox>
 
                 <VBox alignment="CENTER" minHeight="30" minWidth="200" maxWidth="200" maxHeight="30" style="-fx-background-color: #C1EDFF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 5);">
-                    <Label text="LIGA DIAMANTE (12°)" style="-fx-font-size: 10px; -fx-text-fill: #2a2a2a; -fx-font-style: italic; -fx-font-weight: bold;" />
+                    <Label text="LIGA DIAMANTE (12°)" style="-fx-font-size: 14px; -fx-text-fill: #2a2a2a; -fx-font-style: italic; -fx-font-weight: bold;" />
                 </VBox>
 
                 <VBox alignment="CENTER" minHeight="30" minWidth="200" maxWidth="200" maxHeight="30" style="-fx-background-color: #C1EDFF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 5);">
-                    <Label text="RACHA DE 8 SEMANAS" style="-fx-font-size: 10px; -fx-text-fill: #2a2a2a; -fx-font-style: italic; -fx-font-weight: bold;" />
+                    <Label text="RACHA DE 1 DÍA" style="-fx-font-size: 14px; -fx-text-fill: #2a2a2a; -fx-font-style: italic; -fx-font-weight: bold;" />
                 </VBox>
 
                 <VBox alignment="CENTER" minHeight="30" minWidth="200" maxWidth="200" maxHeight="30" style="-fx-background-color: #C1EDFF; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 5);">
-                    <Label text="123/300 LOGROS" style="-fx-font-size: 10px; -fx-text-fill: #2a2a2a; -fx-font-style: italic; -fx-font-weight: bold;" />
+                    <Label fx:id="labelCantidadLogros" text="123/300 LOGROS" style="-fx-font-size: 14; -fx-text-fill: #2a2a2a; -fx-font-style: italic; -fx-font-weight: bold;" />
                 </VBox>
 
             </VBox>
 
             <VBox alignment="CENTER_LEFT" spacing="10" minHeight="340" minWidth="600" maxWidth="600" maxHeight="340" style="-fx-background-color: transparent">
-                <Label text="LOGROS" style="-fx-font-size: 10px; -fx-text-fill: #999999;" />
-                    <VBox spacing="30" alignment="CENTER" minHeight="320" minWidth="600" maxWidth="600" maxHeight="320" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" style="-fx-background-color: white">
-                        <GridPane hgap="80" vgap="20" alignment="CENTER">
-                            <!-- Row 1 -->
-                            <HBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="0" minWidth="120" maxWidth="120" maxHeight="70" minHeight="70" style="-fx-background-color: #FFFFF2; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 5);">
-                                <Label style="-fx-padding: 10 5 0 5; -fx-font-family: 'Century Gothic'; -fx-font-size: 10" text="Primer Entrenamiento" />
-                            </HBox>
-                            <HBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="1" minWidth="120" maxWidth="120" maxHeight="70" minHeight="70" style="-fx-background-color: #FFFFF2; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 5);">
-                                <Label style="-fx-padding: 10 5 0 5; -fx-font-family: 'Century Gothic'; -fx-font-size: 10" text="Concentrado" />
-                            </HBox>
-                            <HBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="2" minWidth="120" maxWidth="120" maxHeight="70" minHeight="70" style="-fx-background-color: #FFFFF2; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 5);">
-                                <Label style="-fx-padding: 10 5 0 5; -fx-font-family: 'Century Gothic'; -fx-font-size: 10" text="Principiante" />
-                            </HBox>
+                <Label text="LOGROS" style="-fx-font-size: 15px; -fx-text-fill: #999999;" />
+                <VBox spacing="30" alignment="CENTER" minHeight="320" minWidth="600" maxWidth="600" maxHeight="320" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" style="-fx-background-color: white">
+                    <GridPane fx:id="gridLogros" hgap="80" vgap="20" alignment="CENTER">
 
-                            <!-- Row 2 -->
-                            <HBox alignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="0" minWidth="120" maxWidth="120" maxHeight="70" minHeight="70" style="-fx-background-color: #FFFFF2; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 5);">
-                                <Label style="-fx-padding: 10 5 0 5; -fx-font-family: 'Century Gothic'; -fx-font-size: 10" text="¡Diamante!" />
-                            </HBox>
-                            <HBox alignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="1" minWidth="120" maxWidth="120" maxHeight="70" minHeight="70" style="-fx-background-color: #FFFFF2; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 5);">
-                                <Label style="-fx-padding: 10 5 0 5; -fx-font-family: 'Century Gothic'; -fx-font-size: 10" text="Profesional" />
-                            </HBox>
-                            <HBox alignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="2" minWidth="120" maxWidth="120" maxHeight="70" minHeight="70" style="-fx-background-color: #FFFFF2; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 5);">
-                                <Label style="-fx-padding: 10 5 0 5; -fx-font-family: 'Century Gothic'; -fx-font-size: 10" text="Maestro" />
-                            </HBox>
+                        <!-- Cada logro con fondo gris y texto gris oscuro -->
+                        <!-- Row 1 -->
+                        <HBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="0" minWidth="120" maxWidth="120" maxHeight="70" minHeight="70"
+                              style="-fx-background-color: #E0E0E0; -fx-background-radius: 10;">
+                            <Label style="-fx-padding: 10 5 0 5; -fx-font-family: 'Century Gothic'; -fx-font-size: 14; -fx-text-fill: #666666;" text="Primera Vez" />
+                        </HBox>
+                        <HBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="1" minWidth="120" maxWidth="120" maxHeight="70" minHeight="70"
+                              style="-fx-background-color: #E0E0E0; -fx-background-radius: 10;">
+                            <Label style="-fx-padding: 10 5 0 5; -fx-font-family: 'Century Gothic'; -fx-font-size: 14; -fx-text-fill: #666666;" text="Memorizando..." />
+                        </HBox>
+                        <HBox alignment="CENTER" GridPane.rowIndex="0" GridPane.columnIndex="2" minWidth="120" maxWidth="120" maxHeight="70" minHeight="70"
+                              style="-fx-background-color: #E0E0E0; -fx-background-radius: 10;">
+                            <Label style="-fx-padding: 10 5 0 5; -fx-font-family: 'Century Gothic'; -fx-font-size: 14; -fx-text-fill: #666666;" text="Listo para F1" />
+                        </HBox>
 
-                            <!-- Row 3 -->
-                            <HBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="0" minWidth="120" maxWidth="120" maxHeight="70" minHeight="70" style="-fx-background-color: #FFFFF2; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 5);">
-                                <Label style="-fx-padding: 10 5 0 5; -fx-font-family: 'Century Gothic'; -fx-font-size: 10" text="¡Diamante!" />
-                            </HBox>
-                            <HBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="1" minWidth="120" maxWidth="120" maxHeight="70" minHeight="70" style="-fx-background-color: #FFFFF2; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 5);">
-                                <Label style="-fx-padding: 10 5 0 5; -fx-font-family: 'Century Gothic'; -fx-font-size: 10" text="Profesional" />
-                            </HBox>
-                            <HBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="2" minWidth="120" maxWidth="120" maxHeight="70" minHeight="70" style="-fx-background-color: #FFFFF2; -fx-background-radius: 10; -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 5, 0, 0, 5);">
-                                <Label style="-fx-padding: 10 5 0 5; -fx-font-family: 'Century Gothic'; -fx-font-size: 10" text="Maestro" />
-                            </HBox>
-                        </GridPane>
-                    </VBox>
+                        <!-- Row 2 -->
+                        <HBox alignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="0" minWidth="120" maxWidth="120" maxHeight="70" minHeight="70"
+                              style="-fx-background-color: #E0E0E0; -fx-background-radius: 10;">
+                            <Label style="-fx-padding: 10 5 0 5; -fx-font-family: 'Century Gothic'; -fx-font-size: 14; -fx-text-fill: #666666;" text="¿Verstappen?" />
+                        </HBox>
+                        <HBox alignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="1" minWidth="120" maxWidth="120" maxHeight="70" minHeight="70"
+                              style="-fx-background-color: #E0E0E0; -fx-background-radius: 10;">
+                            <Label style="-fx-padding: 10 5 0 5; -fx-font-family: 'Century Gothic'; -fx-font-size: 14; -fx-text-fill: #666666;" text="Mejorando..." />
+                        </HBox>
+                        <HBox alignment="CENTER" GridPane.rowIndex="1" GridPane.columnIndex="2" minWidth="120" maxWidth="120" maxHeight="70" minHeight="70"
+                              style="-fx-background-color: #E0E0E0; -fx-background-radius: 10;">
+                            <Label style="-fx-padding: 10 5 0 5; -fx-font-family: 'Century Gothic'; -fx-font-size: 14; -fx-text-fill: #666666;" text="¿Experto?" />
+                        </HBox>
+
+                        <!-- Row 3 -->
+                        <HBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="0" minWidth="120" maxWidth="120" maxHeight="70" minHeight="70"
+                              style="-fx-background-color: #E0E0E0; -fx-background-radius: 10;">
+                            <Label style="-fx-padding: 10 5 0 5; -fx-font-family: 'Century Gothic'; -fx-font-size: 14; -fx-text-fill: #666666;" text="¡Avanzado!" />
+                        </HBox>
+                        <HBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="1" minWidth="120" maxWidth="120" maxHeight="70" minHeight="70"
+                              style="-fx-background-color: #E0E0E0; -fx-background-radius: 10;">
+                            <Label style="-fx-padding: 10 5 0 5; -fx-font-family: 'Century Gothic'; -fx-font-size: 14; -fx-text-fill: #666666;" text="Despegando" />
+                        </HBox>
+                        <HBox alignment="CENTER" GridPane.rowIndex="2" GridPane.columnIndex="2" minWidth="120" maxWidth="120" maxHeight="70" minHeight="70"
+                              style="-fx-background-color: #E0E0E0; -fx-background-radius: 10;">
+                            <Label style="-fx-padding: 10 5 0 5; -fx-font-family: 'Century Gothic'; -fx-font-size: 14; -fx-text-fill: #666666;" text="El Mejor" />
+                        </HBox>
+
+                    </GridPane>
+                </VBox>
             </VBox>
         </HBox>
-
     </VBox>
-
 </StackPane>

@@ -32,7 +32,7 @@
             <Label fx:id="labelcontrasena" textFill="#ef6e6b" visible="false" wrapText="true"/>
         </VBox>
 
-        <MFXButton fx:id="btnIniciar" text="Iniciar sesión" onMouseClicked="#ingresar" disable="true"/>
+        <MFXButton fx:id="btnIniciar" text="Iniciar sesión" disable="true"/>
 
         <TextFlow textAlignment="CENTER">
             <Text text="¿No tienes una cuenta? " style="-fx-font-size: 12px;" />

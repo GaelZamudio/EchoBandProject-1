@@ -19,8 +19,8 @@
             <ImageView fitWidth="75" fitHeight="75">
                 <Image url="@/fotodeperfilConfig.png" />
             </ImageView>
-            <Label text="Juanito Pérez" styleClass="nombre" />
-            <Label text="ElMasCrack" styleClass="elmascrack" />
+            <Label fx:id="labelNomReal" text="Juanito Pérez" styleClass="nombre" />
+            <Label fx:id = "labelNomUsuario" text="ElMasCrack" styleClass="elmascrack" />
         </VBox>
 
         <VBox alignment="CENTER" minHeight="250" minWidth="1100" maxWidth="1100" maxHeight="250" stylesheets="@statisticsStyle.css">

@@ -2,6 +2,7 @@ package com.echo.echoband.controller;
 
 import com.echo.echoband.Configuration;
 import com.echo.echoband.Statistics;
+import com.echo.echoband.connection.Connector;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXPasswordField;
 import io.github.palexdev.materialfx.controls.MFXTextField;
@@ -23,6 +24,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 import java.util.function.UnaryOperator;
+import java.util.prefs.Preferences;
 import java.util.regex.Pattern;
 
 import static io.github.palexdev.materialfx.utils.StringUtils.containsAny;
@@ -38,13 +40,26 @@ public class ConfigurationController implements Initializable {
     @FXML private MFXTextField fieldusuario;
     @FXML private MFXPasswordField fieldcontrasena;
     @FXML private MFXTextField fieldcorreo;
-    @FXML private Label labelusuario;
-    @FXML private Label labelcontrasena;
-    @FXML private Label labelcorreo;
+    @FXML private Label labelusuario, labelcontrasena, labelcorreo, labelNomUsuario, labelNomReal;
+    public int idDatos;
+    public String nomUsuario;
+    public String nomReal;
+    public String apPat;
+    public String apMat;
+    public String correo;
+    public String contrasena;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        obtenerDatosGuardados();
+        fieldusuario.setPromptText(nomUsuario);
+        fieldcontrasena.setPromptText(contrasena);
+        fieldcorreo.setPromptText(correo);
+        labelNomReal.setText(nomReal + " " + apPat);
+        labelNomUsuario.setText(nomUsuario);
 
+
+        // Usuario
         Constraint longitudNomRestriccion = Constraint.Builder.build()
                 .setSeverity(Severity.ERROR)
                 .setMessage("El nombre debe tener al menos 5 caracteres")
@@ -59,6 +74,7 @@ public class ConfigurationController implements Initializable {
                         fieldusuario.textProperty()))
                 .get();
 
+// Correo
         Constraint formatoRestriccion = Constraint.Builder.build()
                 .setSeverity(Severity.ERROR)
                 .setMessage("El campo debe tener formato de correo electrónico")
@@ -68,6 +84,7 @@ public class ConfigurationController implements Initializable {
                 }, fieldcorreo.textProperty())))
                 .get();
 
+// Contraseña
         Constraint longitudRestriccion = Constraint.Builder.build()
                 .setSeverity(Severity.ERROR)
                 .setMessage("La contraseña debe tener al menos 8 caracteres")
@@ -86,7 +103,8 @@ public class ConfigurationController implements Initializable {
                 .setSeverity(Severity.ERROR)
                 .setMessage("La contraseña debe contener al menos un carácter en minúscula y otro en mayúscula")
                 .setCondition(Bindings.createBooleanBinding(
-                        () -> containsAny(fieldcontrasena.getText(), "", mayusculas) && containsAny(fieldcontrasena.getText(), "", minusculas),
+                        () -> containsAny(fieldcontrasena.getText(), "", mayusculas) &&
+                                containsAny(fieldcontrasena.getText(), "", minusculas),
                         fieldcontrasena.textProperty()))
                 .get();
 
@@ -97,13 +115,6 @@ public class ConfigurationController implements Initializable {
                         () -> containsAny(fieldcontrasena.getText(), "", especiales),
                         fieldcontrasena.textProperty()))
                 .get();
-
-        BooleanBinding camposValidos = (fieldusuario.getValidator().validProperty())
-                .and(fieldcorreo.getValidator().validProperty())
-                .and(fieldcontrasena.getValidator().validProperty())
-                .and(fieldusuario.textProperty().isNotEmpty())
-                .and(fieldcorreo.textProperty().isNotEmpty())
-                .and(fieldcontrasena.textProperty().isNotEmpty());
 
         fieldcontrasena.getValidator()
                 .constraint(numeroRestriccion)
@@ -164,4 +175,111 @@ public class ConfigurationController implements Initializable {
                     labelusuario.setVisible(true);
                 }}});
     }
+
+    public void obtenerDatosGuardados() {
+        Preferences prefs = Preferences.userRoot().node("com.echo.echoband");
+
+        idDatos = prefs.getInt("id_datos", -1); // -1 es el valor por defecto si no existe
+        nomUsuario = prefs.get("nom_usuario", ""); // "" por defecto
+        nomReal = prefs.get("nom_real", "");
+        apPat = prefs.get("ap_pat", "");
+        apMat = prefs.get("ap_mat", "");
+        correo = prefs.get("correo", "");
+        contrasena = prefs.get("contrasena", "");
+
+        System.out.println("ID: " + idDatos);
+        System.out.println("Usuario: " + nomUsuario);
+        System.out.println("Nombre real: " + nomReal);
+        System.out.println("Apellido paterno: " + apPat);
+        System.out.println("Apellido materno: " + apMat);
+        System.out.println("Correo: " + correo);
+        System.out.println("Contrasena: " + contrasena);
+    }
+
+    @FXML
+    private void guardarCambios() {
+        String nuevoUsuario = fieldusuario.getText().trim();
+        String nuevaContrasena = fieldcontrasena.getText().trim();
+        String nuevoCorreo = fieldcorreo.getText().trim();
+
+        // Si no hay cambios, salir
+        if (nuevoUsuario.isEmpty() && nuevaContrasena.isEmpty() && nuevoCorreo.isEmpty()) {
+            System.out.println("⚠️ No hay cambios que guardar.");
+            return;
+        }
+
+        try {
+            Connector connector = new Connector();
+            var cn = connector.conectar();
+
+            StringBuilder query = new StringBuilder("UPDATE datos_perso SET ");
+            boolean necesitaComa = false;
+
+            if (!nuevoUsuario.isEmpty()) {
+                query.append("nom_usuario = ?");
+                necesitaComa = true;
+            }
+
+            if (!nuevoCorreo.isEmpty()) {
+                if (necesitaComa) query.append(", ");
+                query.append("correo = ?");
+                necesitaComa = true;
+            }
+
+            if (!nuevaContrasena.isEmpty()) {
+                if (necesitaComa) query.append(", ");
+                query.append("contraseña = ?");
+            }
+
+            query.append(" WHERE id_datos = ?");
+
+            var ps = cn.prepareStatement(query.toString());
+
+            int index = 1;
+            if (!nuevoUsuario.isEmpty()) ps.setString(index++, nuevoUsuario);
+            if (!nuevoCorreo.isEmpty()) ps.setString(index++, nuevoCorreo);
+            if (!nuevaContrasena.isEmpty()) ps.setString(index++, nuevaContrasena);
+            ps.setInt(index, idDatos);
+
+            int filasAfectadas = ps.executeUpdate();
+
+            if (filasAfectadas > 0) {
+                System.out.println("✅ Datos actualizados correctamente.");
+
+                // Actualizar Preferences
+                Preferences prefs = Preferences.userRoot().node("com.echo.echoband");
+                if (!nuevoUsuario.isEmpty()) prefs.put("nom_usuario", nuevoUsuario);
+                if (!nuevoCorreo.isEmpty()) prefs.put("correo", nuevoCorreo);
+                if (!nuevaContrasena.isEmpty()) prefs.put("contrasena", nuevaContrasena);
+
+                // Refrescar campos
+                obtenerDatosGuardados();
+                labelNomUsuario.setText(nomUsuario);
+                labelNomReal.setText(nomReal + " " + apPat);
+
+                if (!fieldusuario.getText().trim().isEmpty()){
+                    fieldusuario.setPromptText(fieldusuario.getText().trim());
+                    labelNomUsuario.setText(fieldusuario.getText().trim());
+                    fieldusuario.clear();
+                }
+                if (!fieldcontrasena.getText().trim().isEmpty()){
+                    fieldcontrasena.setPromptText(fieldcontrasena.getText().trim());
+                    fieldcontrasena.clear();
+                }
+                if(!fieldcorreo.getText().trim().isEmpty()){
+                    fieldcorreo.setPromptText(fieldcorreo.getText().trim());
+                    fieldcorreo.clear();
+                }
+
+            } else {
+                System.err.println("❌ No se pudo actualizar los datos.");
+            }
+
+            connector.cerrarConexion();
+        } catch (Exception e) {
+            System.err.println("❌ ERROR al actualizar datos: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
 }

@@ -27,6 +27,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
 import java.util.ResourceBundle;
+import java.util.prefs.Preferences;
 
 import static io.github.palexdev.materialfx.utils.StringUtils.containsAny;
 
@@ -64,21 +65,16 @@ public class SignUpController implements Initializable{
 
     @FXML
     public void irAMenu() {
-        try {
-            Stage stage = (Stage) btnCrear.getScene().getWindow();
-            SignUp app = new SignUp();
-            stage.setTitle("Entrenamiento");
+        Stage stage = (Stage) btnCrear.getScene().getWindow();
+        SignUp app = new SignUp();
+        stage.setTitle("Entrenamiento");
 
-            app.cambiarEscena(stage, "/com/echo/echoband/trainingView.fxml");
 
-            Scene scene = stage.getScene();
-            scene.getStylesheets().clear();
-            scene.getStylesheets().add(SignUp.class.getResource("/com/echo/echoband/trainingStyle.css").toExternalForm());
 
-        } catch (IOException e) {
-            e.printStackTrace();
-            System.out.println("Error al cargar trainingView.fxml");
-        }
+        Scene scene = stage.getScene();
+        scene.getStylesheets().clear();
+        scene.getStylesheets().add(SignUp.class.getResource("/com/echo/echoband/trainingStyle.css").toExternalForm());
+
     }
 
     private void cambiarVista(String fxmlFile, String cssFile, boolean mostrarSidebar) {
@@ -91,6 +87,7 @@ public class SignUpController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        btnCrear.setOnAction(e -> registrar());
 
         if (txtiniciar != null) {
             txtiniciar.setOnMouseClicked(e -> cambiarVista("/com/echo/echoband/logInView.fxml", "/com/echo/echoband/logInStyle.css", false));
@@ -315,16 +312,17 @@ public class SignUpController implements Initializable{
     @FXML
     public void registrar(){
 
-        String nombre = fieldnombre.getText();
-        String pat = fieldpat.getText();
-        String mat = fieldmat.getText();
-        String usuario = fieldusuario.getText();
+        String nomReal = fieldnombre.getText();
+        String apPat = fieldpat.getText();
+        String apMat = fieldmat.getText();
+        String nomUsuario = fieldusuario.getText();
         String correo = fieldcorreo.getText();
         String contrasena = fieldcontrasena.getText();
         Boolean existe;
 
 
-        if(nombre.isEmpty() || pat.isEmpty() || mat.isEmpty() || usuario.isEmpty() || correo.isEmpty() || contrasena.isEmpty()){
+
+        if(nomReal.isEmpty() || apPat.isEmpty() || apMat.isEmpty() || nomUsuario.isEmpty() || correo.isEmpty() || contrasena.isEmpty()){
             JOptionPane.showMessageDialog(null, "Debe completar los datos");
         } else {
             try {
@@ -336,20 +334,46 @@ public class SignUpController implements Initializable{
                     JOptionPane.showMessageDialog(null, "El usuario o correo ya existen");
                 } else {
                     String consulta = "INSERT INTO datos_perso(nom_real, nom_usuario, ap_pat, ap_mat, contraseña, correo)" +
-                            "VALUES ('"+nombre+"', '"+usuario+"', '"+pat+"', '"+mat+"', '"+contrasena+"', '"+correo+"');";
+                            "VALUES ('"+nomReal+"', '"+nomUsuario+"', '"+apPat+"', '"+apMat+"', '"+contrasena+"', '"+correo+"');";
                     PreparedStatement ps = cn.prepareStatement(consulta);
                     ps.executeUpdate();
-                    JOptionPane.showMessageDialog(null, "Datos correctamente guardadossss");
+                    //JOptionPane.showMessageDialog(null, "Datos correctamente guardadossss");
+
+
 
                     // Obtener el ID del usuario recién creado
                     String obtID = "SELECT id_datos FROM datos_perso WHERE nom_usuario = ?;";
                     PreparedStatement ps2 = cn.prepareStatement(obtID);
-                    ps2.setString(1, usuario);  // Utilizamos PreparedStatement para evitar inyecciones SQL
+                    ps2.setString(1, nomUsuario);  // Utilizamos PreparedStatement para evitar inyecciones SQL
                     ResultSet rs = ps2.executeQuery();
 
                     if (rs.next()) {  // Asegurarse de que haya un resultado antes de acceder a él
-                        int num = rs.getInt("id_datos");
-                        System.out.println("ID: " + num);
+                        int idDatos = rs.getInt("id_datos");
+                        System.out.println("ID: " + idDatos);
+                        Preferences prefs = Preferences.userRoot().node("com.echo.echoband");
+                        prefs.putInt("id_datos", idDatos);
+                        prefs.put("nom_usuario", nomUsuario);
+                        prefs.put("nom_real", nomReal);
+                        prefs.put("ap_pat", apPat);
+                        prefs.put("ap_mat", apMat);
+                        prefs.put("correo", correo);
+                        prefs.put("contrasena", contrasena);
+
+                        System.out.println("Hola de nuevo " + nomUsuario);
+                        System.out.println("Perfil de " + nomReal + " " + apPat + " " + apMat);
+                        System.out.println("ID del usuario: " + idDatos);
+                        System.out.println("Correo: " + correo);
+                        System.out.println("Contraseña "+ contrasena);
+
+                        // Justo después de cambiar la vista
+                        cambiarVista("/com/echo/echoband/trainingView.fxml", "/com/echo/echoband/trainingStyle.css", true);
+
+
+                        // Luego de cambiar vista, fuerza actualización del sidebar
+                        if (mainController != null && mainController.getSidebarController() != null) {
+                            mainController.getSidebarController().actualizarDatosVisuales();
+                        }
+
                     } else {
                         System.out.println("No se encontró el ID del usuario.");
                     }
@@ -360,7 +384,8 @@ public class SignUpController implements Initializable{
                 JOptionPane.showMessageDialog(null, "No se pudo guardar el usuario: "+e.getMessage());
             }
             connector.cerrarConexion();
-            irAMenu();
+
+
         }
     }
 

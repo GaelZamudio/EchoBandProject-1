@@ -1,6 +1,5 @@
 package com.echo.echoband.controller;
 
-import com.echo.echoband.LogIn;
 import com.echo.echoband.connection.Connector;
 import io.github.palexdev.materialfx.controls.MFXButton;
 import io.github.palexdev.materialfx.controls.MFXPasswordField;
@@ -8,18 +7,16 @@ import io.github.palexdev.materialfx.controls.MFXTextField;
 import javafx.beans.binding.BooleanBinding;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
-import javafx.stage.Stage;
 
 import javax.swing.*;
-import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ResourceBundle;
+import java.util.prefs.Preferences;
 
 public class LoginController implements Initializable {
 
@@ -32,6 +29,7 @@ public class LoginController implements Initializable {
     @FXML private Label labelusuario;
     @FXML private Label labelcontrasena;
     @FXML private MFXButton btnIniciar;
+
     private MainController mainController;
 
     public void setMainController(MainController mainController) {
@@ -48,66 +46,88 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        if (txtcrear != null) {
-            txtcrear.setOnMouseClicked(e -> cambiarVista("/com/echo/echoband/signUpView.fxml", "/com/echo/echoband/signUpStyle.css", false));
-        }
-        if (btnIniciar != null) {
-            btnIniciar.setOnAction(e -> cambiarVista("/com/echo/echoband/trainingView.fxml", "/com/echo/echoband/trainingStyle.css", true));
-        }
-
+        // Activar botón solo si hay texto
         BooleanBinding camposValidos = fieldusuario.textProperty().isNotEmpty()
                 .and(fieldcontrasena.textProperty().isNotEmpty());
-
         btnIniciar.disableProperty().bind(camposValidos.not());
+
+        // Acción para crear cuenta
+        if (txtcrear != null) {
+            txtcrear.setOnMouseClicked(e -> cambiarVista(
+                    "/com/echo/echoband/signUpView.fxml",
+                    "/com/echo/echoband/signUpStyle.css",
+                    false
+            ));
+        }
+
+        // Acción de inicio de sesión
+        btnIniciar.setOnAction(e -> ingresar());
     }
 
-    //Métodos para la BD
     @FXML
     public void ingresar() {
         String usuario = fieldusuario.getText();
         String contrasena = fieldcontrasena.getText();
 
-        if (!usuario.isEmpty() && !contrasena.isEmpty()) {
-            try {
-                connector = new Connector();
-                cn = connector.conectar();
+        if (usuario.isEmpty() || contrasena.isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe completar los campos.");
+            return;
+        }
 
-                // Usamos PreparedStatement para evitar inyección SQL
-                String consulta = "SELECT nom_real, ap_pat, nom_usuario, id_datos " +
-                        "FROM datos_perso " +
-                        "WHERE nom_usuario = ? AND contraseña = ?;";
-                PreparedStatement ps = cn.prepareStatement(consulta);
-                ps.setString(1, usuario);
-                ps.setString(2, contrasena);
+        try {
+            connector = new Connector();
+            cn = connector.conectar();
 
-                ResultSet rs = ps.executeQuery();
+            String consulta = "SELECT nom_real, ap_pat, ap_mat, nom_usuario, id_datos, correo, contraseña " +
+                    "FROM datos_perso WHERE nom_usuario = ? AND contraseña = ?;";
+            PreparedStatement ps = cn.prepareStatement(consulta);
+            ps.setString(1, usuario);
+            ps.setString(2, contrasena);
 
-                if (rs.next()) {
-                    String nomReal = rs.getString("nom_real");
-                    String apPat = rs.getString("ap_pat");
-                    String nomUsuario = rs.getString("nom_usuario");
-                    int idDatos = rs.getInt("id_datos");
+            ResultSet rs = ps.executeQuery();
 
-                    System.out.println("Hola de nuevo " + nomUsuario);
-                    System.out.println("Perfil de " + nomReal + " " + apPat);
-                    System.out.println("ID del usuario: " + idDatos);
+            if (rs.next()) {
+                String nomReal = rs.getString("nom_real");
+                String apPat = rs.getString("ap_pat");
+                String apMat = rs.getString("ap_mat");
+                String nomUsuario = rs.getString("nom_usuario");
+                String correo = rs.getString("correo");
+                int idDatos = rs.getInt("id_datos");
 
-                    if (btnIniciar != null) {
-                        btnIniciar.setOnAction(e -> cambiarVista("/com/echo/echoband/trainingView.fxml", "/com/echo/echoband/trainingStyle.css", true));
-                    } // Si el login es exitoso, ir al menú
-                } else {
-                    JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
+                System.out.println("Hola de nuevo " + nomUsuario);
+                System.out.println("Perfil de " + nomReal + " " + apPat + " " + apMat);
+                System.out.println("ID del usuario: " + idDatos);
+                System.out.println("Correo: " + correo);
+                System.out.println("Contraseña " + contrasena);
+
+                Preferences prefs = Preferences.userRoot().node("com.echo.echoband");
+                prefs.putInt("id_datos", idDatos);
+                prefs.put("nom_usuario", nomUsuario);
+                prefs.put("nom_real", nomReal);
+                prefs.put("ap_pat", apPat);
+                prefs.put("ap_mat", apMat);
+                prefs.put("correo", correo);
+                prefs.put("contrasena", contrasena);
+
+                // Justo después de cambiar la vista
+                cambiarVista("/com/echo/echoband/trainingView.fxml", "/com/echo/echoband/trainingStyle.css", true);
+
+
+                // Luego de cambiar vista, fuerza actualización del sidebar
+                if (mainController != null && mainController.getSidebarController() != null) {
+                    mainController.getSidebarController().actualizarDatosVisuales();
                 }
+            } else {
+                JOptionPane.showMessageDialog(null, "Usuario o contraseña incorrectos");
+            }
 
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, "Error al iniciar sesión: " + e.getMessage());
-                e.printStackTrace();
-            } finally {
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Error al iniciar sesión: " + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            if (connector != null) {
                 connector.cerrarConexion();
             }
-        } else {
-            JOptionPane.showMessageDialog(null, "Debe completar los campos.");
         }
     }
 }

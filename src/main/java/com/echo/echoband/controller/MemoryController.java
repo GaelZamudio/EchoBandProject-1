@@ -12,6 +12,7 @@ import javafx.util.Duration;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.prefs.Preferences;
 
 public class MemoryController {
 
@@ -176,6 +177,8 @@ public class MemoryController {
     }
 
     private void cambiarVista(String fxmlFile, String cssFile, boolean mostrarSidebar) {
+        Preferences prefs = Preferences.userRoot().node("com.echo.echoband");
+        prefs.put("ultimo_ejercicio", "Memorización");
         if (mainController != null) {
             mainController.showScreen(fxmlFile, cssFile, mostrarSidebar);
         } else {

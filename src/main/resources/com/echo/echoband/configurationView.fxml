@@ -21,8 +21,8 @@
             <ImageView fitWidth="75" fitHeight="75" preserveRatio="false">
                 <Image url="@/fotodeperfilConfig.png" />
             </ImageView>
-            <Label text="Juanito Pérez" styleClass="nombre" />
-            <Label text="ElMasCrack" styleClass="elmascrack" />
+            <Label fx:id="labelNomReal" text="Juanito Pérez" styleClass="nombre" />
+            <Label fx:id="labelNomUsuario" text="ElMasCrack" styleClass="elmascrack" />
         </VBox>
 
         <HBox spacing="70" alignment="CENTER" minHeight="300" minWidth="1100" maxWidth="1100" maxHeight="300" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" stylesheets="@configurationStyle.css">
@@ -46,6 +46,16 @@
                     <MFXPasswordField fx:id="fieldcontrasena" promptText="Ingresa tu contraseña" style="-fx-min-width: 225px; -fx-font-size: 15px; -fx-background-color: transparent; -fx-background-insets: 0;" />
                     <Label fx:id="labelcontrasena" textFill="#ef6e6b" visible="false" wrapText="true" style="-fx-font-size: 9px;"/>
                 </VBox>
+
+            </VBox>
+            <VBox spacing="20">
+                <VBox GridPane.rowIndex="2" GridPane.columnIndex="0">
+                    <MFXButton text="Guardar cambios"
+                               onAction="#guardarCambios"
+                               style="-fx-background-color: #2E8B57; -fx-text-fill: white; -fx-font-size: 14px; -fx-pref-width: 250px; -fx-pref-height: 40px;" />
+
+                </VBox>
+
             </VBox>
         </HBox>
     </VBox>

@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.util.prefs.Preferences;
 
 public class FastButtonController {
 
@@ -93,6 +94,8 @@ public class FastButtonController {
     }
 
     private void cambiarVista(String fxmlFile, String cssFile, boolean mostrarSidebar) {
+        Preferences prefs = Preferences.userRoot().node("com.echo.echoband");
+        prefs.put("ultimo_ejercicio", "Rapidez");
         if (mainController != null) {
             mainController.showScreen(fxmlFile, cssFile, mostrarSidebar);
         } else {

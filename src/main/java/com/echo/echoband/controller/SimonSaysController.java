@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.prefs.Preferences;
 
 public class SimonSaysController {
 
@@ -177,6 +178,8 @@ public class SimonSaysController {
     }
 
     private void cambiarVista(String fxmlFile, String cssFile, boolean mostrarSidebar) {
+        Preferences prefs = Preferences.userRoot().node("com.echo.echoband");
+        prefs.put("ultimo_ejercicio", "Retención");
         if (mainController != null) {
             mainController.showScreen(fxmlFile, cssFile, mostrarSidebar);
         } else {

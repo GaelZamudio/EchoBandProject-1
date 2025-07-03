@@ -11,25 +11,26 @@ import java.net.URL;
 
 public class MainController {
 
-    @FXML private BorderPane mainLayout; // BorderPane para organizar la barra y contenido
-    @FXML private StackPane contentPane; // Para cargar el contenido dinámico en el centro
+    @FXML private BorderPane mainLayout;  // Layout principal con espacio para sidebar y contenido
+    @FXML private StackPane contentPane;  // Contenedor central para las vistas dinámicas
 
     private SidebarController sidebarController;
 
     @FXML
     public void initialize() {
-        loadSidebar(); // Cargar la barra lateral
+        loadSidebar();
         showScreen("/com/echo/echoband/logInView.fxml", "/com/echo/echoband/logInStyle.css", false);
     }
 
-    // Metodo para cargar la barra lateral
     private void loadSidebar() {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/echo/echoband/sidebarView.fxml"));
-            Node sidebar = loader.load(); // Cargar el sidebar
+            Node sidebar = loader.load();
+
             sidebarController = loader.getController();
             sidebarController.setMainController(this);
-            mainLayout.setLeft(sidebar); // Coloca la barra en la izquierda
+
+            mainLayout.setLeft(sidebar);
             System.out.println("✅ Sidebar cargado correctamente.");
         } catch (IOException e) {
             System.err.println("❌ ERROR cargando Sidebar: " + e.getMessage());
@@ -41,54 +42,25 @@ public class MainController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Node screen = loader.load();
 
-            // Obtener el controlador de la nueva vista
             Object controller = loader.getController();
+            inyectarMainController(controller);
 
-            if (controller instanceof LoginController) {
-                ((LoginController) controller).setMainController(this);
-            }
-            if (controller instanceof SignUpController) {
-                ((SignUpController) controller).setMainController(this);
-            }
-            if (controller instanceof TrainingController) {
-                ((TrainingController) controller).setMainController(this);
-            }
-            if (controller instanceof InstruccionesController) {
-                ((InstruccionesController) controller).setMainController(this);
-            }
-            if (controller instanceof MemoryController) {
-                ((MemoryController) controller).setMainController(this);
-            }
-            if (controller instanceof FastButtonController) {
-                ((FastButtonController) controller).setMainController(this);
-            }
-            if (controller instanceof SimonSaysController) {
-                ((SimonSaysController) controller).setMainController(this);
-            }
-            if (controller instanceof GameWonController) {
-                ((GameWonController) controller).setMainController(this);
-            }
-            if (controller instanceof LostGameController) {
-                ((LostGameController) controller).setMainController(this);
-            }
-
-            // Ocultar o mostrar la barra lateral
-            if (mostrarSidebar && sidebarController != null) {
-                mainLayout.setLeft(sidebarController.getSidebarNode());
-            } else if (!mostrarSidebar) {
-                mainLayout.setLeft(null); // Oculta la sidebar solo si se requiere
+            if (mostrarSidebar) {
+                if (sidebarController != null) {
+                    mainLayout.setLeft(sidebarController.getSidebarNode());
+                } else {
+                    System.err.println("❌ ERROR: sidebarController es null.");
+                }
             } else {
-                System.err.println("❌ ERROR: sidebarController es null.");
+                mainLayout.setLeft(null);
             }
 
-            // Reemplazar contenido en contentPane
             if (contentPane != null) {
                 contentPane.getChildren().setAll(screen);
             } else {
                 System.err.println("❌ ERROR: contentPane es null.");
             }
 
-            // Agregar CSS
             Scene scene = contentPane.getScene();
             if (scene != null) {
                 scene.getStylesheets().clear();
@@ -100,9 +72,44 @@ public class MainController {
                 }
             }
 
-            System.out.println("✅ Vista cambiada a: " + fxmlFile + " con CSS: " + cssFile + " (Sidebar: " + mostrarSidebar + ")");
+            System.out.println("✅ Vista cambiada a: " + fxmlFile + " (Sidebar: " + mostrarSidebar + ")");
         } catch (IOException e) {
             System.err.println("❌ ERROR al cambiar de vista: " + e.getMessage());
         }
+    }
+
+    // Método para inyectar MainController si el controlador de la vista lo soporta
+    private void inyectarMainController(Object controller) {
+        if (controller instanceof LoginController) {
+            ((LoginController) controller).setMainController(this);
+        }
+        if (controller instanceof SignUpController) {
+            ((SignUpController) controller).setMainController(this);
+        }
+        if (controller instanceof TrainingController) {
+            ((TrainingController) controller).setMainController(this);
+        }
+        if (controller instanceof InstruccionesController) {
+            ((InstruccionesController) controller).setMainController(this);
+        }
+        if (controller instanceof MemoryController) {
+            ((MemoryController) controller).setMainController(this);
+        }
+        if (controller instanceof FastButtonController) {
+            ((FastButtonController) controller).setMainController(this);
+        }
+        if (controller instanceof SimonSaysController) {
+            ((SimonSaysController) controller).setMainController(this);
+        }
+        if (controller instanceof GameWonController) {
+            ((GameWonController) controller).setMainController(this);
+        }
+        if (controller instanceof LostGameController) {
+            ((LostGameController) controller).setMainController(this);
+        }
+    }
+
+    public SidebarController getSidebarController() {
+        return sidebarController;
     }
 }

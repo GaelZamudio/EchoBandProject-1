@@ -4,6 +4,7 @@ module com.echo.echoband {
     requires MaterialFX;
     requires java.sql;
     requires jdk.compiler;
+    requires java.prefs;
 
 
     opens com.echo.echoband.controller to javafx.fxml;

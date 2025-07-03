@@ -34,7 +34,7 @@
 .separator {
     -fx-background-color: white;
     -fx-opacity: 0.3;
-    -fx-margin: 10px 0;
+    -fx-margin: 5px 0;
 }
 
 /* Botones de navegación */
@@ -147,11 +147,12 @@
 .elmascrack {
     -fx-text-fill: #22566C;
     -fx-font-family: "Century Gothic";
+    -fx-font-size: 20px;
 }
 
 .nombre {
-    -fx-padding: 15 0 0 0; /* Espacio superior de 5 píxeles */
     -fx-font-weight: bold;
+    -fx-font-size: 25px;
 }
 
 .imagen {
@@ -211,7 +212,7 @@
 }
 
 .maestro {
-    -fx-font-size: 20px;
+    -fx-font-size: 30px;
     -fx-font-weight: bold;
     -fx-font-style: italic;
     -fx-text-fill: #333;
